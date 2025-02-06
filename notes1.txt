@@ -1,0 +1,2082 @@
+
+Writing First C++ Program – Hello World Example
+Last Updated : 11 Jan, 2025
+
+The “Hello World” program is the first step towards learning any programming language and is also one of the most straightforward programs you will learn. It is the basic program that is used to demonstrate how the coding process works. All you have to do is display the message “Hello World” on the output screen.
+C++ Hello World Program
+
+Below is the C++ program to print “Hello World” on the console screen.
+1
+
+// Header file for input output functions
+
+2
+
+#include <iostream>
+
+3
+
+using namespace std;
+
+4
+
+​
+
+5
+
+// main() function: where the execution of
+
+6
+
+// C++ program begins
+
+7
+
+int main() {
+
+8
+
+  
+
+9
+
+    // This statement prints "Hello World"
+
+10
+
+    cout << "Hello World";
+
+11
+
+​
+
+12
+
+    return 0;
+
+13
+
+}
+
+Try it on GfG Practice
+redirect icon
+
+Output
+
+Hello World
+
+To write and run C++ programs, you need to set up the local environment on your computer. Refer to the complete article Setting up C++ Development Environment. If you do not want to set up the local environment on your computer, you can also use online IDE to write and run your C++ programs.
+Working of Hello World Program in C++
+
+Let us now understand every line and the terminologies of the above program.
+
+    // C++ program to display “Hello World”
+
+This line is a comment line. A comment is used to display additional information about the program. A comment does not contain any programming logic. When a comment is encountered by a compiler, the compiler simply skips that line of code.
+
+    #include <iostream>
+
+The #include is a preprocessor directive tells the compiler to include the content of a file in the source code. For example, #include<iostream> tells the compiler to include the input-output library which contains all C++’s input/output library functions.
+
+    using namespace std
+
+This is used to import the entity of the stdnamespace into the current namespace of the program. It is basically the space where all the inbuilt features of C++ are declared. For example, std::cout.
+
+    int main() { }
+
+The main() function is the entry point of every C++ program, no matter where the function is located in the program. The opening braces ‘{‘ indicates the beginning of the main function and the closing braces ‘}’ indicates the ending of the main function.
+
+    cout<<“Hello World”;
+
+The coutis a tool (object) that is used to display output on the console screen. Everything followed by the character << in double quotes ” ” is displayed on the output screen. The semi-colon character at the end of the statement is used to indicate that the statement is ending there.
+
+    return 0
+
+This statement is used to return a value from a function and indicates the finishing of a function. Here, it is used to sent the signal of successful execution of the main function.
+
+Also, as you can see, the cout and the return statement have been indented or moved to the right side. This is done to make the code more readable. We must always use indentations and comments to make the code more readable. Must read the FAQ on the style of writing programs.
+
+
+C++ Basic Syntax
+Last Updated : 03 Feb, 2025
+
+Syntax refers to the rules and regulations for writing statements in a programming language. They can also be viewed as the grammatical rules defining the structure of a programming language.
+
+The C++ language also has its syntax for the functionalities it provides. Different statements have different syntax specifying their usage, but C++ programs also have basic syntax rules that are followed throughout all the programs.
+Basic Syntax of a C++ Program
+
+We can learn about basic C++ Syntax using the following program
+
+// C++ program to demonstrate the basic syntax
+// Header File Library
+#include <iostream>
+
+// Standard Namespace
+using namespace std;
+
+// Main Function
+int main()
+{
+
+    // Body of the Function
+
+    // Declaration of Variable
+    int num1 = 24;
+    int num2 = 34;
+
+    int result = num1 + num2;
+
+    // Output
+    cout << result << endl;
+
+    // Return Statement
+    return 0;
+}
+58
+
+The program above shows the basic C++ program that contains header files, main function, namespace declaration, etc. Let’s try to understand them one by one.
+1. Header File
+
+The header files contain the definition of the functions and macros we are using in our program. In line #1, we used the #include  <iostream> statement to tell the compiler to include an iostream header file library which stores the definition of the cin and cout standard input/output streams that we have used for input and output. #include is a preprocessor directive using which we import header files.
+2. Namespace
+
+A namespace in C++ is used to provide a scope or a region where we define identifiers. In line #2, we have used the using namespace std statement for specifying that we will be the standard namespace where all the standard library functions are defined.
+3. Main Function
+
+In line #3, we defined the main function as int main(). The main function is the most important part of any C++ program. The program execution always starts from the main function. All the other functions are called from the main function. In C++, the main function is required to return some value indicating the execution status.
+4. Blocks
+
+Blocks are the group of statements that are enclosed within { } braces. The body of the main function is from line #4 to line #9 enclosed within  { }.
+5. Semicolons
+
+As you may have noticed by now, each statement in the above code is followed by a ( ; ) semicolon symbol. It is used to terminate each line of the statement of the program.
+6. Identifiers
+
+We use identifiers for the naming of variables, functions, and other user-defined data types. An identifier may consist of uppercase and lowercase alphabetical characters, underscore, and digits. The first letter must be an underscore or an alphabet.
+7. Keywords
+
+In the C++ programming language, there are some reserved words that are used for some special meaning in the C++ program. It can’t be used for identifiers. For example, the words int, return, and using are some keywords used in our program.
+8. Basic Output cout
+
+In line #7, we have used the cout stream object (declared in the <iostream> header file) to print the sum of two numbers to the standard output stream (stdout).
+Object-Oriented Programming in C++
+
+C++ programming language supports both procedural-oriented and object-oriented programming. The above example is based on the procedural-oriented programming paradigm. So let’s take another example to discuss Object Oriented Programming in C++.
+1
+
+#include <iostream>
+
+2
+
+using namespace std;
+
+3
+
+​
+
+4
+
+class Calculate {
+
+5
+
+​
+
+6
+
+    // Access Modifiers
+
+7
+
+public:
+
+8
+
+​
+
+9
+
+    // data member
+
+10
+
+    int num1 = 50;
+
+11
+
+    int num2 = 30;
+
+12
+
+​
+
+13
+
+    // member function
+
+14
+
+    void addition() {
+
+15
+
+        int result = num1 + num2;
+
+16
+
+        cout << result << endl;
+
+17
+
+    }
+
+18
+
+};
+
+19
+
+​
+
+20
+
+int main() {
+
+21
+
+​
+
+22
+
+    // object declaration
+
+23
+
+    Calculate add;
+
+24
+
+    
+
+25
+
+    // member function calling
+
+26
+
+    add.addition();
+
+27
+
+​
+
+28
+
+    return 0;
+
+29
+
+}
+
+
+Output
+
+80
+
+1. Class
+
+A class is a user-defined data type. A class has its own attributes (data members) and behavior (member functions). In line #3, we have declared a class named Calculate and its body expands from line #3 to line #7.
+2. Data Members & Member Functions
+
+The attributes or data in the class are defined by the data members & the functions that work on these data members are called the member functions.
+
+In the above example, num1 and num2 are the data member & addition() is a member function that is working on these two data members. There is a keyword here public that is access modifiers. The access modifier decides who has access to these data members & member functions.
+3. Object
+
+The object is an instance of a class. The class itself is just a template that is not allocated any memory. To use the data and methods defined in the class, we have to create an object of that class.
+
+C++ Comments
+
+Single Line Comment
+
+In C++, single line comments are represented as // double forward slash. It applies comments to a single line only. The compiler ignores any text after // and it will not be executed.
+
+Syntax:
+
+    // Single line comment
+
+
+Multi-Line Comment
+
+A multi-line comment can occupy many lines of code, it starts with /* and ends with */, but it cannot be nested. Any text between /* and */ will be ignored by the compiler.
+
+Syntax:
+
+     /*
+         Multiline Comment
+         .
+         .
+         .
+     */
+
+
+Why Comments are used in C++?
+
+Comments in C++ are used to summarize an algorithm, identify a variable’s purpose, or clarify a code segment that appears unclear. Comments are also used for:
+
+    Comments are used for easier debugging.
+    It makes a program more readable and gives an overall description of the code.
+    Comments are helpful in skipping the execution of some parts of the code.
+    Every time a program or code is reused after long periods of time, the comment recaps all the information of the code quickly.
+    
+    How does the compiler process C++ Comments?
+
+As a part of the compiler, the Lexical Analyzer scans the characters and transforms them into tokens with no passing of the commented text to the parser. Since Comments do not contribute to the functionality of the program they are simply omitted at the time of compilation. Accordingly, we can understand that comments are just text in programs that are ignored by the compiler.
+
+Tokens in C
+Last Updated : 21 Jan, 2025
+
+In C programming, tokens are the smallest units in a program that have meaningful representations. Tokens are the building blocks of a C program, and they are recognized by the C compiler to form valid expressions and statements. Tokens can be classified into various categories, each with specific roles in the program.
+Types of Tokens in C
+Tokens-in-C
+
+The tokens of C language can be classified into six types based on the functions they are used to perform. The types of C tokens are as follows:
+
+Table of Content
+
+    Punctuators
+    Keywords
+    Strings
+    Operators
+    Identifiers
+    Constants
+
+1. Punctuators
+
+The following special symbols are used in C having some special meaning and thus, cannot be used for some other purpose. Some of these are listed below:
+
+    Brackets[]: Opening and closing brackets are used as array element references. These indicate single and multidimensional subscripts.
+    Parentheses(): These special symbols are used to indicate function calls and function parameters.
+    Braces{}: These opening and ending curly braces mark the start and end of a block of code containing more than one executable statement.
+    Comma (, ): It is used to separate more than one statement like for separating parameters in function calls.
+    Colon(:): It is an operator that essentially invokes something called an initialization list.
+    Semicolon(;): It is known as a statement terminator.  It indicates the end of one logical entity. That’s why each individual statement must be ended with a semicolon.
+    Asterisk (*): It is used to create a pointer variable and for the multiplication of variables.
+    Assignment operator(=): It is used to assign values and for logical operation validation.
+    Pre-processor (#): The preprocessor is a macro processor that is used automatically by the compiler to transform your program before actual compilation.
+    Period (.): Used to access members of a structure or union.
+    Tilde(~): Bitwise One’s Complement Operator.
+
+Example:
+1
+
+#include <stdio.h>  
+
+2
+
+int main() {
+
+3
+
+  
+
+4
+
+    // '\n' is a special symbol that
+
+5
+
+    // represents a newline
+
+6
+
+    printf("Hello, World!\n");  
+
+7
+
+    return 0;
+
+8
+
+}
+
+
+Output
+
+Hello, World!
+
+2. Keywords
+
+Keywords are reserved words that have predefined meanings in C. These cannot be used as identifiers (variable names, function names, etc.). Keywords define the structure and behavior of the program C language supports 32 keywords some of them are:
+
+    int, for, if, else, while, return, etc.
+
+Example:
+1
+
+#include <stdio.h>  
+
+2
+
+int main() {
+
+3
+
+   
+
+4
+
+    // 'int' is a keyword used to define
+
+5
+
+    // variable type
+
+6
+
+    int x = 5;  
+
+7
+
+    printf("%d", x);
+
+8
+
+  
+
+9
+
+    // 'return' is a keyword used to exit
+
+10
+
+    // main function
+
+11
+
+    return 0;  
+
+12
+
+}
+
+
+Output
+
+5
+
+    Note: The number of keywords may change depending on the version of C you are using. For example, keywords present in ANSI C are 32 while in C11, it was increased to 44. Moreover, in the latest c23, it is increased to around 54.
+
+3. Strings
+
+Strings are nothing but an array of characters ended with a null character (‘\0’). This null character indicates the end of the string. Strings are always enclosed in double quotes. Whereas a character is enclosed in single quotes in C and C++.
+
+Examples:
+1
+
+#include <stdio.h>  
+
+2
+
+int main() {
+
+3
+
+  
+
+4
+
+    // "Hello, World!" is a string literal
+
+5
+
+    char str[] = "Hello, World!";  
+
+6
+
+    printf("%s", str);
+
+7
+
+    return 0;
+
+8
+
+}
+
+
+Output
+
+Hello, World!
+
+4. Operators
+
+Operators are symbols that trigger an action when applied to C variables and other objects. The data items on which operators act are called operands. 
+Depending on the number of operands that an operator can act upon, operators can be classified as follows: 
+
+    Unary Operators: Those operators that require only a single operand to act upon are known as unary operators.For Example increment and decrement operators
+    Binary Operators: Those operators that require two operands to act upon are called binary operators. Binary operators can further are classified into: 
+        Arithmetic operators
+        Relational Operators
+        Logical Operators
+        Assignment Operators
+        Bitwise Operator
+    Ternary Operator: The operator that requires three operands to act upon is called the ternary operator. Conditional Operator(?) is also called the ternary operator.
+
+Example:
+1
+
+#include <stdio.h>  
+
+2
+
+int main() {
+
+3
+
+    int a = 10, b = 5;  
+
+4
+
+  
+
+5
+
+    // '+' is an arithmetic operator used
+
+6
+
+    // for addition
+
+7
+
+    int sum = a + b;  
+
+8
+
+    printf("%d", sum); 
+
+9
+
+    return 0;
+
+10
+
+}
+
+
+Output
+
+15
+
+5. Identifiers
+
+Identifiers are names given to variables, functions, arrays, and other user-defined items. They must begin with a letter (a-z, A-Z) or an underscore (_) and can be followed by letters, digits (0-9), and underscores.
+
+Example:
+1
+
+#include <stdio.h>  
+
+2
+
+int main() {
+
+3
+
+  
+
+4
+
+    // 'num' is an identifier used to name
+
+5
+
+    // a variable
+
+6
+
+    int num = 10;  
+
+7
+
+    printf("%d", num); 
+
+8
+
+    return 0;
+
+9
+
+}
+
+
+Output
+
+10
+
+6. Constants
+
+Constants are fixed values used in a C program. These values do not change during the execution of the program. Constants can be integers, floating-point numbers, characters, or strings.
+
+Examples:
+1
+
+#include <stdio.h>  
+
+2
+
+int main() {
+
+3
+
+  
+
+4
+
+    // 'MAX_VALUE' is a constant that holds
+
+5
+
+    // a fixed value
+
+6
+
+    const int MAX_VALUE = 100;  
+
+7
+
+    printf("%d", MAX_VALUE);
+
+8
+
+    return 0;
+
+9
+
+}
+
+
+Output
+
+100
+
+
+C++ Keywords
+Last Updated : 23 Dec, 2024
+
+Keywords are the reserved words that have special meanings in the C++ language. They are the words that the language uses for a specifying the components of the language, such as void, int, public, etc. They can’t be used for a variable name or function name or any other identifiers.
+
+Let’s take a look at the hello world code:
+#include <iostream>
+using namespace std;
+
+int main() {
+  
+    cout << "Hello World";
+  
+    return 0;
+}
+ello World
+
+Explanation: In the above code, using, namespace, and return are the keywords that are used to implement some functionality of the language. Their meaning is predefined in C++ and will always remain same.
+
+The total number of keywords in C++ are 95 upto C++ 23 specification. Below is the table for all C++ keywords:
+alignas	alignof	and	and_eq	asm
+auto	bitand	bitor	bool	break
+case	catch	char	char8_t	char16_t
+char32_t	class	compl	concept	const
+consteval	constexpr	constinit	const_cast	continue
+co_await	co_return	co_yield	decltype	default
+delete	do	double	dynamic_cast	else
+enum	explicit	export	extern	false
+final	float	for	friend	goto
+if	inline	int	long	mutable
+namespace	new	noexcept	not	not_eq
+nullptr	operator	or	or_eq	private
+protected	public	register	reinterpret_cast	requires
+return	short	signed	sizeof	static
+static_assert	static_cast	struct	switch	template
+this	thread_local	throw	true	try
+typedef	typeid	typename	union	unsigned
+using	virtual	void	volatile	wchar_t
+while	xor	xor_eq		
+Keywords vs Identifiers
+
+So, there are some properties of keywords that distinguish keywords from identifiers. They listed in the below table
+Keywords	 Identifiers
+Keywords are predefined/reserved words	 identifiers are the values used to define different programming items like a variable, integers, structures, and unions.
+It defines the type of entity.	It classifies the name of the entity.
+A keyword contains only alphabetical characters, 	an identifier can consist of alphabetical characters, digits, and underscores.
+It should be lowercase.	It can be both upper and lowercase.
+No special symbols or punctuations are used in keywords and identifiers. 	No special symbols or punctuations are used in keywords and identifiers.  The only underscore can be used in an identifier.
+Example: int, char, while, do.	Example: Geeks_for_Geeks, GFG, Gfg1
+ifference between Keyword and Identifier in C
+Last Updated : 23 Dec, 2024
+
+In C, keywords and identifiers are basically the fundamental parts of the language used. Identifiers are the names that can be given to a variable, function or other entity while keywords are the reserved words that have predefined meaning in the language.
+
+The below table illustrates the primary differences between the keywords and identifiers:
+Parameters	Keywords	Identifiers
+Definition	Keywords are predefined word that gets reserved for working program that have special meaning and cannot get used anywhere else.	Identifiers are the values used to define different programming items such as variables, integers, structures, unions and others and mostly have an alphabetic character.
+Use	Specify the type/kind of entity.	Identify the name of a particular entity.
+	It always starts with a lowercase letter.	First character can be a uppercase, lowercase letter or underscore.
+Rules of Definition	A keyword should be in lower case and can only contains alphabetical characters.	An identifier can be in upper case or lower case and can consist of alphabetical characters, digits and underscores.
+Purpose	They help to identify a specific property that exists within a computer language.	They help to locate the name of the entity that gets defined along with a keyword.
+Examples	int, char, if, while, do, class etc.	Test, count1, high_speed, etc.
+Keywords
+
+Keywords are specific reserved words in C each of which has a specific feature associated with it. Almost all of the words which help us use the functionality of the C language are included in the list of keywords. So, you can imagine that the list of keywords is not going to be a small one! There are a total of 32 keywords in C:
+
+auto
+	
+
+break
+	
+
+case
+	
+
+char
+	
+
+const
+	
+
+continue
+	
+
+default
+	
+
+do
+
+double
+	
+
+else
+	
+
+enum
+	
+
+extern
+	
+
+float
+	
+
+for
+	
+
+goto
+	
+
+if
+
+int
+	
+
+long
+	
+
+register
+	
+
+return
+	
+
+short
+	
+
+signed
+	
+
+sizeof
+	
+
+static
+
+struct
+	
+
+switch
+	
+
+typedef
+	
+
+union
+	
+
+unsigned
+	
+
+void
+	
+
+volatile
+	
+
+while
+Identifiers
+
+Identifiers are used as the general terminology for naming of variables, functions and arrays. These are user defined names consisting of arbitrarily long sequence of letters and digits with either a letter or the underscore(_) as a first character. Identifier names must differ in spelling and case from any keywords. You cannot use keywords as identifiers; they are reserved for special use. Once declared, you can use the identifier in later program statements to refer to the associated value. A special kind of identifier, called a statement label, can be used in goto statements.
+Code Illustration
+
+The below example illustrate the different purpose of the keywords and identifers in C:
+1
+
+#include <stdio.h>
+
+2
+
+​
+
+3
+
+// 'main' is also an identifier
+
+4
+
+// although it is predefined
+
+5
+
+int main() {
+
+6
+
+  
+
+7
+
+    // Example of a keyword: int
+
+8
+
+      // Here, age is identifier
+
+9
+
+    int age = 25;
+
+10
+
+​
+
+11
+
+    printf("Age: %d\n", age);
+
+12
+
+​
+
+13
+
+    // return is a keyword that exits function
+
+14
+
+    return 0; 
+
+15
+
+}
+
+
+Output
+
+Age: 25
+
+Explanation: In the above code, age is an identifier used to name a variable. The type of variable is integer that is specified using int keyword as it already is defined in C to indicate that the variable will store integer data.
+
+C++ Variables
+Last Updated : 19 Dec, 2024
+
+In C++, variable is a name given to a memory location. It is the basic unit of storage in a program. The value stored in a variable can be accessed or changed during program execution. In this article, we will learn about the variables in C++ and how to use them in our programs.
+
+Let’s take a look at an example:
+1
+
+#include <iostream>
+
+2
+
+using namespace std;
+
+3
+
+​
+
+4
+
+int main() {
+
+5
+
+    
+
+6
+
+      // A variable that may store the data of
+
+7
+
+      // int type (whole numbers)
+
+8
+
+    int var;
+
+9
+
+  
+
+10
+
+      // Assigning a whole number
+
+11
+
+      var = 100;
+
+12
+
+  
+
+13
+
+      // Printing the variable
+
+14
+
+      cout << var;
+
+15
+
+  
+
+16
+
+    return 0;
+
+17
+
+}
+
+
+Output
+
+100
+
+Explanation: A variable with name var is created. It is of the type int (keyword for integer) and can store the whole numbers. In the next step, we assigned a value 100 to it and finally, we access the stored value using the variable’s name.
+
+The C++ Course covers the types of variables in C++ and how to use them effectively in your programs.
+Syntax of Variables
+
+Creating a variable and giving it a name is called variable definition. The syntax of variable definition is:
+
+    type name;
+
+Here,
+
+    type: type of data that a variable can store.
+    name: name assigned to the variable.
+
+Multiple variables of the same type can be defined as:
+
+    type name1, name2, name3 ….;
+
+Types of Variables
+
+In C++, following are the data types a variable can store:
+
+    int: For storing integers or whole numbers.
+    float: For storing real numbers with decimal points.
+    char: For storing single characters.
+    bool: For storing boolean value i.e. true and false.
+    string: For storing the textual data.
+
+Rules For Naming Variable
+
+The names given to a variable is called identifiers. There are some rules for giving a name to the variable:
+
+    The name of the variable contains letters, digits, and underscores.
+    The name of the variable is case sensitive (e.g. Arr and arr both are different variables).
+    The name of the variable does not contain any whitespace and special characters (ex #, $, %, *, etc).
+    All the variable names must begin with a letter of the alphabet or an underscore (_).
+    We cannot used C++ keyword (e.g. float, double, class) as a variable name.
+
+Some valid variable names: x, var, _here, arr40
+Some invalid variable names: 89, a b, double
+Variable Initialization
+
+The next step is initialization. It means assigning an initial value to the variable. It is done by using an assignment operator = with the variable name as left operand and the value as the right operand.
+
+    type name = value;      // At the time of declaration
+    name = value;      // After declaration
+    type name1 = value1, name2 = value2;      // For multiple variables
+
+The value should be of the same type as variable. For example, a variable declared as int var; should only store the integer variable.
+Examples of Variables
+
+The below examples demonstrate how to use the variables in our C++ programs:
+Store Data in a Variable and Print It
+1
+
+#include <iostream>
+
+2
+
+using namespace std;
+
+3
+
+​
+
+4
+
+int main() {
+
+5
+
+​
+
+6
+
+    // Defining and initializing a variable
+
+7
+
+      int age1 = 15;
+
+8
+
+  
+
+9
+
+      // Defining a variable
+
+10
+
+      int age2;
+
+11
+
+  
+
+12
+
+      // Initialize the variable
+
+13
+
+      age2 = 99;
+
+14
+
+  
+
+15
+
+      // Displaying variable
+
+16
+
+      cout << age1 << endl;
+
+17
+
+      cout << age2;
+
+18
+
+    return 0;
+
+19
+
+}
+
+
+Output
+
+15
+99
+
+Create Multiple Variables at Once
+1
+
+#include <iostream>
+
+2
+
+using namespace std;
+
+3
+
+​
+
+4
+
+int main() {
+
+5
+
+  
+
+6
+
+      // Creating three variables that store characters
+
+7
+
+      char a = 'A', b = 'B', c = 'C';
+
+8
+
+  
+
+9
+
+      // Update the value
+
+10
+
+      c = 'c';
+
+11
+
+​
+
+12
+
+    cout << a << " " << b << " " << c;
+
+13
+
+    return 0;
+
+14
+
+}
+
+
+Output
+
+A B c
+
+Memory Management of Variables
+
+When a variable is declared, the compiler is told about the variable name and the type of data it will store. It is not allocated the any memory at this point. It is when the variable is defined it is allocated the memory. The amount of memory allocated depends upon the type of data that a variable intends to store.
+
+Initially, the variable only stores some garbage value (value that does not mean anything). At the time of initialization, it is assigned some meaningful value that using the assignment operator that is then stored in the memory allocated to the function. So basically, we are manipulating a specific part of memory using the variable name.
+
+At last, the data stored in the allocated memory can be accessed using the variable name.
+
+
+Scope of Variables in C++
+Last Updated : 10 Dec, 2024
+
+In C++, the scope of a variable is the extent in the code upto which the variable can be accessed or worked with. It is the region of the program where the variable is accessible using the name it was declared with.
+
+Let’s take a look at an example
+
+#include <iostream>
+using namespace std;
+
+// Declaring first variable
+int a = 10;
+
+int main() {
+
+      // Declaring second variable
+      int b = 9;
+
+      // Accessing a and b variable in their scope
+    cout << a << " " << b;
+
+    return 0;
+}
+Global Scope
+
+Global scope refers to the region outside any function or a block. The variables declared here are accessible throughout the entire program and are called Global Variables.
+
+Local Scope
+
+The local scope is the region inside the curly braces { }. Variables defined within a function or block are said to be local to those functions or a block and are called local variables. Local variables do not exist outside the block in which they are declared, i.e. they cannot be accessed or used outside that block.
+Variable Shadowing
+
+Consider that there is a local variable inside a function with the same name as that of a global variable. If the function tries to access the variable with that name, then which variable will be given precedence? Look at the below program to understand the question:  
+1
+
+#include<iostream>
+
+2
+
+using namespace std;
+
+3
+
+​
+
+4
+
+// Global variable
+
+5
+
+int a = 5;
+
+6
+
+​
+
+7
+
+int main() {
+
+8
+
+  
+
+9
+
+    // Local variable with same name as that of
+
+10
+
+      // global variable
+
+11
+
+    int a = 100;
+
+12
+
+  
+
+13
+
+      // Accessing a
+
+14
+
+    cout << a;
+
+15
+
+  
+
+16
+
+      return 0;
+
+17
+
+}
+
+
+Output
+
+100
+
+Explanation: The variable a declared at the top is global variable and stores the value 5 whereas a declared within main function is local and stores a value 100. When accessed inside the main function, the local a’s value is printed. Also, there is no compilation error. It implies that
+
+        If two variables with same name are defined in different scopes, the compiler allows it and does not show error.
+        Whenever there is a local variable defined with same name as that of a global variable, the precedence is given to the local variable. This is called variable shadowing.
+        Access Global Variable in Variable Shadowing
+
+The global a is still available in the main function but is shadowed by the local a as it is available everywhere. One may ask if there is any way we can access the global a in the main function.
+
+Yes, C++ allows the users to access global variable with the same name as local variable using scope resolution operator. The below examples show how it is done:
+1
+
+#include<iostream>
+
+2
+
+using namespace std;
+
+3
+
+​
+
+4
+
+// Global variable
+
+5
+
+int a = 5;
+
+6
+
+​
+
+7
+
+int main() {
+
+8
+
+  
+
+9
+
+    // Local variable with same name as that of
+
+10
+
+      // global variable
+
+11
+
+    int a = 100;
+
+12
+
+  
+
+13
+
+      // Accessing global a
+
+14
+
+    cout << ::a;
+
+15
+
+  
+
+16
+
+      return 0;
+
+17
+
+}
+
+
+Output
+
+5
+why do we use << in cpp, i was used to = in c during printf
+ChatGPT said:
+ChatGPT
+
+In C, you use printf for output, which relies on format specifiers:
+
+printf("Hello, %s!\n", "world");
+
+In C++, << is the insertion operator, used with cout for output:
+
+std::cout << "Hello, world!" << std::endl;
+
+Why use << instead of =?
+
+    Operator Overloading: << is overloaded in C++ to work as a stream insertion operator for std::cout. It sends data to the output stream.
+
+    Type Safety: Unlike printf, cout automatically handles different data types without format specifiers.
+
+    Chaining: You can chain multiple insertions easily:
+
+    std::cout << "Number: " << 42 << ", Pi: " << 3.14 << std::endl;
+
+    This avoids dealing with format specifiers like %d or %f.
+
+    Extensibility: You can overload << for custom classes, allowing seamless output formatting.
+
+Would you like a deeper comparison of printf vs. cout in terms of performance or use cases?
+
+
+
+Variations of Scopes in C++
+
+Apart from the primary classification of the scopes as global and local, there are few other specialized variations of these scopes that divides the declared variable based on its accessibility and visibility. Following are some common variations of variable scopes in C++.
+
+    Instance Scope
+    Static Member Scope
+    Namespace Scope
+
+Instance Scope
+
+In C++, instance scope refers to the region inside a class but outside any member function of the class. The variable declared here are called instance variables and are accessible to whole class. They can be accessed by the objects of the class.
+
+
+#include <iostream>
+using namespace std;
+
+class A {
+public:
+  
+      // Instance variable with instance scope i.e. accessible
+      // in whole class
+    int instanceVar;
+
+    A(int val) {
+        instanceVar = val;
+    }
+
+    void display() {
+        cout << instanceVar << endl;
+    }
+};
+
+int main() {
+  
+      // Creates a1 with instanceVar = 10
+    A a1(1);
+    a1.display();
+
+      // Creates a2 with instanceVar = 20
+    A a2(33);
+    a2.display();
+
+    return 0;
+}
+Static Member Scope
+
+The static scope applies to variables and functions declared with the static keyword within the class. These variables are shared across all instances of a class and can be accessed using the class name without creating the instance.
+
+Let’s take a look at an example:
+#include <iostream>
+using namespace std;
+
+class A {
+public:
+  
+      // Static variable with static scope i.e. accessible
+      // in whole class
+    static int staticVar;
+};
+
+int A::staticVar = 1;
+
+int main() {
+  
+      // Access static variable
+      cout << A::staticVar;
+
+    return 0;
+}
+1
+
+Namespace Scope
+
+A namespace in C++ is a container that allows users to create a separate scope where the given variables are defined. It is used to avoid name conflicts and group related code together. These variables can be then accessed using their namespace name and scope resolution operator.
+
+For example, the below program creates a variable inside a namespace and access it later using namespace name and scope resolution operator.
+#include <iostream>
+using namespace std;
+
+namespace N {
+      
+      // Variable with namespace scope
+    int namespaceVar = 10;
+}
+
+int main() {
+  
+      // Access variable using namespace
+    cout << N::namespaceVar;  
+
+    return 0;
+}
+10
+
+Storage Classes in C++ with Examples
+Last Updated : 24 Dec, 2024
+
+C++ Storage Classes are used to describe the characteristics of a variable/function. It determines the lifetime, visibility, default value, and storage location which helps us to trace the existence of a particular variable during the runtime of a program. Storage class specifiers are used to specify the storage class for a variable.
+
+C++ provides 6 different storage classes, which are as follows:
+
+Table of Content
+
+    auto Storage Class
+    extern Storage Class
+    static Storage Class
+    register Storage Class
+    mutable Storage Class
+    thread_local Storage Class
+
+Below is a detailed explanation of each storage class:
+1. auto Storage Class
+
+The auto storage class is the default class of all the variables declared inside a block. The auto stands for automatic and all the local variables that are declared in a block automatically belong to this class.
+
+Properties of auto Storage Class Objects
+
+    Scope: Local
+    Default Value: Garbage Value
+    Memory Location: RAM
+    Lifetime: Till the end of its scope
+
+Let’s take a look at an example:
+
+Storage Classes in C++ with Examples
+Last Updated : 24 Dec, 2024
+
+C++ Storage Classes are used to describe the characteristics of a variable/function. It determines the lifetime, visibility, default value, and storage location which helps us to trace the existence of a particular variable during the runtime of a program. Storage class specifiers are used to specify the storage class for a variable.
+
+C++ provides 6 different storage classes, which are as follows:
+
+Table of Content
+
+    auto Storage Class
+    extern Storage Class
+    static Storage Class
+    register Storage Class
+    mutable Storage Class
+    thread_local Storage Class
+
+Below is a detailed explanation of each storage class:
+1. auto Storage Class
+
+The auto storage class is the default class of all the variables declared inside a block. The auto stands for automatic and all the local variables that are declared in a block automatically belong to this class.
+
+Properties of auto Storage Class Objects
+
+    Scope: Local
+    Default Value: Garbage Value
+    Memory Location: RAM
+    Lifetime: Till the end of its scope
+
+Let’s take a look at an example:
+#include <iostream>
+using namespace std;
+
+int main() {
+
+    // Declaring an auto variable
+    int a = 32;
+    float b = 3.2;
+    string c = "GeeksforGeeks";
+
+    // Printing the auto variables
+    cout << a << " \n";
+    cout << b << " \n";
+      cout << c << " \n";
+
+    return 0;
+}
+32 
+3.2 
+GeeksforGeeks 
+
+    Note: Earlier in C++, we could use the auto keyword to declare the auto variables explicitly but after C++11, the meaning of auto keyword is changed, and we could no longer use it to define the auto variables.
+
+2. extern Storage Class
+
+The extern storage class simply tells us that the variable is defined elsewhere and not within the same scope (or even source file) where it is used (i.e. external linkage). Basically, the variable is created in a different scope or file and can be used in a different file as well.
+
+A normal global variable can be made extern as well by placing the extern keyword before its declaration/definition in any function/block. The main purpose of using extern variables is that they can be accessed between two different files which are part of a large program.
+
+Properties of extern Storage Class Objects
+
+    Scope: Global
+    Default Value: Zero
+    Memory Location: RAM
+    Lifetime: Till the end of the program.
+
+Let’s take a look at an example:
+
+def.cpp
+1
+
+// Defining a global variable with external linkage
+
+2
+
+int var = 10;
+
+
+#include <iostream>
+using namespace std;
+
+// Telling compiler that variable x is extern variable
+// and has been defined elsewhere
+extern int x;
+
+int main() {
+  
+      // Printing the value of x
+    cout << x;
+
+    return 0;
+}
+10
+
+3. static Storage Class
+
+The static storage class is used to declare static variables that have the property of preserving their value even after they are out of their scope. They are initialized only once and exist until the termination of the program. Thus, no new memory is allocated because they are not re-declared. Global static variables can be accessed anywhere in the program but unlike extern variable, they have internal linkage so they cannot be accessed outside the program.
+
+They are declared using static keyword.
+
+Properties of static Storage Class
+
+    Scope: Local
+    Default Value: Zero
+    Memory Location: RAM
+    Lifetime: Till the end of the program
+    
+    #include <iostream>
+using namespace std;
+
+// Function containing static variables
+// memory is retained during execution
+int func() {
+  
+      // Static variable
+    static int count = 0;
+    count++;
+    return count;
+}
+
+int main() {
+    cout << func() << "\n";
+    cout << func();
+    
+    return 0;
+}
+4. register Storage Class
+
+The register storage class declares register variables using the register keyword which has the same functionality as that of the auto variables. The only difference is that the compiler tries to store these variables in the register of the microprocessor if a free register is available. This makes the use of register variables to be much faster than that of the variables stored in the memory during the runtime of the program. If a free register is not available, these are then stored in the RAM.
+
+An important and interesting point to be noted here is that we cannot obtain the address of a register variable using pointers.
+
+Properties of register Storage Class Objects
+
+    Scope: Local
+    Default Value: Garbage Value
+    Memory Location: Register in CPU or RAM
+    Lifetime: Till the end of its scope
+    
+    #include <iostream>
+using namespace std;
+
+int main() {
+
+    // Declaring a register variable
+    register char b = 'G';
+
+    // Printing the register variable 'b'
+    cout << b;
+  
+    return 0;
+}
+G
+
+    Note: The register keyword is deprecated in C++17 onwards.
+
+5. mutable Storage Class
+
+Sometimes there is a requirement to modify one or more data members of class/struct through the const function even though you don’t want the function to update other members of class/struct. This task can be easily performed by using the mutable keyword. The keyword mutable is mainly used to allow a particular data member of a const object to be modified. 
+
+When we declare a function as const, this pointer passed to the function becomes const. Adding a mutable to a variable allows a const pointer to change members.
+Properties of mutable Storage Class
+
+The mutable specifier does not affect the linkage or lifetime of the object. It will be the same as the normal object declared in that place.
+
+Let’s take a look at an example:
+#include <iostream>
+using namespace std;
+
+class A {
+public:
+    int x;
+
+    // Defining mutable variable y
+    // now this can be modified
+    mutable int y;
+
+    A(): x(4), y(10) {}
+};
+
+int main() {
+  
+    // a is created as constant
+    const A a;
+
+    // Trying to change the value
+    a.y = 200;
+    cout << a.y;
+
+    // Uncommenting below lines
+    // will throw error
+    /* a.x = 8;
+    cout << a.x; */
+  
+    return 0;
+}
+200
+
+6. thread_local Storage Class
+
+The thread_local Storage Class is the new storage class that was added in C++11. We can use the thread_local storage class specifier to define the object as thread_local. The thread_local variable can be combined with other storage specifiers like static or extern and the properties of the thread_local object changes accordingly.
+
+Properties of thread_local Storage Class
+
+    Memory Location: RAM
+    Lifetime: Till the end of its thread
+    #include <iostream>
+#include <mutex>
+#include <thread>
+
+using namespace std;
+
+// Defining thread-local variable
+thread_local int val = 10;
+
+// Mutex for synchronization
+mutex mtx;
+
+int main() {
+  
+    // Created 3 threads
+    // Modify value in thread 1
+    thread th1([]() {
+        val += 18;
+        lock_guard<mutex> lock(mtx);
+        cout << "Thread 1 value: " << val << '\n';
+    });
+
+    thread th2([]() {
+      
+        // Modify value in thread 2
+        val += 7;
+        lock_guard<mutex> lock(mtx);
+        cout << "Thread 2 value: " << val << '\n';
+    });
+
+    thread th3([]() {
+      
+        // Modify value in thread 3
+        val += 13;
+        lock_guard<mutex> lock(mtx);
+        cout << "Thread 3 value: " << val << '\n';
+    });
+
+    // Wait for all threads to finish
+    th1.join();
+    th2.join();
+    th3.join();
+
+    // Print the value of value in the main thread
+    cout << "Main thread value: " << val << '\n';
+
+    return 0;
+}
+Thread 1 value Value: 28
+Thread 2 value Value: 17
+Thread 3 value Value: 23
+Main thread value Value: 10
+
+As we can see, each thread got its own copy of the thread_local variable and was only assigned the value that was specified in its callable.
+Summary
+
+The below table summarize the above storage classes:
+2. extern Storage Class
+
+The extern storage class simply tells us that the variable is defined elsewhere and not within the same scope (or even source file) where it is used (i.e. external linkage). Basically, the variable is created in a different scope or file and can be used in a different file as well.
+
+A normal global variable can be made extern as well by placing the extern keyword before its declaration/definition in any function/block. The main purpose of using extern variables is that they can be accessed between two different files which are part of a large program.
+
+Properties of extern Storage Class Objects
+
+    Scope: Global
+    Default Value: Zero
+    Memory Location: RAM
+    Lifetime: Till the end of the program.
+
+Let’s take a look at an example:
+// Defining a global variable with external linkage
+int var = 10;
+#include <iostream>
+#include >
+using namespace std;
+
+// Telling compiler that variable x is extern variable
+// and has been defined elsewhere
+extern int x;
+
+int main() {
+  
+      // Printing the value of x
+    cout << x;
+
+    return 0;
+}
+
+
+Static Keyword in C++
+Last Updated : 11 Jan, 2025
+
+The static keyword in C++ has different meanings when used with different types. In this article, we will learn about the static keyword in C++ along with its various uses.
+
+In C++, a static keyword can be used in the following context:
+
+Table of Content
+
+    Static Variables in a Function
+    Static Member Variable in a Class
+    Static Member Functions in a Class
+    Global Static Variable
+
+Static Variables in a Function
+
+In a function, when a variable is declared as static, space for it gets allocated for the lifetime of the program. Even if the function is called multiple times, space for the static variable is allocated only once and the value of the variable in the previous call gets carried through the next function call.
+
+Let’s take a look at an example:
+	
+	You can see in the above program that the variable count is declared static. So, its value is carried through the function calls. The variable count is not getting initialized every time the function is called. As a side note, Java doesn’t allow static local variables in functions.
+
+Applications
+
+The static variables in a function have the following applications:
+
+    Return local variable address from the function.
+    Useful for implementing coroutines in C++ or any other application where the previous state of function needs to be stored.
+    Memoization in recursive calls.
+    
+    Static Data Member in a Class
+
+As the variables declared as static are initialized only once as they are allocated space in separate static storage so, the static member variables in a class are shared by the objects. There cannot be multiple copies of the same static variables for different objects. Also because of this reason static variables cannot be initialized using constructors.
+undefined reference to `GfG::i'
+collect2: error: ld returned 1 exit status
+
+Explanation: You can see in the above program that we have tried to create multiple copies of the static variable i for multiple objects. But this didn’t happen.
+
+So, a static variable inside a class should be initialized explicitly by the user using the class name and scope resolution operator outside the class as shown below: 
+
+Let’s take a look at an example:
+
+#include <iostream>
+using namespace std;
+
+class GfG {
+public:
+  
+      // Static data member
+    static int i;
+
+    GfG(){
+        // Do nothing
+    };
+};
+
+int main() {
+    GfG obj1;
+    GfG obj2;
+    obj1.i = 2;
+    obj2.i = 3;
+
+    // Prints value of i
+    cout << obj1.i << " " << obj2.i;
+}
+		
+		
+		#include <iostream>
+using namespace std;
+
+class GfG {
+public:
+  
+      // Static data member
+    static int i;
+
+    GfG(){
+        // Do nothing
+    };
+};
+
+// Static member inintialization
+int GfG::i = 1;
+
+int main() {
+  
+    // Prints value of i
+    cout << GfG::i;
+}
+1
+
+Explanation: We were able to access the static variable when is was initialized globally outside the class. Moreover, we can access the static data member without creating the object of the class.
+
+Applications
+
+The static data members can be used to implement the following:
+
+    Counting Objects of a Class
+    Store and share configuration or settings globally.
+    Tracking Shared Resources
+    Regulate or limit operations performed by multiple objects.
+    Ensure a class has only one instance by using static members.
+
+
+Static Member Functions in a Class
+
+Just like the static data members or static variables inside the class, static member functions also do not depend on the object of the class. We are allowed to invoke a static member function using the object and the ‘.’ operator but it is recommended to invoke the static members using the class name and the scope resolution operator. Static member functions are allowed to access only the static data members or other static member functions, they cannot access the non-static data members or member functions of the class. 
+
+Let’s take a look at an example:
+1
+
+#include <iostream>
+
+2
+
+using namespace std;
+
+3
+
+​
+
+4
+
+class GfG {
+
+5
+
+public:
+
+6
+
+  
+
+7
+
+    // Static member function
+
+8
+
+    static void printMsg() { cout << "Welcome to GfG!"; }
+
+9
+
+};
+
+10
+
+​
+
+11
+
+int main() {
+
+12
+
+  
+
+13
+
+    // Invoking a static member function
+
+14
+
+    GfG::printMsg();
+
+15
+
+}
+
+
+Output
+
+Welcome to GfG!
+Applications
+
+The static member functions have the following uses in C++:
+
+    Accessing Static Member Variables
+    Implement helper functions that do not depend on specific instances.
+    Singleton Pattern Implementation
+    Factory Methods to create and return objects without requiring an instance of the class.
+    Logging and Debugging
+
+Global Static Variable
+
+A global static variable in C++ is a static variable declared outside of any class or function. Unlike regular global variables, a global static variable has internal linkage, meaning it is accessible only within the file where it is defined. This ensures that its scope is limited to the current translation unit, preventing conflicts with variables in other files that may have the same name.
+
+Let’s take a look at an example:
+1
+
+#include <iostream>
+
+2
+
+using namespace std;
+
+3
+
+​
+
+4
+
+// Global static variable
+
+5
+
+static int count = 0;
+
+6
+
+​
+
+7
+
+void increment() {
+
+8
+
+    count++;
+
+9
+
+    cout << count << " ";
+
+10
+
+}
+
+11
+
+​
+
+12
+
+int main() {
+
+13
+
+    increment();
+
+14
+
+    increment();
+
+15
+
+    return 0;
+
+16
+
+}
+
+
+Output
+
+1 2 
+
+Applications
+
+The global static variables have the following uses in C++:
+
+    Limiting variable scope to a file to prevent conflicts by ensuring the variable is accessible only within the file.
+    Global counters or flags.
+    Store settings or values that are specific to the functionality implemented in a single file.
+    Use for shared resources in scenarios where frequent initialization and destruction can be avoided.
+    Shared state across functions in a file.
+    
