@@ -2079,4 +2079,1714 @@ The global static variables have the following uses in C++:
     Store settings or values that are specific to the functionality implemented in a single file.
     Use for shared resources in scenarios where frequent initialization and destruction can be avoided.
     Shared state across functions in a file.
+    	
+    DAta types
+    	
+    	
+    	n C++, data types are classified into the following types:
+
+S. No.
+	Type	Description	Data Types
+
+1
+	Basic Data Types	Built-in or primitive data types that are used to store simple values.	int, float, double, char, bool, void
+
+2
+	Derived Data Types	Data types derived from basic types.	array, pointer, reference, function
+
+3
+
+	User Defined Data Types	Custom data types created by the programmer according to their need.	class, struct, union, typedef, using
+	
+	
+1. Character Data Type (char)
+
+The character data type is used to store a single character. The keyword used to define a character is char. Its size is 1 byte and it stores characters enclosed in single quotes (‘ ‘). It can generally store upto 256 characters according to their ASCII codes.
+
+Syntax
+
+    char name;
+
+
+
+	#include <iostream>
+using namespace std;
+
+int main() {
+  
+      // Character variable
+      char c = 'A';  
+    cout << c;
+  
+    return 0;
+}
+
+2. Integer Data Type (int)
+
+Integer data type denotes that the given variable can store the integer numbers. The keyword used to define integers is int. Its size is 4-bytes (for 64-bit) systems and can store numbers for binary, octal, decimal and hexadecimal base systems in the range from -2,147,483,648 to 2,147,483,647.
+
+2. Integer Data Type (int)
+
+Integer data type denotes that the given variable can store the integer numbers. The keyword used to define integers is int. Its size is 4-bytes (for 64-bit) systems and can store numbers for binary, octal, decimal and hexadecimal base systems in the range from -2,147,483,648 to 2,147,483,647
+    int name;
+
+where, name is the identifier assigned to the variable.
+#include <iostream>
+using namespace std;
+
+int main() {
+
+      // Creating an integer variable
+    int x = 25;
+    cout << x << endl;
+  
+      // Using hexadecimal base value
+      x = 0x15;
+      cout << x;
+
+    return 0;
+}
+3. Boolean Data Type (bool)
+
+The boolean data type is used to store logical values: true(1) or false(0). The keyword used to define a boolean variable is bool. Its size is 1 byte.
+
+Syntax
+
+    bool name;
+
+where name is the identifier assigned to the variable.
+
+Example
+#include <iostream>
+using namespace std;
+
+int main() {
+  
+      // Creating a boolean variable
+    bool isTrue = true;  
+    cout << isTrue;
+    return 0;
+}
+1
+
+4. Floating Point Data Type (float)
+
+Floating-point data type is used to store numbers with decimal points. The keyword used to define floating-point numbers is float. Its size is 4 bytes (on 64-bit systems) and can store values in the range from 1.2E-38 to 3.4e+38.
+
+Syntax
+
+    float name;
+
+
+#include <iostream>
+using namespace std;
+
+int main() {
+  
+      // Floating point variable with a decimal value
+      float f = 36.5;
+      cout << f;
+  
+    return 0;
+}
+5. Double Data Type (double)
+
+The double data type is used to store decimal numbers with higher precision. The keyword used to define double-precision floating-point numbers is double. Its size is 8 bytes (on 64-bit systems) and can store the values in the range from 1.7e-308 to 1.7e+308
+
+Syntax
+double name;
+
+#include <iostream>
+using namespace std;
+
+int main() {
+  
+      // double precision floating point variable
+      double pi = 3.1415926535;
+      cout << pi;
+  
+    return 0;
+}
+3.14159
+
+6. Void Data Type (void)
+
+The void data type represents the absence of value. We cannot create a variable of void type. It is used for pointer and functions that do not return any value using the keyword void.
+    void functionName();
+
+
+#include <iostream>
+using namespace std;
+
+// Function with void return type
+void hello() {
+    cout << "Hello, World!" << endl;
+}
+
+int main() {
+      hello();
+    return 0;
+}
+Hello, World!
+
+Size of Data Types in C++
+
+Earlier, we mentioned that the size of the data types is according to the 64-bit systems. Does it mean that the size of C++ data types is different for different computers?
+
+Actually, it is partially true. The size of C++ data types can vary across different systems, depending on the architecture of the computer (e.g., 32-bit vs. 64-bit systems) and the compiler being used. But if the architecture of the computer is same, then the size across different computers remains same.
+
+We can find the size of the data type using sizeof operator.
+#include <iostream>
+using namespace std;
+
+int main() {
+
+    // Printing the size of each data type
+    cout << "Size of int: " << sizeof(int) << " bytes" << endl;
+    cout << "Size of char: " << sizeof(char) << " byte" << endl;
+    cout << "Size of float: " << sizeof(float) << " bytes" << endl;
+    cout << "Size of double: " << sizeof(double) << " bytes";
+
+    return 0;
+}
+Size of int: 4 bytes
+Size of char: 1 byte
+Size of float: 4 bytes
+Size of double: 8 bytes
+
+Data Type Modifiers
+
+Data type modifiers are the keywords used to change or give extra meaning to already existing data types. It is added to primitive data types as a prefix to modify their size or range of data they can store. There are 4 type modifiers in C++: short, long, signed and unsigned.
+
+For Example,
+
+Defining an int with long type modifier will change its size to 8 bytes:
+
+    int => 4 bytes
+    long int => 8 bytes
+
+Similarly, other type modifiers also affect the size or range of the data type.
+
+    long double, long long int, unsigned int, etc.
+
+Data Types in C++ – FAQs
+Is size of data types in C++ is different for different machines?
+
+    Partially yes as the size of data types in C++ can vary across different machines depending on the system architecture (32-bit or 64-bit). But if the architecture is same, then size remains same.
+
+Can I convert one data type value or variable to another?
+
+    Yes, in C++, you can convert one data type to another using type casting. 
+
+How many data types are there in C++?
+
+    There are following number of data types in C++:
+
+        Primitive Data Types: 6
+        Derived Data Types: 4
+        User Defined Data Types: 5
+
+Why we need int if we can already represent integer values with float?
+
+    int is more efficient for representing whole numbers as it avoids the rounding errors inherent in float allows for fast integer-specific operations like bitwise manipulation
     
+Literals in C
+Last Updated : 21 Jun, 2024
+
+In C, Literals are the constant values that are assigned to the variables. Literals represent fixed values that cannot be modified. Literals contain memory but they do not have references as variables. Generally, both terms, constants, and literals are used interchangeably. 
+For example, “const int = 5;“, is a constant expression and the value 5 is referred to as a constant integer literal.
+Types of C Literals
+
+There are 4 types of literal in C:
+
+    Integer Literal
+    Float Literal
+    Character Literal
+    String Literal
+
+
+C-literals
+1. Integer Literals
+
+Integer literals are used to represent and store the integer values only. Integer literals are expressed in two types i.e.
+
+A) Prefixes: The Prefix of the integer literal indicates the base in which it is to be read.
+For Example:
+
+    0x10 = 16
+
+    Because 0x prefix represents a HexaDecimal base. So 10 in HexaDecimal is 16 in Decimal. Hence the value 16.
+
+There are basically represented into 4 types:
+
+a. Decimal-literal(base 10): A non-zero decimal digit followed by zero or more decimal digits(0, 1, 2, 3, 4, 5, 6, 7, 8, 9).
+
+Example:
+
+56, 78
+
+b. Octal-literal(base 8): a 0 followed by zero or more octal digits(0, 1, 2, 3, 4, 5, 6, 7).
+
+Example:
+
+045, 076, 06210
+
+c. Hex-literal(base 16): 0x or 0X followed by one or more hexadecimal digits(0, 1, 2, 3, 4, 5, 6, 7, 8, 9, a, A, b, B, c, C, d, D, e, E, f, F).
+
+Example:
+
+0x23A, 0Xb4C, 0xFEA
+
+d. Binary-literal(base 2): 0b or 0B followed by one or more binary digits(0, 1).
+
+Example:
+
+0b101, 0B111
+
+B) Suffixes: The Suffixes of the integer literal indicates the type in which it is to be read.
+
+For example:
+
+    12345678901234LL 
+
+    indicates a long long integer value 12345678901234 because of the suffix LL
+
+These are represented in many ways according to their data types.
+
+    int: No suffix is required because integer constant is by default assigned as an int data type.
+    unsigned int: character u or U at the end of an integer constant.
+    long int: character l or L at the end of an integer constant.
+    unsigned long int: character ul or UL at the end of an integer constant.
+    long long int: character ll or LL at the end of an integer constant.
+    unsigned long long int: character ull or ULL at the end of an integer constant.
+
+Example:
+1
+
+#include <stdio.h>
+
+2
+
+​
+
+3
+
+int main()
+
+4
+
+{
+
+5
+
+​
+
+6
+
+    // constant integer literal
+
+7
+
+    const int intVal = 10;
+
+8
+
+​
+
+9
+
+    printf("Integer Literal:%d \n", intVal);
+
+10
+
+    return 0;
+
+11
+
+}
+
+
+Output
+
+Integer Literal:10 
+
+2. Floating-Point Literals
+
+These are used to represent and store real numbers. The real number has an integer part, real part, fractional part, and exponential part. The floating-point literals can be stored either in decimal form or exponential form. While representing the floating-point decimals one must keep two things in mind to produce valid literal:
+
+    In the decimal form, one must include the integer part, or fractional part, or both, otherwise, it will lead to an error.
+    In the exponential form, one must include both the significand and exponent part, otherwise, it will lead to an error.
+
+A few floating-point literal representations are shown below:
+
+Valid Floating Literals:
+
+10.125
+1.215e-10L
+10.5E-3
+
+Invalid Floating Literals:
+
+123E
+1250f
+0.e879
+
+Example:
+1
+
+#include <stdio.h>
+
+2
+
+​
+
+3
+
+int main()
+
+4
+
+{
+
+5
+
+    // constant float literal
+
+6
+
+    const float floatVal = 4.14;
+
+7
+
+​
+
+8
+
+    printf("Floating point literal: %.2f\n",
+
+9
+
+        floatVal);
+
+10
+
+    return 0;
+
+11
+
+}
+
+
+Output
+
+Floating point literal: 4.14
+
+3. Character Literals
+
+This refers to the literal that is used to store a single character within a single quote. To store multiple characters, one needs to use a character array. Storing more than one character within a single quote will throw a warning and display just the last character of the literal. It gives rise to the following two representations:
+
+    char type: This is used to store normal character literal or narrow-character literals. 
+
+Example:
+
+char chr = 'G';
+
+Example:
+1
+
+#include <stdio.h>
+
+2
+
+​
+
+3
+
+int main()
+
+4
+
+{
+
+5
+
+    // constant char literal
+
+6
+
+    const char charVal = 'A';
+
+7
+
+​
+
+8
+
+    printf("Character Literal: %c\n",
+
+9
+
+        charVal);
+
+10
+
+    return 0;
+
+11
+
+}
+
+
+Output
+
+Character Literal: A
+
+
+Escape Sequences: There are various special characters that one can use to perform various operations.
+4. String Literals
+
+String literals are similar to that character literals, except that they can store multiple characters and uses a double quote to store the same. It can also accommodate the special characters and escape sequences mentioned in the table above. We can break a long line into multiple lines using string literal and can separate them with the help of white spaces.
+Example:
+
+char stringVal[] = "GeeksforGeeks";
+
+Example:
+1
+
+#include <stdio.h>
+
+2
+
+​
+
+3
+
+int main()
+
+4
+
+{
+
+5
+
+    const char str[]
+
+6
+
+        = "Welcome\nTo\nGeeks\tFor\tGeeks";
+
+7
+
+    printf("%s", str);
+
+8
+
+    return 0;
+
+9
+
+}
+
+
+Output
+
+Welcome
+To
+Geeks    For    Geeks
+Derived Data Types in C++
+Last Updated : 18 Dec, 2024
+
+The data types that are derived from the primitive or built-in datatypes are referred to as Derived Data Types. They are generally the data types that are created from the primitive data types and provide some additional functionality.
+
+In C++, there are four different derived data types:
+
+Table of Content
+
+    Functions
+    Arrays
+    Pointers
+    References
+    
+    
+User Defined Data Types in C++
+Last Updated : 16 Jan, 2025
+
+User defined data types are those data types that are defined by the user himself. In C++, these data types allow programmers to extend the basic data types provided and create new types that are more suited to their specific needs. C++ supports 5 user-defined data types:
+
+Table of Content
+
+    Class
+    Structure
+    Union
+    Enumeration
+    Typedef
+
+Let’s take a look at each of them one by one.
+1. Class
+
+A Class is the building block of C++’s Object-Oriented programming paradigm. It is a user-defined data type, which holds its own data members and member functions, which can be accessed and used by creating an instance of that class. A class is like a blueprint for an object.
+#include <bits/stdc++.h>
+using namespace std;
+
+class GfG {
+  
+    // Access specifier
+public:
+  
+    // Data Member
+    string name;
+
+    // Member Function
+    void printname() {
+        cout << name;
+    }
+};
+
+int main() {
+
+    // Declare an object of class geeks
+    GfG g;
+
+    // Accessing data member
+    g.name = "GeeksForGeeks";
+
+    // Accessing member function
+    g.printname();
+
+    return 0;
+}
+Explanation: The above program defines a class named GfG with a name attribute and a function printname() to print the name. In the main function, it creates an object named g, sets the geekname as “GeeksforGeeks“, and calls the printname() function to display it.
+2. Structure
+
+A Structure is a user-defined data type like class. A structure creates a data type that can be used to group items of possibly different types into a single type.
+
+3. Union
+
+Like structures , union is also user-defined data type used to group data of different type into a single type. But in union, all members share the same memory location.
+Explanation: The above program demonstrates the use of unions. Union named A with members i and c is defined that shares the same memory space. It is shown that when we only assign c some value, the i also stores the same value.
+4. Enumeration
+
+Enumeration (or enum) is a user-defined data type in C++ mainly used to assign names to integral constants, the names make a program easy to read and maintain.
+5. Typedef and Using
+
+C++ allows you to define explicitly new data type names by using the keywords typedef or using. They do not create a new data class, rather, defines a name for an existing type. This can increase the portability (the ability of a program to be used across different types of machines; i.e., mini, mainframe, micro, etc; without many changes to the code) of a program as only the typedef statements would have to be changed.
+
+Data Type Ranges and Their Macros in C++
+Last Updated : 18 Dec, 2024
+
+Most of the times, in competitive programming, there is a need to assign the variable, the maximum or minimum value that data type can hold but remembering such a large and precise number comes out to be a difficult job. Therefore, C++ has certain macros to represent these numbers, so that these can be directly assigned to the variable without actually typing the whole number.
+
+The <climits> header file in C++ defines macros that represent the upper and lower bounds of integer data types and <cfloat> defines the macros for float and double limits. These macros allow you to easily assign these extreme values to variables without manually typing them out.
+
+Let’s take a look at an example:
+#include <iostream>
+
+// for int, char macros
+#include <climits>
+
+// for float, double macros
+#include <cfloat>
+
+using namespace std;
+
+int main() {
+  
+    // Displaying ranges with the help of macros
+    cout << "char ranges from: " << CHAR_MIN << " to "
+         << CHAR_MAX << endl;
+
+    cout << "\nnshort int ranges from: " << SHRT_MIN
+         << " to " << SHRT_MAX << endl;
+    cout << "\nint ranges from: " << INT_MIN << " to "
+         << INT_MAX << endl;
+    cout << "\nlong int ranges from: " << LONG_MIN << " to "
+         << LONG_MAX << endl;
+    cout << "\nfloat ranges from: " << FLT_MIN << " to "
+         << FLT_MAX << endl;
+
+    return 0;
+}
+Output
+
+char ranges from: -128 to 127
+
+nshort int ranges from: -32768 to 32767
+
+int ranges from: -2147483648 to 2147483647
+
+long int ranges from: -9223372036854775808 to 9223372036854775807
+
+float ranges from: 1.17549e-38 to 3.40282e+38
+Data Types and Their Range Macros
+
+A list of some of the data type macros is mentioned below:
+
+Data Type
+	
+
+Range
+	
+
+Macro for min value
+	
+
+Macro for max value
+
+char
+	
+
+-128 to +127
+	
+
+CHAR_MIN
+	
+
+CHAR_MAX
+
+short char
+	
+
+-128 to +127
+	
+
+SCHAR_MIN
+	
+
+SCHAR_MAX
+
+unsigned char
+	
+
+0 to 255
+	
+
+—
+	
+
+UCHAR_MAX
+
+short int
+	
+
+-32768 to +32767
+	
+
+SHRT_MIN
+	
+
+SHRT_MAX
+
+unsigned short int
+	
+
+0 to 65535
+	
+
+—
+	
+
+USHRT_MAX
+
+int
+	
+
+-2147483648 to +2147483647
+	
+
+INT_MIN
+	
+
+INT_MAX
+
+unsigned int
+	
+
+0 to 4294967295
+	
+
+—
+	
+
+UINT_MAX
+
+long int
+	
+
+-9223372036854775808 to +9223372036854775807
+	
+
+LONG_MIN
+	
+
+LONG_MAX
+
+unsigned long int
+	
+
+0 to 18446744073709551615
+	
+
+—
+	
+
+ULONG_MAX
+
+long long int
+	
+
+-9223372036854775808 to +9223372036854775807
+	
+
+LLONG_MIN
+	
+
+LLONG_MAX
+
+unsigned long long int
+	
+
+0 to 18446744073709551615
+	
+
+—
+	
+
+ULLONG_MAX
+
+float
+	
+
+1.17549e-38 to 3.40282e+38
+	
+
+FLT_MIN
+	
+
+FLT_MAX
+
+float (negative)
+	
+
+-1.17549e-38 to -3.40282e+38
+	
+
+-FLT_MIN
+	
+
+-FLT_MAX
+
+double
+	
+
+2.22507e-308 to 1.79769e+308
+	
+
+DBL_MIN
+	
+
+DBL_MAX
+
+double (negative)
+	
+
+-2.22507e-308 to -1.79769e+308
+	
+
+-DBL_MIN
+	
+
+-DBL_MAX
+Data Type Limits in Modern C++
+
+The above macro approach for the upper and lower limits of the data type is the old C language approach inherited by C++. But C++ also have its own method to provide programmers with the same information.
+
+C++ offers the numeric_limits<> class template as a modern alternative to these macros. This template provides a more object-oriented approach for accessing data type limits. It is defined inside the <limits> header file.
+
+Let’s take a look at an example:
+#include <iostream>
+#include <limits>
+using namespace std;
+
+int main() {
+  
+    // Displaying ranges with the help of macros
+    cout << "short int ranges from: " << numeric_limits<short int>::min()
+         << " to " << numeric_limits<short int>::max() << endl;
+    cout << "\nint ranges from: " << numeric_limits<int>::min() << " to "
+         << numeric_limits<int>::max() << endl;
+    cout << "\nlong int ranges from: " << numeric_limits<long>::min() << " to "
+         << numeric_limits<long>::max() << endl;
+    cout << "\nfloat ranges from: " << numeric_limits<float>::min() << " to "
+         << numeric_limits<float>::max() << endl;
+
+    return 0;
+}
+short int ranges from: -32768 to 32767
+
+int ranges from: -2147483648 to 2147483647
+
+long int ranges from: -9223372036854775808 to 9223372036854775807
+
+float ranges from: 1.17549e-38 to 3.40282e+38
+.
+Data Types and Their Range Macros
+
+A list of some of the data type macros is mentioned below:
+
+Data Type
+	
+
+Range
+	
+
+Macro for min value
+	
+
+Macro for max value
+
+char
+	
+
+-128 to +127
+	
+
+CHAR_MIN
+	
+
+CHAR_MAX
+
+short char
+	
+
+-128 to +127
+	
+
+SCHAR_MIN
+	
+
+SCHAR_MAX
+
+unsigned char
+	
+
+0 to 255
+	
+
+—
+	
+
+UCHAR_MAX
+
+short int
+	
+
+-32768 to +32767
+	
+
+SHRT_MIN
+	
+
+SHRT_MAX
+
+unsigned short int
+	
+
+0 to 65535
+	
+
+—
+	
+
+USHRT_MAX
+
+int
+	
+
+-2147483648 to +2147483647
+	
+
+INT_MIN
+	
+
+INT_MAX
+
+unsigned int
+	
+
+0 to 4294967295
+	
+
+—
+	
+
+UINT_MAX
+
+long int
+	
+
+-9223372036854775808 to +9223372036854775807
+	
+
+LONG_MIN
+	
+
+LONG_MAX
+
+unsigned long int
+	
+
+0 to 18446744073709551615
+	
+
+—
+	
+
+ULONG_MAX
+
+long long int
+	
+
+-9223372036854775808 to +9223372036854775807
+	
+
+LLONG_MIN
+	
+
+LLONG_MAX
+
+unsigned long long int
+	
+
+0 to 18446744073709551615
+	
+
+—
+	
+
+ULLONG_MAX
+
+float
+	
+
+1.17549e-38 to 3.40282e+38
+	
+
+FLT_MIN
+	
+
+FLT_MAX
+
+float (negative)
+	
+
+-1.17549e-38 to -3.40282e+38
+	
+
+-FLT_MIN
+	
+
+-FLT_MAX
+
+double
+	
+
+2.22507e-308 to 1.79769e+308
+	
+
+DBL_MIN
+	
+
+DBL_MAX
+
+double (negative)
+	
+
+-2.22507e-308 to -1.79769e+308
+	
+
+-DBL_MIN
+	
+
+-DBL_MAX 
+
+
+Data Type Limits in Modern C++
+
+The above macro approach for the upper and lower limits of the data type is the old C language approach inherited by C++. But C++ also have its own method to provide programmers with the same information.
+
+C++ offers the numeric_limits<> class template as a modern alternative to these macros. This template provides a more object-oriented approach for accessing data type limits. It is defined inside the <limits> header file.
+
+Let’s take a look at an example:
+#include <iostream>
+#include <limits>
+using namespace std;
+
+int main() {
+  
+    // Displaying ranges with the help of macros
+    cout << "short int ranges from: " << numeric_limits<short int>::min()
+         << " to " << numeric_limits<short int>::max() << endl;
+    cout << "\nint ranges from: " << numeric_limits<int>::min() << " to "
+         << numeric_limits<int>::max() << endl;
+    cout << "\nlong int ranges from: " << numeric_limits<long>::min() << " to "
+         << numeric_limits<long>::max() << endl;
+    cout << "\nfloat ranges from: " << numeric_limits<float>::min() << " to "
+         << numeric_limits<float>::max() << endl;
+
+    return 0;
+}
+short int ranges from: -32768 to 32767
+
+int ranges from: -2147483648 to 2147483647
+
+long int ranges from: -9223372036854775808 to 9223372036854775807
+
+float ranges from: 1.17549e-38 to 3.40282e+38
+
+It is recommended to use this approach to find the upper and lower limits of the data type instead of macros as it is more type safe, and readable compared to the macro-based approach.
+
+
+
+
+C++ Type Modifiers
+Last Updated : 30 Dec, 2024
+
+In C++, type modifiers are the keywords used to change or give extra meaning to already existing data types. It is added to primitive data types as a prefix to modify their size or range of data they can store.
+
+C++ have 4 type modifiers which are as follows:
+
+Let’s understand at each of them one by one.
+1. signed Modifier
+
+The signed modifier indicates that the given variable variables can store both positive and negative values. To specify any variable as signed, just add the keyword signed at the start of the variable declaration.
+
+Syntax
+
+    signed type name;
+
+
+#include <iostream>
+using namespace std;
+
+int main() {
+  
+      // Printing the size of normal and signed int
+      cout << "signed int size: " << sizeof(signed int)
+          << " bytes" << endl;
+    cout << "int size: " << sizeof(int) << " bytes";
+
+    return 0;
+}
+signed int's size: 4 bytes
+int's size: 4 bytes
+
+    Note: The int datatype is signed by default. So, int can directly be used instead of signed int.
+
+
+2. unsigned Modifier
+
+The unsigned modifier indicates that the given variables can store only non-negative integer values. Like signed modifier, it is also added at the start of the variable declaration to define the given variable as unsigned.
+
+Syntax
+
+    unsigned type name;
+
+Unsigned modifier can only be used with integer and character data types.
+
+2. unsigned Modifier
+
+The unsigned modifier indicates that the given variables can store only non-negative integer values. Like signed modifier, it is also added at the start of the variable declaration to define the given variable as unsigned.
+
+Syntax
+
+    unsigned type name;
+
+Unsigned modifier can only be used with integer and character data types.
+As we can see, when we assigned some negative value to unsigned integer, the value gets converted to its 2’s complement because unsigned types cannot store the negative values.
+3. short Modifier
+
+The short keyword decreases the size of the data type in the memory. It leads to the decrease in the range of value that the given data type can store. A variable can be declared as short by adding the short keyword before the variable declaration.
+
+Syntax
+
+    short type name;
+
+#include <iostream>
+using namespace std;
+
+int main() {
+  
+      // Printing the size of short and normal ints
+    cout << "short int size: " << sizeof(short int)
+          << " bytes" << endl;
+      cout << "int size: " << sizeof(int)
+          << " bytes";
+    return 0;
+}
+4. long Modifier
+
+The long keyword increases the size of the data type in memory. It leads to increase in the range of value that the given data type can store. A variable can be declared as long by adding the long keyword before the variable declaration.
+
+Syntax
+
+    long type name;
+
+The long modifier can be used with integer and double data type. It can also be used twice on integers.
+
+Example:
+1
+
+#include <iostream>
+
+2
+
+using namespace std;
+
+3
+
+​
+
+4
+
+int main() {
+
+5
+
+  
+
+6
+
+      // Printing the size of long and normal ints
+
+7
+
+      // double and long double
+
+8
+
+    cout << "int size: " << sizeof(int)
+
+9
+
+          << " bytes" << endl;
+
+10
+
+      cout << "long int size: " << sizeof(long int)
+
+11
+
+          << " bytes" << endl;
+
+12
+
+      cout << "double size: " << sizeof(double)
+
+13
+
+          << " bytes" << endl;
+
+14
+
+      cout << "long double size: " << sizeof(long double)
+
+15
+
+          << " bytes";
+
+16
+
+    return 0;
+
+17
+
+}
+int size: 4 bytes
+long int size: 8 bytes
+double size: 8 bytes
+long double size: 16 bytes
+
+    Note: The long int can be written as long also. They are equivalent.
+
+
+Size and Range of Data Types with Modifiers
+
+The below table lists the size and the range of data type (in 64-bit compiler) that is changed with the help of modifiers:
+Data Type	Modifiers	Size (bytes)	Range
+char	signed	1	-128 to 127
+unsigned (default)	1	0 to 255
+short int	signed (default)	2	-32,768 to 32,767
+unsigned	2	0 to 65,535
+int	signed (default)	4	-2,147,483,648 to 2,147,483,647
+unsigned	4	0 to 4,294,967,295
+long int	signed (default)	8	-9,223,372,036,854,775,808 to 9,223,372,036,854,775,807
+unsigned	8	0 to 18,446,744,073,709,551,615
+long long int	signed (default)	8	-9,223,372,036,854,775,808 to 9,223,372,036,854,775,807
+unsigned	8	0 to 18,446,744,073,709,551,615
+double	None	8	~1.7E-308 to 1.7E+308
+long double	None	16	Higher precision, range varies depending on implementatio
+
+The short keyword can only be used with integer data type.
+    Note: The short int can be written as short also. They are equivalent.
+
+
+Type Conversion in C++
+Last Updated : 30 Dec, 2024
+
+Type conversion means converting one type of data to another compatible type such that it doesn’t lose its meaning. It is essential for managing different data types in C++.
+
+Let’s take a look at an example:
+#include <iostream>
+using namespace std;
+
+int main() {
+  
+      // Two variables of different type
+    int i = 10;
+    char c = 'A';
+  
+      // printing c after manually converting it
+      cout << (int)c << endl;
+      
+      // Adding i and c,
+      int sum = i + c;
+  
+      // Printing sum
+      cout << sum;
+      
+    return 0;
+}
+65
+75
+
+Explanation: The character c = (‘A’) is manually converted to its ASCII integer value using (int)c. The addition of i = 10 and c involves automatic type conversion, where the character c is automatically converted to its ASCII value (65) before the addition. The C++ Course covers the various methods of type conversion, helping you understand how to handle data types correctly.
+
+In C++, there are two types of type conversion:
+Implicit Type Conversion
+
+Implicit type conversion (also known as coercion) is the conversion of one type of data to another type automatically by the compiler when needed. It happens automatically when:
+
+    Operations are performed on values of different data types.
+    If you pass an argument to a function that expects a different data type.
+    Assigning a value of one data type to a variable of another data type.
+    
+    #include <iostream>
+using namespace std;
+
+int main() {
+  
+    int i = 10;
+    char c = 'a';
+
+    // c implicitly converted to int. ASCII
+    // value of 'a' is 97
+    i = i + c;
+
+    // x is implicitly converted to float
+    float f = i + 1.0;
+
+    cout << "i = " << i << endl
+         << "c = " << c << endl
+         << "f = " << f;
+
+    return 0;
+}
+i = 107
+c = a
+f = 108
+
+It is possible for implicit conversions to lose information, signs can be lost (when signed is implicitly converted to unsigned), and overflow can occur (when long long is implicitly converted to float).
+Cases of Implicit Type Conversion
+
+1. For Numeric Type
+
+All the data types of the variables are upgraded to the data type of the variable with largest data type. For numeric type,
+
+    bool -> char -> short int -> int ->  unsigned int -> long -> unsigned -> long long -> float -> double -> long double
+
+2. Pointer Conversions
+
+Pointers to derived classes can be converted to pointers to base classes automatically.
+
+3. Boolean Conversion
+
+Any scalar type (integer, floating-point, pointer) is implicitly converted to bool in a context that requires a Boolean value (e.g., if, while, for conditions).
+Explicit Type Conversion
+
+Explicit type conversion, also called type casting is the conversion of one type of data to another type manually by a programmer. Here the user can typecast the result to make it of a particular data type. In C++, it can be done by two ways: 
+1. C Style Typecasting
+
+This method is inherited by C++ from C. The conversion is done by explicitly defining the required type in front of the expression in parenthesis. This can be also known as forceful casting.
+
+    (type) expression;
+
+where type indicates the data type to which the final result is converted. 
+#include <iostream>
+using namespace std;
+
+int main() {
+    double x = 1.2;
+
+    // Explicit conversion from double to int
+    int sum = (int)x + 1;
+
+    cout << sum;
+
+    return 0;
+}
+2
+
+This typecasting is considered old and unsafe because it performs no checks whatsoever to determine whether the casting is valid or not.
+C++ Style Typecasting
+
+C++ introduced its own typecasting method using cast operators. Cast operator is an unary operator which forces one data type to be converted into another data type. C++ supports four types of casting:
+
+    Static Cast: Used for standard compile time type conversions.
+    Dynamic Cast: Used for runtime type conversion in polymorphism and inheritance.
+    Const Cast: Removes or adds const or volatile qualifiers.
+    Reinterpret Cast: Used for low-level reinterpretation of bits (e.g., converting pointers).
+    #include <iostream>
+using namespace std;
+
+int main() {
+    double x = 1.2;
+
+    // Explicit conversion from double to int
+    int sum = static_cast<int>(x + 1);
+
+    cout << sum;
+    return 0;
+}
+2
+
+Risks of Type Conversion
+
+Type conversion provides useful functionality to the language but also introduces certain risks:
+
+    Data loss that occurs when converting from a larger type to a smaller type (e.g., int to char).
+    Undefined behavior that happens when casting pointers between unrelated types and dereferencing them.
+    Violation of const correctness when removing const with const_cast and modifying the variable leads to undefined behavior.
+    Memory misalignment casting pointers to types with stricter alignment can cause crashes.
+    
+    ### **`#include <bits/stdc++.h>` vs. `#include <iostream>` in C++**
+Both headers serve different purposes in C++ programming. Let's break it down:
+
+---
+
+## **1️⃣ `#include <bits/stdc++.h>` (All-in-One Header)**
+This is a **non-standard header** that includes **almost all** C++ standard libraries at once.  
+It is mainly used in **competitive programming** to save time.
+
+### ✅ **Advantages:**
+✔ **Includes Everything** – You don’t need to manually `#include` multiple headers like `<vector>`, `<map>`, `<cmath>`, etc.  
+✔ **Faster to Write** – Saves time in contests.  
+✔ **Reduces Debugging Effort** – No missing header errors.  
+
+### ❌ **Disadvantages:**
+❌ **Non-Standard** – It **only works with GCC/Clang**, not in MSVC (Microsoft Visual C++).  
+❌ **Increases Compilation Time** – Since it includes **everything**, compiling is slower.  
+❌ **Not Recommended for Production Code** – Makes code **less readable** and includes unnecessary libraries.  
+
+### **Example Usage (`bits/stdc++.h`)**
+```cpp
+#include <bits/stdc++.h>
+using namespace std;
+
+int main() {
+    vector<int> v = {1, 2, 3};
+    cout << "Size: " << v.size() << endl;
+    return 0;
+}
+```
+- This works because `<bits/stdc++.h>` automatically includes `<vector>` and `<iostream>`.
+
+---
+
+## **2️⃣ `#include <iostream>` (Standard Library)**
+This is a **standard** header file that only includes **input-output functionality**.
+
+### ✅ **Advantages:**
+✔ **Standard and Portable** – Works on all compilers.  
+✔ **Faster Compilation** – Only includes necessary code.  
+✔ **Better for Large Projects** – Keeps dependencies minimal.  
+
+### ❌ **Disadvantages:**
+❌ **Requires Manual Inclusion of Other Headers** – If you need vectors, maps, etc., you must include `<vector>`, `<map>`, etc.  
+
+### **Example Usage (`iostream` Only)**
+```cpp
+#include <iostream>
+using namespace std;
+
+int main() {
+    cout << "Hello, World!" << endl;
+    return 0;
+}
+```
+- This only provides **input/output** (`cin`, `cout`).
+- If you need `vector`, `map`, etc., you must manually `#include` them.
+
+---
+
+## **🚀 Which One Should You Use?**
+| Feature              | `#include <bits/stdc++.h>` | `#include <iostream>` |
+|----------------------|-------------------------|------------------|
+| **Compilation Speed** | ❌ Slower | ✅ Faster |
+| **Portability**       | ❌ GCC/Clang Only | ✅ Works Everywhere |
+| **Readability**      | ❌ Messy | ✅ Clearer |
+| **Memory Usage**     | ❌ Higher | ✅ Lower |
+| **Use Case**         | ✅ Competitive Programming | ✅ Production & Large Projects |
+
+👉 **Use `#include <bits/stdc++.h>`** in **competitive programming** for speed.  
+👉 **Use `#include <iostream>` and proper headers** in **real-world applications** for better performance and maintainability.  
+
+Let me know if you have more questions! 🚀
+
+1. static_cast
+
+The static_cast operator is the most commonly used casting operator in C++. It performs compile-time type conversion and is mainly used for explicit conversions that are considered safe by the compiler. 
+
+Syntax
+
+
+    static_cast <new_type> (exp);
+
+where,
+
+    exp: Data to be converted.
+    new_type: Desired type of expression
+
+The static_cast can be used to convert between related types, such as numeric types or pointers in the same inheritance hierarchy.
+
+Example
+#include <bits/stdc++.h>
+using namespace std;
+
+int main() {
+
+    int n = 10;
+
+    // converting int to double
+    double nd = static_cast<double>(n);
+
+    // printing data type
+    cout << typeid(n).name() << endl;
+
+    // typecasting
+    cout << typeid(static_cast<double>(n)).name() << endl;
+
+    // Printing double type
+    cout << typeid(nd).name();
+
+    return 0;
+}
+
+typeid operator in C++ with Examples
+Last Updated : 03 Sep, 2021
+
+typeid is an operator in C++. 
+
+    It is used where the dynamic type or runtime type information of an object is needed.
+    It is included in the <typeinfo> library. Hence inorder to use typeid, this library should be included in the program.
+    The typeid expression is an lvalue expression.
+
+Syntax:  
+
+typeid(type);
+OR
+typeid(expression);
+
+Parameters: typeid operator accepts a parameter, based on the syntax used in the program:  
+
+    type: This parameter is passed when the runtime type information of a variable or an object is needed. In this, there is no evaluation that needs to be done inside type and simply the type information is to be known.
+    expression: This parameter is passed when the runtime type information of an expression is needed. In this, the expression is first evaluated. Then the type information of the final result is then provided.
+
+Return value: This operator provides the runtime type information of the specified parameter and hence that type information is returned, as a reference to an object of class type_info.
+Usage: typeid() operator is used in different way according to the operand type. 
+
+    When operand is a variable or an object.
+    // C++ program to show the use of typeid operator 
+
+#include <iostream> 
+#include <typeinfo> 
+using namespace std; 
+
+int main() 
+{ 
+	int i, j; 
+	char c; 
+
+	// Get the type info using typeid operator 
+	const type_info& ti1 = typeid(i); 
+	const type_info& ti2 = typeid(j); 
+	const type_info& ti3 = typeid(c); 
+
+	// Check if both types are same 
+	if (ti1 == ti2) 
+		cout << "i and j are of"
+			<< " similar type" << endl; 
+	else
+		cout << "i and j are of"
+			<< " different type" << endl; 
+
+	// Check if both types are same 
+	if (ti2 == ti3) 
+		cout << "j and c are of"
+			<< " similar type" << endl; 
+	else
+		cout << "j and c are of"
+			<< " different type" << endl; 
+
+	return 0; 
+} 
+
+i and j are of similar type
+j and c are of different type
+// C++ program to show the use of typeid operator 
+
+#include <iostream> 
+#include <typeinfo> 
+using namespace std; 
+
+int main() 
+{ 
+	int i = 5; 
+	float j = 1.0; 
+	char c = 'a'; 
+
+	// Get the type info using typeid operator 
+	const type_info& ti1 = typeid(i * j); 
+	const type_info& ti2 = typeid(i * c); 
+	const type_info& ti3 = typeid(c); 
+
+	// Print the types 
+	cout << "ti1 is of type "
+		<< ti1.name() << endl; 
+
+	cout << "ti2 is of type "
+		<< ti2.name() << endl; 
+
+	cout << "ti3 is of type "
+		<< ti3.name() << endl; 
+
+	return 0; 
+} 
+
+ti1 is of type f
+ti2 is of type i
+ti3 is of type c
+
+Explanation: In this example, we have used typeid() operator to check the data type. We have defined an integer variable n and converted it into a double using static_cast. After that, we print the data types of variables and pass static_cast<double>(n) in typeid() to check its data type. we can see the output “i, d, d” is printed where i denotes integer and d denotes double.
+1. static_cast
+
+The static_cast operator is the most commonly used casting operator in C++. It performs compile-time type conversion and is mainly used for explicit conversions that are considered safe by the compiler. 
+
+Syntax
+
+
+    static_cast <new_type> (exp);
+
+where,
+
+    exp: Data to be converted.
+    new_type: Desired type of expression
+
+The static_cast can be used to convert between related types, such as numeric types or pointers in the same inheritance hierarchy.
+#include <bits/stdc++.h>
+using namespace std;
+
+int main() {
+
+    int n = 10;
+
+    // converting int to double
+    double nd = static_cast<double>(n);
+
+    // printing data type
+    cout << typeid(n).name() << endl;
+
+    // typecasting
+    cout << typeid(static_cast<double>(n)).name() << endl;
+
+    // Printing double type
+    cout << typeid(nd).name();
+
+    return 0;
+}
+
+i
+d
+d
+
+Explanation: In this example, we have used typeid() operator to check the data type. We have defined an integer variable n and converted it into a double using static_cast. After that, we print the data types of variables and pass static_cast<double>(n) in typeid() to check its data type. we can see the output “i, d, d” is printed where i denotes integer and d denotes double.
+
+2. dynamic_cast - after oops
+
+3. const_cast
+
+The const_cast operator is used to modify the const or volatile qualifier of a variable. It allows programmers to temporarily remove the constancy of an object and make modifications. Caution must be exercised when using const_cast, as modifying a const object can lead to undefined behavior.
+
+Syntax
+
+    const_cast <new_type> (exp);
+
+
+#include <iostream>
+using namespace std;
+
+int main() {
+
+    const int n = 5;
+  
+    // Pointer to a const int
+    const int* ptr = &n;
+
+    // int* nonConstPtr = ptr; if we use this
+    // instead of without using const_cast
+    // we will get error of invalid conversion
+    int* nonConstPtr = const_cast<int*>(ptr);
+    *nonConstPtr = 10;
+
+    cout << *nonConstPtr;
+
+    return 0;
+}
+
+10
+
+Explanation: In the above example, we have modified the value of the const type pointer by changing its qualifier from const to non-const and then printing the modified value.
+4. reinterpret_cast
+
+The reinterpret_cast operator is used to convert the pointer to any other type of pointer. It does not perform any check whether the pointer converted is of the same type or not.
+
+Syntax
+
+    reinterpret_cast <new_type> (exp);
+
+
+#include <iostream>
+using namespace std;
+
+int main() {
+    int n = 10;
+  
+    // Store the address of number in nptr
+    int* nptr = &n;
+
+    // Reinterpreting the pointer as a char pointer
+    char* charptr = reinterpret_cast<char*>(nptr);
+
+    // Printing the memory addresses and values
+    cout << "Integer Address: " << nptr << endl;
+    cout << "Char Address: " << charptr;
+
+    return 0;
+}
+Integer Address: 0x7ffcd595d6fc
+Char Address: 0x7ffcd595d6fc
+
+Explanation: In the above example, we have defined an int variable n and then store the address of n in nptr of the int type after that we have converted the nptr of the int type into char pointer and then store it into charptr variable. To verify that we have printed the address of both nptr and charptr. To print the address stored in charptr reinterpret_cast<void*> is used to bypass the type-checking mechanism of C++ and allow the pointer to be printed as a generic memory address without any type-specific interpretation.
+    Note: const_cast and reinterpret_cast are generally not recommended as they vulnerable to different kinds of errors.
+
+
+
