@@ -3790,3 +3790,1379 @@ Explanation: In the above example, we have defined an int variable n and then st
 
 
 
+
+Operators in C++
+Last Updated : 20 Jan, 2025
+
+In C++, an operator is a symbol that operates on a value to perform specific mathematical or logical computations on given values. They are the foundation of any programming language.
+#include <iostream>
+using namespace std;
+int main() {
+  
+    int a = 10 + 20;
+  
+    cout << a;
+    return 0;
+}
+
+. Arithmetic Operators
+
+Arithmetic operators are used to perform arithmetic or mathematical operations on the operands. For example, ‘+’ is used for addition.
+Name	Symbol	Description
+Addition	+	Adds two operands.
+Subtraction	–	Subtracts second operand from the first.
+Multiplication	*	Multiplies two operands.
+Division	/	Divides first operand by the second operand.
+Modulo Operation	%	Returns the remainder an integer division.
+
+Increment
+	
+
+++
+	
+
+Increase the value of operand by 1.
+
+Decrement
+	
+
+—
+	
+
+Decrease the value of operand by 1.
+
+2. Relational Operators
+
+Relational operators are used for the comparison of the values of two operands. For example, ‘>’ check right operand is greater.
+Name	Symbol	Description
+Is Equal To	==	Checks both operands are equal
+Greater Than	>	Checks first operand is greater than the second operand
+Greater Than or Equal To	>=	Checks first operand is greater than equal to the second operand
+Less Than	<	Checks first operand is lesser than the second operand
+Less Than or Equal To	<=	Checks first operand is lesser than equal to the second operand
+Not Equal To	!=	Checks both operands are not equal
+
+3. Logical Operators
+
+Logical operators are used to combine two or more conditions or constraints or to complement the evaluation of the original condition in consideration. The result returns a Boolean value, i.e., true or false.
+Name	Symbol	Description
+Logical AND	&&	Returns true only if all the operands are true or non-zero.
+Logical OR	||	Returns true if either of the operands is true or non-zero.
+Logical NOT	!	Returns true if the operand is false or zero.
+4. Bitwise Operators
+
+Bitwise operators are works on bit-level. So, compiler first converted to bit-level and then the calculation is performed on the operands.
+Name	Symbol	Description
+Binary AND	&	Copies a bit to the evaluated result if it exists in both operands
+Binary OR	|	Copies a bit to the evaluated result if it exists in any of the operand
+Binary XOR	^	Copies the bit to the evaluated result if it is present in either of the operands but not both
+Left Shift	<<	Shifts the value to left by the number of bits specified by the right operand.
+Right Shift	>>	Shifts the value to right by the number of bits specified by the right operand.
+One’s Complement	~	Changes binary digits 1 to 0 and 0 to 1
+
+
+Unary Operators in C
+Last Updated : 04 Feb, 2025
+
+In C programming, unary operators are operators that operate on a single operand. These operators are used to perform operations such as negation, incrementing or decrementing a variable, or checking the size of a variable. They provide a way to modify or manipulate the value of a single variable in an efficient manner.
+
+C provides 9 unary operators that can be used to perform various operations on a single variable. These include:
+1. Increment Operator (++)
+
+The increment operator ( ++ ) is used to increment the value of the variable by 1. The increment can be done in two ways:
+
+A. Prefix Increment
+
+In this method, the operator precedes the operand (e.g., ++a). The value of the operand will be altered before it is used. For example:
+B. Postfix Increment
+
+In this method, the operator follows the operand (e.g., a++). The value operand will be altered after it is used. For example:
+
+
+2. Decrement Operator (–)
+
+The decrement operator ( — ) is used to decrement the value of the variable by 1. The decrement can be done in two ways:
+
+A. Prefix Decrement
+
+In this method, the operator precedes the operand (e.g., – -a). The value of the operand will be altered before it is used. For example:
+
+    int a = 1;
+    int b = –a;  // b = 0
+
+B. Postfix Decrement
+
+In this method, the operator follows the operand (e.g., a- -). The value of the operand will be altered after it is used. For example:
+
+    int a = 1;
+    int b = a–;   // b = 1
+    int c = a;     // c = 0
+
+Below example shows the implementation of decrement (–):
+Unary Plus
+
+The unary plus (+) operator does not change the sign of its argument; it simply returns the value as is. It is often used for code clarity rather than functionality.
+
+    int a = -10;  
+    int b = +a;  // b = -10 
+
+The unary plus is different from the addition operator, as addition requires two operands.
+
+Below is the implementation of the unary plus (+) operator:
+Unary Minus
+
+The minus operator ( – ) changes the sign of its argument. A positive number becomes negative, and a negative number becomes positive.
+
+     int a = 10;
+    int b = -a;  // b = -10
+
+Unary minus is different from the subtraction operator, as subtraction requires two operands.
+
+Below is the implementation of the unary minus (-) operator:
+Logical NOT ( ! )
+
+The logical NOT operator ( ! ) is used to reverse the logical state of its operand. If a condition is true, then the Logical NOT operator will make it false.
+
+Example:
+
+    If x is true, then !x is false
+    If x is false, then !x is true
+
+Below is the implementation of the NOT (!) operator:
+Bitwise NOT ( ~ )
+
+The bitwise NOT (~) operator inverts all bits of its operand. Each 0 becomes 1, and each 1 becomes 0. It effectively calculates the two’s complement negative equivalent of a number in signed integers.
+
+    x = 5 (00000101 in binary),
+    ~x = ~6 (11111010 in binary, two’s complement representation)
+
+Below is the implementation of the bitwise NOT (~) operator:
+Addressof Operator (&)
+
+The addressof operator ( & ) gives an address of a variable. It is used to return the memory address of a variable. These addresses returned by the address-of operator are known as pointers because they “point” to the variable in memory.
+
+Example:
+
+    & gives an address on variable n 
+    int a;
+    int *ptr;
+    ptr = &a; // address of a is copied to the location ptr. 
+
+Below is the implementation of the Addressof operator(&):
+Indirection Operator (*)
+
+The indirection operator (*), also known as the dereference operator, is used to access the value stored at a memory address. It is used with pointers to retrieve the value stored at the referenced memory location.
+
+
+sizeof()
+
+This operator returns the size of its operand, in bytes. The sizeof() operator always precedes its operand. The operand is an expression, or it may be a cast.
+
+    Note: The `sizeof()` operator in C++ is machine dependent. For example, the size of an ‘int’ in C++ may be 4 bytes in a 32-bit machine but it may be 8 bytes in a 64-bit machine.
+
+
+1. Addition Assignment (+=)
+
+Adds the value of the right operand to the left operand and stores the result in the left operand.
+2. Subtraction Assignment (-=)
+
+Subtracts the value of the right operand from the left operand and stores the result in the left operand.
+3. Multiplication Assignment (*=)
+
+Multiplies the value of the right operand by the left operand and stores the result in the left operand.
+4. Division Assignment (/=)
+
+Divides the left operand by the right operand and stores the result in the left operand
+5. Modulus Assignment (%=)
+
+Takes the modulus of the left operand by the right operand and stores the result in the left operand
+6. Bitwise AND Assignment (&=)
+
+Performs a bitwise AND operation and assigns the result.
+7. Bitwise OR Assignment (|=)
+
+Performs a bitwise OR operation and assigns the result.
+8. Bitwise XOR Assignment (^=)
+
+Performs a bitwise XOR operation and assigns the result.
+9. Bitwise Left Shift Assignment (<<=)
+
+Shifts the bits of the left operand to the left by the number of positions specified by the right operand and assigns the result.
+10. Bitwise Right Shift Assignment (>>=)
+
+Shifts the bits of the left operand to the right by the number of positions specified by the right operand and assigns the result
+
+C++ sizeof Operator
+Last Updated : 09 Dec, 2024
+
+The sizeof operator is a unary compile-time operator used to determine the size of variables, data types, and constants in bytes at compile time. It can also determine the size of classes, structures, and unions.
+Syntax of sizeof in C++
+
+The sizeof operator can be used to find the size of a type or a variable in C++ as shown:
+
+    sizeof (type)
+    sizeof (expression)
+
+Examples of sizeof in C++
+
+The below examples demonstrate the common usage of sizeof in C++:
+
+
+
+
+Scope Resolution Operator in C++
+Last Updated : 11 Jan, 2025
+
+In C++, the scope resolution operator (::) is used to access the identifiers such as variable names and function names defined inside some other scope in the current scope. Let’s take a look at an example:
+
+1
+
+#include <iostream>
+
+2
+
+​
+
+3
+
+int main() {
+
+4
+
+​
+
+5
+
+      // Accessing cout from std namespace using scope
+
+6
+
+      // resolution operator
+
+7
+
+    std::cout << "GeeksforGeeks";
+
+8
+
+​
+
+9
+
+    return 0;
+
+10
+
+}
+
+
+Output
+
+GeeksforGeeks
+
+Explanation: The std namespace contains the declaration of cout. So, to use cout, we first need to tell the compiler that it is declared inside the std namespace which is done using ::. The compiler then resolves the cout from there.
+Syntax of Scope Resolution Operator
+
+The scope resolution operator follows this general syntax:
+
+    scope_name :: identifier
+
+where scope_name is the name of the scope where identifier is defined.
+Applications of Scope Resolution Operator
+
+Following are the main applications of scope resolution operator illustrated with an example:
+Accessing Global Variables
+
+When a local variable shadows a global variable, we can use :: to access the global variable
+#include <iostream>
+using namespace std;
+
+// Global x
+int x = 3;
+
+int main() {
+      
+      // Local x
+    int x = 10;
+  
+      // Printing the global x
+    cout << ::x;
+  
+    return 0;
+}
+Refer to Base Class Member in Derived Class
+
+The scope resolution operator can also be used to refer to the members of base class in a derived class especially if they have the same name.
+#include <bits/stdc++.h>
+using namespace std;
+
+class Base {
+public:
+    void func() {
+        cout << "Base class func()" << endl;
+    }
+};
+
+class Derived : public Base {
+public:
+  
+      // Overridden function
+    void func() {
+        cout << "Derived class func()" << endl;
+    }
+};
+
+int main() {
+    Derived obj;
+  
+      // Calling base class's func() from the object of
+      // derived class
+    obj.Base::func();
+  
+    obj.func();
+    return 0;
+}
+Base class func()
+Derived class func()
+
+
+
+
+input /output 
+
+
+Basic Input / Output in C++
+Last Updated : 09 Jan, 2025
+
+In C++, input and output are performed in the form of a sequence of bytes or more commonly known as streams.
+
+    Input Stream: If the direction of flow of bytes is from the device (for example, Keyboard) to the main memory then this process is called input.
+    Output Stream: If the direction of flow of bytes is opposite, i.e. from main memory to device (display screen) then this process is called output.
+
+All of these streams are defined inside the <iostream> header file which contains all the standard input and output tools of C++. The two instances cout and cin of iostream class are used very often for printing outputs and taking inputs respectively. These two are the most basic methods of taking input and printing output in C++.
+Standard Output Stream – cout
+
+The C++ cout is the instance of the ostream class used to produce output on the standard output device which is usually the display screen. The data needed to be displayed on the screen is inserted in the standard output stream (cout) using the insertion operator(<<).
+
+Syntax
+
+    cout << value/variable;
+
+For example, if we want to print text “GeeksforGeeks” on the display, we can use the cout as shown:
+
+#include <iostream>
+using namespace std;
+
+int main() {
+
+      // Printing the given text using cout
+    cout << "GeeksforGeeks";
+    return 0;
+}
+
+
+Explanation: In the above program, cout is used to output the text “GeeksforGeeks” to the standard output stream. It works in conjunction with the insertion operator (<<) to send the specified data to the output stream.
+
+We can also print the variable values using cout.
+
+#include <iostream>
+using namespace std;
+
+int main() {
+    int a = 22;
+  
+      // Printing variable 'a' using cout
+    cout << a;
+    return 0;
+}
+
+
+Output
+
+22
+
+Understanding input and output operations is essential for any C++ programmer. The C++ Course includes comprehensive lessons on basic I/O operations, ensuring you can manage user interaction in your programs.
+Standard Input Stream – cin
+
+The C++ cin statement is the instance of the class istream and is used to read input from the standard input device which is usually a keyboard. The extraction operator (>>) is used along with the object cin for extracting the data from the input stream and store it in some variable in the program.
+
+Syntax
+
+    cin >> variable;
+
+For example, if we want to ask user for his/her age, then we can use cin as shown:
+#include <iostream>
+using namespace std;
+
+int main() {
+    int age;
+
+      // Output a label
+    cout << "Enter your age:";
+  
+      // Taking input from user and store
+      // it in variable
+    cin >> age;
+  
+      // Output the entered age
+    cout << "Age entered: " << age;
+    return 0;
+}
+
+Enter your age: 18 (18 entered by the user)
+
+Output
+
+Your age is: 18
+
+Explanation: The above program asks the user to input the age. The object cin is connected to the input device (keyboard). The age entered by the user is extracted from cin using the extraction operator(>>) and the extracted data is then stored in the variable age present on the right side of the extraction operator.
+
+    The type of input provided should be same as that of the variable being used to store it. Otherwise, it may lead to undefined error or input failure.
+
+Also, while taking text as input using cin, we need to remember that cin stops reading input as soon as it encounters a whitespace (space, tab, or newline). This means it only captures the first word or characters until the first whitespace. It is shown in the below example:
+#include <iostream>
+using namespace std;
+
+int main() {
+    string name;
+
+      // Output a label
+    cout << "Enter your name:";
+  
+      // Taking input from user and store
+      // it in variable
+    cin >> name;
+  
+      // Output the entered age
+    cout << "Name entered: " << age;
+    return 0;
+}
+
+
+Input
+
+Enter your name: Vishal Kumar (User entered Vishal Kumar)
+
+Output
+
+Name entered: Vishal
+
+Un-buffered Standard Error Stream – cerr
+
+The C++ cerr is the standard error stream that is used to output the errors. This is also an instance of the iostream class. As cerr in C++ is un-buffered so it is used when one needs to display the error message immediately. It does not have any buffer to store the error message and display it later.
+
+The main difference between cerr and cout comes when you would like to redirect output using “cout” that gets redirected to file if you use “cerr” the error doesn’t get stored in file.(This is what un-buffered means ..It cant store the message)
+#include <iostream>
+using namespace std;
+
+int main() {
+    cerr << "An error occurred";
+    return 0;
+}
+
+Buffered Standard Error Stream – clog
+
+This is also an instance of ostream class and used to display errors but unlike cerr the error is first inserted into a buffer and is stored in the buffer until it is not fully filled. or the buffer is not explicitly flushed (using flush()). The error message will be displayed on the screen too.
+
+#include <iostream>
+using namespace std;
+
+int main() {
+    clog << "An error occurred";
+    return 0;
+}
+
+
+i need reason why if enter two words in name it doesnt ask for age in input
+ChatGPT said:
+
+Good question! The reason your program doesn’t ask for age after entering a name with two words is due to how cin >> name; handles input.
+What Happens in Your Code?
+
+cin >> name;
+cin >> x;
+
+    cin >> name; only reads the first word before a space.
+    If you enter "John Doe", only "John" is stored in name, and "Doe" remains in the input buffer.
+    When cin >> x; runs, it tries to read an integer but sees "Doe", which is not a number.
+    Since "Doe" cannot be converted to an integer, input fails and cin goes into an error state.
+    Because of this error, cin >> x; does not execute, and the program skips further input.
+    
+    🚀 Understanding cerr (Unbuffered Standard Error Stream) in C++
+
+You already know cout, which prints output to the console. Now, let's talk about cerr, which is used for error messages.
+🔹 What is cerr?
+
+✔ cerr stands for C++ Error Stream.
+✔ It is unbuffered, meaning it immediately prints output without waiting.
+✔ Used to display error messages instantly.
+🔹 cerr vs. cout (The Key Difference)
+
+The main difference is buffering:
+Feature	cout (Buffered)	cerr (Unbuffered)
+Buffering	Stores output in a buffer before printing	Prints immediately, no buffer
+Speed	Slightly faster because of buffering	Slower due to immediate printing
+Redirection (> to file)	Redirects output to a file normally	Doesn’t get redirected like cout
+🔹 Example 1: cerr Prints Instantly
+
+#include <iostream>
+using namespace std;
+
+int main() {
+    cout << "This is normal output." << endl;
+    cerr << "This is an error message!" << endl;
+    return 0;
+}
+
+📌 Output on Console
+
+This is normal output.
+This is an error message!
+
+✅ Notice that cerr prints immediately, while cout may wait.
+🔹 Example 2: Redirecting Output to a File
+
+If you run this program from a terminal and redirect output:
+
+./a.out > output.txt
+
+📌 What happens?
+
+    cout output goes to output.txt (because it’s buffered).
+    cerr still appears on the terminal (because it’s unbuffered and doesn’t get redirected).
+
+✅ To redirect both cout and cerr to a file, use this:
+
+./a.out > output.txt 2>&1
+
+Here, 2>&1 means redirect stderr (cerr) to the same location as stdout (cout).
+🔹 When to Use cerr?
+
+✔ When you need immediate error messages (e.g., debugging, warnings, fatal errors).
+✔ When errors should always appear on the terminal, even if output is redirected.
+✔ When you don’t want errors to get mixed with normal output.
+
+Would you like more examples or real-world scenarios? 😃
+
+
+Buffered Standard Error Stream – clog
+
+This is also an instance of ostream class and used to display errors but unlike cerr the error is first inserted into a buffer and is stored in the buffer until it is not fully filled. or the buffer is not explicitly flushed (using flush()). The error message will be displayed on the screen too.### 🚀 **Understanding `clog` (Buffered Standard Error Stream) in C++**  
+
+In C++, we have **two** ways to print error messages:  
+✔ `cerr` – **Unbuffered** (prints immediately)  
+✔ `clog` – **Buffered** (stores errors in a buffer before printing)  
+
+---
+
+## **🔹 What is `clog`?**  
+✔ `clog` stands for **C++ Log Stream** (used for logging messages).  
+✔ It is **buffered**, meaning it **stores messages in memory first** and then prints them **all at once** when the buffer is full or manually flushed.  
+✔ It is useful when **writing logs efficiently** without slowing down the program.
+
+---
+
+## **🔹 `clog` vs. `cerr` (The Key Difference)**  
+
+| Feature   | `cerr` (Unbuffered) | `clog` (Buffered) |
+|-----------|--------------------|-------------------|
+| **Buffering** | Prints immediately, no buffer | Uses a buffer, prints later |
+| **Performance** | Slower (prints each message instantly) | Faster (collects messages before printing) |
+| **Use Case** | For urgent errors that must be seen immediately | For logging messages efficiently |
+
+---
+
+## **🔹 Example 1: `cerr` vs. `clog` Output**
+```cpp
+#include <iostream>
+using namespace std;
+
+int main() {
+    cerr << "This is an error (cerr)!" << endl;
+    clog << "This is a log message (clog)!" << endl;
+    return 0;
+}
+```
+📌 **What happens?**  
+- `cerr` prints **immediately**.  
+- `clog` **might** delay printing until the buffer is full.  
+
+✅ To **force `clog` to print immediately**, you can use `.flush()`:  
+```cpp
+clog << "This is a log message!" << flush;
+```
+
+---
+
+## **🔹 Example 2: `clog` Buffering in Action**
+```cpp
+#include <iostream>
+using namespace std;
+
+int main() {
+    clog << "Logging some messages..." << endl;
+    clog << "These messages are buffered." << endl;
+    
+    // Flushing the buffer
+    clog.flush();  
+    
+    cout << "Normal output." << endl;
+    return 0;
+}
+```
+📌 **Output Order (May Vary)**
+```
+Normal output.
+Logging some messages...
+These messages are buffered.
+```
+✅ The **order might change** because `clog` messages stay in a buffer **until it’s full or explicitly flushed**.
+
+---
+
+## **🔹 When to Use `clog`?**
+✔ **Logging messages** efficiently without slowing down performance.  
+✔ **Writing to log files** instead of the console (useful for debugging large programs).  
+✔ **When errors are not urgent** and don’t need to be seen immediately.  
+
+Would you like a **real-world example** of `clog` in logging? 😃
+
+
+cin in C++
+Last Updated : 12 Dec, 2024
+
+In C++, cin is an object of istream class that is used to accept the input from the standard input stream i.e. stdin which is by default associated with keyboard. The extraction operator (>>) is used along with cin to extract the data from the object and insert it to the given variable.
+
+Let’s take a look at an example:
+
+#include <iostream>
+using namespace std;
+
+int main() {
+  
+      // Variable to store data given by cin
+    int a;
+
+    // Take input using cin
+    cin >> a;
+
+    cout << a;
+    return 0;
+}
+
+
+Input
+
+10
+
+Output
+
+10
+
+Syntax of cin
+
+    cin >> var_name;
+
+Here,
+
+    >>: It is the extraction operator to extract data from cin.
+    var_name: It is a variable that will store the input data provided by the user.
+
+    Note: cin is initialized when the program starts to make sure it is ready for input operations. It is also linked to cout to ensure that any buffered output is flushed before cin reads from the input stream.
+
+Understanding how to use cin for input is fundamental in C++. To master input handling in your programs, consider exploring the C++ Course, which provides detailed explanations and practical examples.
+Examples of cin
+
+The following examples demonstrate how to use cin in C++ programs:
+Taking a Text from User Input
+#include <iostream>
+using namespace std;
+
+int main() {
+  
+      // Variable to store data given by cin
+    string s;
+
+    // Take input using cin
+    cin >> s;
+
+    // Print output
+    cout << s;
+    return 0;
+}
+
+Welcome to GeeksforGeeks
+
+Output
+
+Welcome
+
+Taking Multiple Inputs Using the Extraction Operator(>>) with cin
+
+#include <iostream>
+using namespace std;
+
+int main() {
+    string name;
+    int age;
+
+    // Take multiple input using cin
+    cin >> name >> age;
+
+    cout << "Name : " << name << endl;
+    cout << "Age : " << age << endl;
+
+    return 0;
+}
+
+
+ABC 13
+
+Output
+
+Name : ABC
+Age : 13
+
+cin Member Functions in C++
+
+The below table lists some commonly used member functions of cin in C++:
+Member Function	Description
+cin.get()	Reads a single character from the input stream, including whitespace.
+cin.getline()	Reads a line of text, including whitespace, and stops when it reaches a newline character.
+cin.ignore()	Ignores a specified number of characters or until a specified delimiter is encountered.
+cin.peek()	Returns the next character from the input stream without extracting it.
+cin.putback()	Puts a character back into the input stream.
+cin.eof()	Returns true if the end of the input stream has been reached.
+cin.fail()	Returns true if an input operation has failed (e.g., when input doesn’t match the expected type).
+cin.clear()	Clears the error flags on the input stream, allowing further operations.
+cin.sync()	Discards unread characters from the input buffer.
+cin.gcount()	Returns the number of characters extracted by the last unformatted input operation.
+cin.rdbuf()	Gets or sets the associated stream buffer object for std::cin.
+cin.get()
+
+It reads an input character and stores it in a variable. Below is the C++ program to implement cin.get()
+// C++ program to illustrate the use
+// of cin.get()
+#include <iostream>
+using namespace std;
+
+// Driver Code
+int main()
+{
+    char ch[30];
+    cin.get(ch, 25);
+
+    // Print ch
+    cout << ch;
+}
+
+Welcome to GFG
+
+Output
+
+Welcome to GFG
+
+cin.getline()
+
+It reads a stream of characters of given length N into the string buffer. It stops when it has read (N – 1) characters or it finds the end of the file or newline character(\n). Below is the C++ program to implement cin.getline():
+
+// C++ program to illustrate the use of cin.getline
+#include <iostream>
+using namespace std;
+
+int main() {
+    char name[5];
+
+    // Reads stream of 3 characters
+    cin.getline(name, 3);
+
+    // Print output
+    cout << name << endl;
+
+    return 0;
+}
+
+
+Geeks
+
+Output
+
+Ge
+
+cin.read()
+
+It reads a stream of characters of given length N. Below is the C++ program to implement cin.read():
+
+// C++ program to illustrate the use of cin.read()
+#include <iostream>
+using namespace std;
+
+int main() {
+    char gfg[20];
+
+    // Reads stream of characters
+    cin.read(gfg, 10);
+
+    // Print output
+    cout << gfg << endl;
+
+    return 0;
+}
+
+
+Welcome to GFG
+
+Output
+
+Welcome to
+
+cin.ignore()
+cin.ignore()
+
+It ignores or clears one or more characters from the input buffer. Below is the C++ program to implement cin.ignore():
+
+// C++ program to illustrate the use of cin.ignore()
+#include <iostream>
+#include <ios>
+#include <limits>
+using namespace std;
+
+int main() {
+    int x;
+    char str[80];
+    cout << "Enter a number and string:\n";
+    cin >> x;
+
+    // clear buffer before taking
+    // new line
+    cin.ignore(numeric_limits<streamsize>::max(), '\n');
+
+    // Input a string
+    cin.getline(str, 80);
+    cout << "You have entered:\n";
+    cout << x << endl;
+    cout << str << endl;
+
+    return 0;
+}
+
+
+Enter a number and string:
+8
+Welcome to GFG
+
+Output
+
+You have entered:
+8
+Welcome to GFG
+
+Explanation: In the above program if cin.ignore() has not been used then after entering the number when the user presses the enter to input the string, the output will be only the number entered. The program will not take the string input. To avoid this problem cin.ignore() is used, this will ignore the newline character.
+
+### 🚀 **Understanding `cin.get()` in C++**  
+
+`cin.get()` is a function used for **reading input**, especially when dealing with **characters, whitespace, and newlines**. It gives more control over **how input is taken** compared to `cin >>` (which ignores whitespace).  
+
+---
+
+## **🔹 Why Use `cin.get()`?**
+✔ Reads **single characters**, including spaces and newlines.  
+✔ Useful when handling **strings with spaces** or **pausing execution**.  
+✔ Can be used with **multiple overloads** (different ways to use it).  
+
+---
+
+## **🔹 `cin.get()` vs. `cin >>` (Key Difference)**  
+| Feature         | `cin.get()`         | `cin >>` |
+|----------------|-------------------|---------|
+| **Reads**       | Single character (including spaces/newlines) | Single word (ignores spaces) |
+| **Stops at**    | First newline or when full | First whitespace |
+| **Best for**    | Reading characters, stopping at newlines | Reading words or numbers |
+
+---
+
+## **🔹 Example 1: Reading a Single Character**  
+```cpp
+#include <iostream>
+using namespace std;
+
+int main() {
+    char ch;
+    cout << "Enter a character: ";
+    ch = cin.get();
+    cout << "You entered: " << ch << endl;
+    return 0;
+}
+```
+📌 **Input**: `A`  
+📌 **Output**: `You entered: A`  
+
+✅ Unlike `cin >> ch;`, this also reads **whitespace characters** like `space` or `\n`.
+
+---
+
+## **🔹 Example 2: Reading a Full Line (Including Spaces)**  
+```cpp
+#include <iostream>
+using namespace std;
+
+int main() {
+    char str[50];  
+    cout << "Enter a sentence: ";
+    cin.get(str, 50);  // Reads full line including spaces
+    cout << "You entered: " << str << endl;
+    return 0;
+}
+```
+📌 **Input**: `Hello World!`  
+📌 **Output**: `You entered: Hello World!`  
+
+✅ `cin >> str;` would only take `Hello` and stop at the first space!  
+
+---
+
+## **🔹 Example 3: Using `cin.get()` to Pause the Program**
+```cpp
+#include <iostream>
+using namespace std;
+
+int main() {
+    cout << "Press any key to continue...";
+    cin.get();  // Waits for user to press Enter
+    return 0;
+}
+```
+📌 This is used to **pause** the program until the user presses Enter.
+
+---
+
+## **🔹 Example 4: Handling `\n` (Newline Issue)**
+When you use `cin >>`, it **leaves a `\n` in the buffer**, which can cause problems with `cin.get()`.  
+### ❌ **Problem**
+```cpp
+#include <iostream>
+using namespace std;
+
+int main() {
+    int age;
+    char name[50];
+
+    cout << "Enter your age: ";
+    cin >> age;  // Reads number but leaves '\n' in buffer
+
+    cout << "Enter your name: ";
+    cin.get(name, 50);  // This will NOT work correctly!
+
+    cout << "You entered: " << name << endl;
+    return 0;
+}
+```
+📌 **Problem:** `cin.get()` sees the `\n` left in the buffer and **doesn’t wait for input!**  
+
+### ✅ **Solution: Use `cin.ignore()`**
+```cpp
+cin.ignore();  // Clears leftover '\n' before calling cin.get()
+cin.get(name, 50);
+```
+
+---
+
+## **🔹 Summary**
+✔ `cin.get()` reads **characters** (including spaces & newlines).  
+✔ `cin.get(char[], size)` reads **full lines**, including spaces.  
+✔ `cin.ignore()` clears **leftover `\n` from `cin >>`** before using `cin.get()`.  
+✔ Used for **pausing execution** or handling **special input cases**.  
+
+Would you like a real-world example where `cin.get()` is **essential**? 😃
+
+🚀 Final Summary
+
+✔ cin.get() → Reads one character at a time
+✔ getline(cin, string_var) → Reads a full line into a string
+✔ cin.get(char[], size) → Reads a full line into a char array
+
+Want an example where getline() and cin >> cause issues together? 😃
+dont use string data type with cin get use array ;
+
+
+cout Member Functions in C++
+
+Below is a list of some commonly used member functions of cout in C++:
+Member Function	Description
+cout.put(char)	Writes a single character to the output stream.
+cout.write(char*, int)	Writes a block of characters from the array to the output stream.
+cout.precision(int)	Sets the decimal precision for displaying floating-point numbers.
+cout.setf(ios::fmtflags)	Sets the format flags for the stream.
+cout.width(int)	Sets the minimum field width for the next output.
+cout.fill(char)	Sets the fill character for padding the field.
+
+Below is the implementation of the member functions of the cout.write() and cout.put():
+#include <iostream>
+using namespace std;
+
+int main() {
+    char s[] = "Welcome at GFG";
+    char c = 'e';
+
+    // Print first 6 characters
+    cout.write(s, 6);
+
+    // Print the character c
+    cout.put(c);
+  
+    return 0;
+}
+
+Below is the C++ program to illustrate the use of cout.precision():
+
+#include <iostream>
+using namespace std;
+
+int main() {
+    double pi = 3.14159783;
+
+    // Set precision to 5
+    cout.precision(5);
+
+    cout << pi << endl;
+
+    // Set precision to 7
+    cout.precision(7);
+
+    cout << pi << endl;
+
+    return 0;
+}
+
+
+Output
+
+3.1416
+3.141598
+
+
+Manipulators in C++
+Last Updated : 10 Jan, 2025
+
+Manipulators are helping functions that can modify the input or output stream. They can be included in the I/O statement to alter the format parameters of a stream. They are defined inside <iomanip> and some are also defined inside <iostream> header file.
+
+For example, if we want to print the hexadecimal value of 100 then we can print it as:
+
+    cout << setbase(16) << 100
+
+Types of Manipulators
+
+There are various types of manipulators classified on the basis type of entity they manipulate:
+
+Table of Content
+
+    Output Stream Manipulators
+    Input Stream Manipulators
+    Boolean Manipulators
+    Alignment and Sign Manipulators
+    Base Manipulators
+
+1. Output Stream Manipulators
+
+Output stream manipulators are used to control and format the output stream, such as setting the width, precision, or alignment of printed data. They allow for a better presentation of output.
+
+Following table lists some common output stream manipulators:
+Manipulator	Description	Header File
+endl	Inserts a newline and flushes the output stream.	iostream
+flush	Flushes the output stream manually.	iostream
+setw(x)	Sets the width of the next output field to x.	iomanip
+setprecision(x)	Sets the precision for floating-point numbers to x.	iomanip
+fixed	Displays numbers in fixed-point notation.	iomanip
+scientific	Displays numbers in scientific notation.	iomanip
+showpoint	Forces the display of the decimal point.	iomanip
+noshowpoint	Hides the decimal point unless necessary.	iomanip
+Example
+C++
+
+#include <iostream>
+#include <iomanip>
+using namespace std;
+
+int main() {
+  
+    // Output a new line and flush the stream
+    cout << "Hello" << endl;
+
+    // Set width to 10 for the next output
+    cout << setw(10) << 42 << endl;
+
+    // Set precision to 3 for floating-point numbers
+    cout << setprecision(3) << 3.14159 << endl;
+
+    // Use fixed-point notation
+    cout << fixed << 3.14159 << endl;
+
+    // Use scientific notation
+    cout << scientific << 3.14159 << endl;
+
+    // Show the decimal point even for whole numbers
+    cout << showpoint << 42.0;
+
+    return 0;
+}
+
+
+Output
+
+Hello
+        42
+3.14
+3.142
+3.142e+00
+4.200e+01
+
+2. Input Stream Manipulators
+
+Input stream manipulators are used to modify the behaviour of the input stream. They help in processing input efficiently, such as skipping unnecessary whitespaces with ws.
+
+Following table lists some common input stream manipulators:
+Manipulator	Description	Header File
+ws	Skips leading whitespaces in the input stream.	iostream
+noskipws	Disables skipping of leading whitespaces.	iostream
+Example
+C++
+
+#include <iostream>
+using namespace std;
+
+int main() {
+    char c1, c2;
+
+    // Input skips whitespace by default
+    cin >> c1;  
+
+    // Input the next character without skipping whitespace
+    cin >> noskipws >> c2;  
+
+    cout << "c1: " << c1 << ", c2: " << c2;
+    return 0;
+}
+
+
+Input
+
+    s    x
+
+Output
+
+c1: s, c2:  
+
+3. Boolean Manipulators
+
+Boolean manipulators are used to format boolean values in output. They allow displaying boolean values as true or false or as 1 and 0, depending on the requirement.
+
+Following table lists some common boolean manipulators:
+Manipulator	Description	Header File
+boolalpha	Displays true or false for boolean values.	iostream
+noboolalpha	Displays 1 or 0 for boolean values.	iostream
+Example
+C++
+
+#include <iostream>
+using namespace std;
+
+int main() {
+    bool value = true;
+
+    // Display boolean as true/false
+    cout << boolalpha << value << endl;
+
+    // Display boolean as 1/0
+    cout << noboolalpha << value;
+
+    return 0;
+}
+
+
+Output
+
+true
+1
+
+4. Alignment and Sign Manipulators
+
+These manipulators control how text and numbers are aligned or how their signs are displayed in the output.
+
+Following table lists some common alignment and sign manipulators:
+Manipulator	Description	Header File
+left	Aligns output to the left.	iomanip
+right	Aligns output to the right.	iomanip
+internal	Aligns signs and base prefixes to the left.	iomanip
+showpos	Displays a + sign for positive numbers.	iostream
+noshowpos	Hides the + sign for positive numbers.	iostream
+Example
+C++
+
+#include <iostream>
+#include <iomanip>
+using namespace std;
+
+int main() {
+    int n = 42;
+
+    // Align output to the left
+    cout << left << setw(10) << n << endl;
+
+    // Align output to the right
+    cout << right << setw(10) << n << endl;
+
+    // Show positive sign for numbers
+    cout << showpos << n << endl;
+
+    // Don't show positive sign for numbers
+    cout << noshowpos << n;
+
+    return 0;
+}
+
+
+Output
+
+42        
+        42
++42
+42
+
+5. Base Manipulators
+
+Base manipulators are used to format numbers in different bases, such as decimal, hexadecimal, or octal. They help in representing numbers in a way suited to specific applications.
+
+Following table lists some common base manipulators:
+Manipulator	Description	Header File
+hex	Formats output in hexadecimal base.	iostream
+dec	Formats output in decimal base.	iostream
+oct	Formats output in octal base.	iostream
+Example
+C++
+
+#include <iostream>
+using namespace std;
+
+int main() {
+    int n = 42;
+
+    // Output in hexadecimal base
+    cout << hex << n << endl;
+
+    // Output in decimal base
+    cout << dec << n << endl;
+
+    // Output in octal base
+    cout << oct << n;
+
+    return 0;
+}
+
+
+Output
+
+2a
+42
+52
+
+C++ Manipulators – FAQs
+What is the difference between endl and \n?
+
+    endl inserts a newline and flushes the stream, while \n only inserts a newline without flushing the stream.
+
+Can manipulators be used without arguments?
+
+    Yes, manipulators like endl, flush, and hex do not require arguments, while others like setw(x) and setprecision(x) need arguments.
+
+What happens if setw() is used with text shorter than the specified width?
+
+    The text is aligned, and the remaining width is filled with spaces by default.
+
+
+
+
+### **📌 `setprecision(x)` vs. `fixed` in C++ (`iomanip`)**  
+
+Both `setprecision(x)` and `fixed` are used for **formatting floating-point numbers**, but they work **differently**. Here’s a clear breakdown:  
+
+---
+
+## **🔹 `setprecision(x)`**
+📌 **Sets the total number of significant digits (not just decimals!)**  
+📌 Works for both **fixed-point** and **scientific notation**  
+📌 **Used with `#include <iomanip>`**  
+
+### **Example 1: `setprecision(x)` (Default Behavior)**
+```cpp
+#include <iostream>
+#include <iomanip>
+using namespace std;
+
+int main() {
+    double num = 123.456789;
+
+    cout << setprecision(5) << num << endl;
+    cout << setprecision(3) << num << endl;  // Only 3 significant digits!
+
+    return 0;
+}
+```
+📌 **Output:**  
+```
+123.46
+123
+```
+✔ **It counts total significant digits, not just decimal places!**  
+✔ In the second case, `setprecision(3)` **rounds it to `123`** because it counts **total digits**, not just decimals.
+
+---
+
+## **🔹 `fixed`**
+📌 **Forces `setprecision(x)` to apply only to decimal places**  
+📌 Without `fixed`, `setprecision(x)` affects **total digits**  
+📌 **Used with `#include <iomanip>`**  
+
+### **Example 2: `fixed` + `setprecision(x)`**
+```cpp
+#include <iostream>
+#include <iomanip>
+using namespace std;
+
+int main() {
+    double num = 123.456789;
+
+    cout << fixed << setprecision(5) << num << endl;
+    cout << fixed << setprecision(3) << num << endl;  // 3 decimal places!
+
+    return 0;
+}
+```
+📌 **Output:**  
+```
+123.45679
+123.457
+```
+✔ `fixed` makes `setprecision(x)` **only affect decimal places**, not total digits.  
+✔ `setprecision(3)` now **keeps 3 decimal places (`.457`)**, instead of limiting significant digits.
+
+---
+
+## **🔹 Key Difference**
+| Feature            | `setprecision(x)` (without `fixed`) | `fixed` + `setprecision(x)` |
+|--------------------|---------------------------------|---------------------------|
+| Affects           | **Total significant digits**    | **Decimal places only**    |
+| Works with        | **Both scientific and normal notation** | **Fixed-point notation only** |
+| Example (`123.456789`) | `setprecision(5) → 123.46`  | `setprecision(5) → 123.45679` |
+| Example (`setprecision(3)`) | `123` (rounds total digits) | `123.457` (3 decimal places) |
+
+---
+
+## **🔹 Summary**
+✔ **Use `setprecision(x)` alone for total significant digits.**  
+✔ **Use `fixed` with `setprecision(x)` for decimal places.**  
+✔ **If you need scientific notation, use `scientific` instead of `fixed`.**  
+
+Would you like a comparison with `scientific` formatting as well? 🚀 
+
+
+
