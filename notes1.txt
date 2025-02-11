@@ -5165,4 +5165,1271 @@ int main() {
 Would you like a comparison with `scientific` formatting as well? 🚀 
 
 
+3. Boolean Manipulators
+
+Boolean manipulators are used to format boolean values in output. They allow displaying boolean values as true or false or as 1 and 0, depending on the requirement.
+
+Following table lists some common boolean manipulators:
+Manipulator	Description	Header File
+boolalpha	Displays true or false for boolean values.	iostream
+noboolalpha	Displays 1 or 0 for boolean values.	iostream
+Example
+
+#include <iostream>
+using namespace std;
+
+int main() {
+    bool value = true;
+
+    // Display boolean as true/false
+    cout << boolalpha << value << endl;
+
+    // Display boolean as 1/0
+    cout << noboolalpha << value;
+
+    return 0;
+}
+
+
+Output
+
+true
+1
+Decision Making in C++
+
+
+C++ if Statement
+Last Updated : 12 Dec, 2024
+
+The C++ if statement is the most simple decision-making statement. It is used to decide whether a certain statement or block of statements will be executed or not executed based on a certain condition. Let’s take a look at an example: 
+#include <iostream> 
+using namespace std; 
+  
+int main()  { 
+    int i = 10; 
+  
+      // If statement
+    if (i < 15) { 
+        cout << "10 is less than 15"; 
+    } 
+  
+    return 0;
+} 
+
+
+C++ if else Statement
+Last Updated : 12 Dec, 2024
+
+The if statement alone tells us that if a condition is true it will execute a block of statements and if the condition is false, it won’t. But what if we want to do something else if the condition is false. Here comes the C++ if else statement. We can use the else statement with if statement to execute a block of code when the condition is false.
+#include <iostream> 
+using namespace std; 
+  
+int main()  { 
+    int i = 10; 
+  
+    // If statement
+    if (i < 15) { 
+        cout << "10 is less than 15"; 
+    }
+  
+      // Else statement with the above if
+      else {
+          cout << "10 is not less than 15";
+    }
+  
+    return 0;
+}
+
+
+C++ if else if Ladder
+Last Updated : 02 Jan, 2025
+
+In C++, the if-else-if ladder helps the user decide from among multiple options. The C++ if statements are executed from the top down. As soon as one of the conditions controlling the if is true, the statement associated with that if is executed, and the rest of the C++ else-if ladder is bypassed. If none of the conditions is true, then the final statement will be executed.
+
+#include <iostream> 
+using namespace std; 
+  
+int main()  { 
+    int i = 20;
+  
+    // If - else ladder
+    if (i == 10) 
+        cout << "i is 10"; 
+    else if (i == 15) 
+        cout << "i is 15"; 
+    else if (i == 20) 
+        cout << "i is 20"; 
+    else
+        cout << "i is not present"; 
+  
+    return 0; 
+} 
+
+
+C++ Nested if-else Statement
+Last Updated : 12 Dec, 2024
+
+Nested if-else statements are those statements in which there is an if statement inside another if else. We use nested if-else statements when we want to implement multilayer conditions (condition inside the condition inside the condition and so on). C++ allows any number of nesting levels.
+#include <iostream>
+using namespace std;
+
+int main() {
+      int n = 6;
+      
+      // Outer if statement
+      if (n % 2 == 0) {
+      
+          // Inner if statement
+          if (n % 3 == 0) {
+              cout << "Divisible by 2 and 3";
+        }
+          else {
+              cout << "Divisible by 2 but not 3";
+        }
+      }
+      else {
+          cout << "Not Divisible by 2";
+    }
+
+    return 0;
+}
+Switch Statement in C++
+In C++, the switch statement is a flow control statement that is used to execute the different blocks of statements based on the value of the given expression. It is an alternative to the long if-else-if ladder which provides an easy way to execute different parts of code based on the value of the expression. 
+#include <iostream>
+using namespace std;
+
+int main() {
+      
+    // Variable to the used as switch expression
+    char x = 'A';
+
+    // Switch statement with three cases
+    switch (x) {
+    case 'A':
+        cout << "A";
+        break;
+    case 'B':
+        cout << "B";
+        break;
+    default:
+        cout << "Other than A and B";
+        break;
+    }
+    return 0;
+}
+
+A
+
+Explanation: In the above program, the switch statement evaluates the value of x and executes the matching case. If x is ‘A’, it prints “A”; if ‘B’, it prints “B”. The default case handles other values.
+Syntax of switch Statement in C++
+
+    switch (expression) {
+        case value_1:
+            // statements_break.
+            break;
+        case value_2:
+            // statements_2;
+            break;
+        …..
+        …..
+        default:
+            // default_statements;
+            break;
+    }
+
+
+Here,
+
+    The default case is executed if none of the cases are matched.
+    The break keyword in each case is used to break out of the switch statement after the matching case is found. Otherwise, all the statements after the matching case will be executed.
+
+Rules of the switch Statement in C++
+
+There are some rules that we need to follow when using switch statements in C++. They are as follows:
+
+    The case value must be either int or char type.
+    There can be any number of cases.
+    No duplicate case values are allowed.
+    Each statement of the case can have a break statement. It is optional.
+    The default Statement is also optional.
+    
+    Working of switch Statement in C++
+
+The working of the switch statement in C is as follows:
+
+    Step 1: The switch expression is evaluated.
+    Step 2: The evaluated value is then matched against the present case values.
+    Step 3A: If the matching case value is found, that case block is executed.
+    Step 3B: If the matching code is not found, then the default case block is executed if present.
+    Step 4A: If the break keyword is present in the block, then program control comes out of the switch statement.
+    Step 4B: If the break keyword is not present, then all the cases after the matching case are executed.
+    Step 5: Statements after the switch statement is executed.
+    
+    Important Points About switch Statement
+1. Switch expression should result in a constant value
+
+If the expression provided in the switch statement does not result in a constant value, it would not be valid. Some valid expressions for switch case will be,
+
+// Constant expressions allowed
+switch(1 + 2 + 23);
+switch(1 * 2 + 3 % 4);
+ 
+// Variable expression are allowed provided
+// they are assigned with fixed values
+switch(a * b + c * d);
+switch(a + b + c);
+
+
+2. Expression must evaluate only int or char type values.
+
+The switch statement can only evaluate the integer or character value. So, the switch expression should return the values of type int or char only.
+3. Break in switch case
+
+The break keyword is used in the switch case to break out of the switch when encountered. It is used at the end of every case block so that when the matching case is executed, the program control comes out of the loop.
+
+The break statement is optional. If omitted, all the cases after the matching case will also be executed.
+4. Default in switch case
+
+The default keyword is used to define a default case which will be executed when no case value is matched. It is also an optional statement, and the switch case statement runs without problem if it is omitted.
+5. No duplicate Case Values
+
+In the C switch statement, duplicate case values are not allowed. All the case values must be unique.
+6. Nested Switch Statements
+
+In C++, we can nest one switch inside another switch statement without any problem. Though it is avoided most of the time as it makes the program more complex and unreadable.
+7. Position of Default Case Does Not Matters
+
+Regardless of its placement, the default case only gets executed if none of the other case conditions are met. So, putting it at the beginning, middle, or end doesn’t change the core logic (unless you’re using a less common technique called fall-through).
+8. Differences between switch and if else if ladder in C?
+
+Following are the main differences between switch and if else if ladder in C++:
+
+switch
+	
+
+if else if
+It executes the different cases on the basis of the value of the switch variable.	It executes the different blocks based on the condition specified.
+It can only evaluate the int or char type expressions.	It can evaluate any type of expression.
+Faster and easier to read for a large number of conditions.	It can get messy when there are lots of conditions.
+
+continue Statement
+
+The C++ continue statement is used to execute other parts of the loop while skipping some parts declared inside the condition, rather than terminating the loop, it continues to execute the next iteration of the same loop. It is used with a decision-making statement which must be present inside the loop.
+
+This statement can be used inside for loop or while or do-while loop. Let’s take a look at an example:
+#include <iostream>
+using namespace std;
+
+int main() {
+    for (int i = 1; i < 10; i++) {
+
+          // Skip the execution for i = 5
+        if (i == 5)
+            continue;
+        cout << i << " ";
+    }
+    return 0;
+}
+
+break Statement
+
+The C++ break statement is used to terminate the whole loop if the condition is met. It is used with decision-making statements such as if, if-else, or switch statement to break out of the block. It forces the loop to stop the execution of the further iteration.
+#include <iostream>
+using namespace std;
+
+int main() {
+  
+      // Loop to print digits from 1 to 4
+    for (int i = 1; i < 10; i++) {
+
+        // Breaking Condition
+        if (i == 5)
+            break;
+        cout << i << " ";
+    }
+  
+    return 0;
+}
+
+return Statement
+
+The return statement takes control out of the function itself. It is stronger than a break. It is used to terminate the entire function after the execution of the function or after some condition. Every function has a return statement with some returning value except the void() function. Although void() function can also have the return statement to end the execution of the function.
+#include <iostream>
+using namespace std;
+
+void findNum (int n) {
+      for (int i = 0; i <= 100; i++) {
+          if (i == n) {
+              cout << "Number in Range [0, 100]";
+              
+              // This will stop the function here
+              return;
+        }
+    }
+      cout << "Number not in Range [0, 100]";
+      
+      // Final return if the above one is not reached.
+      return;
+}
+
+int main() {
+    int n = 10;
+
+      // Caaling the function
+    findNum(n);
+
+    return 0;
+}
+
+goto Statement
+
+The C++ goto statement is used to jump directly to that part of the program to which it is being called.  Every goto statement is associated with the label which takes them to part of the program for which they are called. The label statements can be written anywhere in the program it is not necessary to use them before or after the goto statement.
+
+Let’s take a look at an example:
+#include <iostream>
+using namespace std;
+
+int main() {
+    int n = 4;
+
+    if (n % 2 == 0) {
+      
+          // Skipping to label1
+        goto label1;
+    }
+    else {
+      
+          // Skipping to label2
+        goto label2;
+    }
+
+label1:
+    cout << "Even" << endl;
+    return 0;
+
+label2:
+    cout << "Odd" << endl;
+    return 0;
+label3:
+    cout << "Unspecified";
+    return 0;
+}
+
+
+for Loop in C++
+Last Updated : 12 Dec, 2024
+
+In C++, for loop is an entry-controlled loop that is used to execute a block of code repeatedly for the given number of times. It is generally preferred over while and do-while loops in case the number of iterations is known beforehand.
+
+Let’s take a look at an example:
+#include <bits/stdc++.h>
+using namespace std;
+
+int main() {
+
+      // for loop to print "Hi" 5 times
+    for (int i = 5; i < 10; i++) {
+          cout << "Hi" << endl;
+    }
+  
+    return 0;
+}
+Hi
+Hi
+Hi
+Hi
+Hi
+
+Syntax of for Loop
+
+The syntax of for loop in C++ is shown below:
+
+    for ( initialization; test condition; updation) { 
+         // body of for loop
+    }
+
+The various parts of the for loop are:
+
+    Initialization: Initialize the loop variable to some initial value.
+    Test Condition: This specifies the test condition. If the condition evaluates to true, then body of the loop is executed, and loop variable is updated according to update expression. If evaluated false, loop is terminated.
+    Update Expression: After executing the loop body, this expression increments/decrements the loop variable by some value.
+    
+    Note: The loop variable can also be declared in the initialization section but the scope of the loop variables that are declared in the initialization section is limited to the for loop block.
+    
+    Working of a for Loop in C++
+
+The flowchart works as shown below:
+
+    Control falls into the for loop. Initialization is done.
+    The flow jumps to Condition.
+    Condition is tested.
+        If the Condition yields true, the flow goes into the Body.
+        If the Condition yields false, the flow goes outside the loop.
+    The statements inside the body of the loop get executed.
+    The flow goes to the update.
+    Updating takes place and the flow goes to Step 3 again.
+    The for loop has ended and the flow has gone outside.
+    
+
+C++ While Loop
+Last Updated : 12 Dec, 2024
+
+In C++, the while loop is an entry-controlled loop that repeatedly executes a block of code as long as the given condition remains true. Unlike the for loop, while loop is used in situations where we do not know the exact number of iterations of the loop beforehand as the loop execution is terminated on the basis of the test condition.
+
+Let’s take a look at an example:
+#include <iostream>
+using namespace std;
+
+int main() {
+  
+      // while loop to print numbers from 1 to 5
+    int i = 0;
+    while (i < 5) {
+        cout << "Hi" << endl;
+        i++;
+    }
+
+    return 0;
+}
+Hi
+Hi
+Hi
+Hi
+Hi
+
+Explanation: The above loop prints the text “Hi” till the given condition is true i.e. i is less than 5. In each execution of the loop’s statement, it increments i till i is less than 5.
+Syntax of while Loop
+
+    while (condition) {
+        // Body of the loop
+        update expression
+    }
+
+Though the above is the formal syntax of the while loop, we need to declare the loop variable beforehand and update it in the body of the loop. The various parts of the While loop are:
+
+    Condition: The loop executes its body till this condition remains true.
+    Update Expression: Update the value of loop variable to make it closer to the termination condition.
+    Body: It is a group of statement that will be executed till the condition remains true.
+    Working of while Loop
+    The working of the while loop can be understood using the above image:
+
+    Control falls into the while loop.
+    The flow jumps to Condition
+    Condition is tested.
+        If the Condition yields true, the flow goes into the Body.
+        If the Condition yields false, the flow goes outside the loop
+    The statements inside the body of the loop get executed.
+    Updation takes place.
+    Control flows back to Step 2.
+    The while loop has ended, and the flow has gone outside.
+    
+C++ do while Loop
+Last Updated : 12 Dec, 2024
+
+In C++, the do-while loop is an exit-controlled loop that repeatedly executes a block of code at least once and continues executing as long as a given condition remains true. Unlike the while loop, the do-while loop guarantees that the loop body will execute at least once, regardless of whether the condition is true or false.
+Syntax of do-while Loop
+
+    do {
+        // Body of the loop
+        // Update expression
+    } while (condition);
+
+We have to define the loop variable beforehand and update it manually in the body of the loop. Notice the semicolon (“;”) in the end of loop. It is compulsory to terminate the do while loop after the semicolon.
+
+The various parts of the do-while loop are: 
+
+    Condition: The condition is checked after the loop body executes. If the condition evaluates to true, the loop continues. If false, the loop exits.
+    Update Expression: Update the loop variable bringing it closer to termination condition.
+    Body: Body: It is a group of statement that will be executed surely for the first time and then till the condition remains true.
+    Working of do while Loop in C++
+
+Let’s understand the working of the do while loop using the given image:
+
+    Control falls into the do-while loop.
+    The statements inside the body of the loop get executed.
+    Updation takes place.
+    The flow jumps to Condition
+    Condition is tested. 
+        If the Condition yields true, go to Step 6.
+        If the Condition yields false, the flow goes outside the loop
+    The flow goes back to Step 2.
+    The do-while loop has been ended and flow has gone outside the loop.
+    
+
+
+Range-Based for Loop in C++
+Last Updated : 11 Jan, 2025
+
+In C++, the range-based for loop introduced in C++ 11 is a version of for loop that is able to iterate over a range. This range can be anything that is iteratable, such as arrays, strings and STL containers. It provides a more readable and concise syntax compared to traditional for loops.
+#include <bits/stdc++.h>
+using namespace std;
+
+int main() {
+    vector<int> v = {1, 2, 3, 4, 5};
+
+    // Iterating through vector
+    for (int i : v) {
+        cout << i << " ";
+    }
+  
+    return 0;
+}
+1 2 3 4 5 
+
+Explanation: In this program, the vector is iterated using range based for loop. As we can see, we don’t need to pass any size information or any iterator to iterate the vector. We just use the name of the vector.
+
+Syntax of Range Based for Loop
+
+    for (declaration: range) {
+        // statements
+    }
+
+where,
+
+    declaration: Declaration of the variable that will be used to represent each element of the rage.
+    range: Name of the range.
+
+The range-based for loop simplifies iteration over containers in C++.
+Examples of Range Based for Loop
+
+The below example demonstrates the use of range based for loop in our C++ programs:
+Iterate over an Array using Range Based for Loop
+
+Iterate over a Map using Range Based for Loop do map first
+
+
+Each element of the map is a pair of the same type as that of a map. We have to specify that in declaration, or we can use auto keyword.
+#include <bits/stdc++.h>
+using namespace std;
+
+int main() {
+    map<int, char> m = {{1, 'A'}, {2, 'B'}, {3, 'C'},
+                  {4, 'D'}, {5, 'E'}};
+      
+      // Range based for loop to iterate over array
+      // and i is used to represent each element 
+    for (auto p: m) {
+        cout << p.first << ": " << p.second << endl;
+    }
+
+    return 0;
+}
+ 
+C++ Arrays
+
+In C++, an array is a data structure that is used to store multiple values of similar data types in a contiguous memory location.
+
+For example, if we have to store the marks of 4 or 5 students then we can easily store them by creating 5 different variables but what if we want to store marks of 100 students or say 500 students then it becomes very challenging to create that numbers of variable and manage them. Now, arrays come into the picture that can do it easily by just creating an array of the required size.
+Properties of Arrays in C++
+
+    An Array is a collection of data of the same data type, stored at a contiguous memory location.
+    Indexing of an array starts from 0. It means the first element is stored at the 0th index, the second at 1st, and so on.
+    Elements of an array can be accessed using their indices.
+    Once an array is declared its size remains constant throughout the program.
+    An array can have multiple dimensions.
+    The size of the array in bytes can be determined by the sizeof operator using which we can also find the number of elements in the array.
+    We can find the size of the type of elements stored in an array by subtracting adjacent addresses.
+
+Array Declaration in C++
+
+In C++, we can declare an array by simply specifying the data type first and then the name of an array with its size.
+data_type array_name[Size_of_array];
+
+Example
+
+int arr[5];
+
+Here,
+
+    int: It is the type of data to be stored in the array. We can also use other data types such as char, float, and double.
+    arr: It is the name of the array.
+    5: It is the size of the array which means only 5 elements can be stored in the array.
+    Initialization of Array in C++
+
+In C++, we can initialize an array in many ways but we will discuss some most common ways to initialize an array. We can initialize an array at the time of declaration or after declaration.
+1. Initialize Array with Values in C++
+
+We have initialized the array with values. The values enclosed in curly braces ‘{}’ are assigned to the array. Here, 1 is stored in arr[0], 2 in arr[1], and so on. Here the size of the array is 5.
+int arr[5] = {1, 2, 3, 4, 5};
+2. Initialize Array with Values and without Size in C++
+
+We have initialized the array with values but we have not declared the length of the array, therefore, the length of an array is equal to the number of elements inside curly braces.
+int arr[] = {1, 2, 3, 4, 5};
+
+3. Initialize Array after Declaration (Using Loops)
+
+We have initialized the array using a loop after declaring the array. This method is generally used when we want to take input from the user or we cant to assign elements one by one to each index of the array. We can modify the loop conditions or change the initialization values according to requirements.
+
+for (int i = 0; i < N; i++) {
+    arr[i] = value;
+}
+
+4. Initialize an array partially in C++
+
+Here, we have declared an array ‘partialArray’ with size ‘5’ and with values ‘1’ and ‘2’ only. So, these values are stored at the first two indices, and at the rest of the indices ‘0’ is stored.
+
+int partialArray[5] = {1, 2};
+
+5. Initialize the array with zero in C++
+
+We can initialize the array with all elements as ‘0’ by specifying ‘0’ inside the curly braces. This will happen in case of zero only if we try to initialize the array with a different value say ‘2’ using this method then ‘2’ is stored at the 0th index only.
+5. Initialize the array with zero in C++
+
+We can initialize the array with all elements as ‘0’ by specifying ‘0’ inside the curly braces. This will happen in case of zero only if we try to initialize the array with a different value say ‘2’ using this method then ‘2’ is stored at the 0th index only.
+
+int zero_array[5] = {0};
+Accessing an Element of an Array in C++
+
+Elements of an array can be accessed by specifying the name of the array, then the index of the element enclosed in the array subscript operator []. For example, arr[i].
+//  C++ Program to Illustrate How to Access Array Elements
+#include <iostream>
+using namespace std;
+
+int main()
+{
+
+    int arr[3];
+
+    // Inserting elements in an array
+    arr[0] = 10;
+    arr[1] = 20;
+    arr[2] = 30;
+
+    // Accessing and printing elements of the array
+    cout << "arr[0]: " << arr[0] << endl;
+    cout << "arr[1]: " << arr[1] << endl;
+    cout << "arr[2]: " << arr[2] << endl;
+
+    return 0;
+}
+
+arr[0]: 10
+arr[1]: 20
+arr[2]: 30
+
+Update Array Element
+
+To update an element in an array, we can use the index which we want to update enclosed within the array subscript operator and assign the new value.
+arr[i] = new_value;
+Traverse an Array in C++
+
+We can traverse over the array with the help of a loop using indexing in C++. First, we have initialized an array ‘table_of_two’ with a multiple of 2. After that, we run a for loop from 0 to 9 because in an array indexing starts from zero. Therefore, using the indices we print all values stored in an array.
+Example 2: The C++ Program to Illustrate How to Traverse an Array
+// C++ Program to Illustrate How to Traverse an Array
+#include <iostream>
+using namespace std;
+
+int main()
+{
+
+    // Initialize the array
+    int table_of_two[10]
+        = { 2, 4, 6, 8, 10, 12, 14, 16, 18, 20 };
+
+    // Traverse the array using for loop
+    for (int i = 0; i < 10; i++) {
+        // Print the array elements using indexing
+        cout << table_of_two[i] << " ";
+    }
+
+    return 0;
+}
+
+2 4 6 8 10 12 14 16 18 20 
+
+Size of an Array in C++
+
+In C++, we do not have the length function as in Java to find array size but we can calculate the size of an array using sizeof() operator trick. First, we find the size occupied by the whole array in the memory and then divide it by the size of the type of element stored in the array. This will give us the number of elements stored in the array.
+data_type size = sizeof(Array_name) / sizeof(Array_name[index]);
+// C++ Program to Illustrate How to Find the Size of an
+// Array
+#include <iostream>
+using namespace std;
+
+int main()
+{
+    int arr[] = { 1, 2, 3, 4, 5 };
+
+    // Size of one element of an array
+    cout << "Size of arr[0]: " << sizeof(arr[0]) << endl;
+
+    // Size of array 'arr'
+    cout << "Size of arr: " << sizeof(arr) << endl;
+
+    // Length of an array
+    int n = sizeof(arr) / sizeof(arr[0]);
+
+    cout << "Length of an array: " << n << endl;
+
+    return 0;
+    Size of arr[0]: 4
+Size of arr: 20
+Length of an array: 5
+Relation between Arrays and Pointers in C++
+
+In C++, arrays and pointers are closely related to each other. The array name is treated as a pointer that stored the memory address of the first element of the array. As we have discussed earlier, In array elements are stored at contiguous memory locations that’s why we can access all the elements of an array using the array name.
+Example 4: Illustrating the Relationship between Array and Pointers
+// C++ Program to Illustrate that Array Name is a Pointer
+// that Points to First Element of the Array
+#include <iostream>
+using namespace std;
+
+int main()
+{
+    // Defining an array
+    int arr[] = { 1, 2, 3, 4 };
+
+    // Define a pointer
+    int* ptr = arr;
+
+    // Printing address of the arrary using array name
+    cout << "Memory address of arr: " << &arr << endl;
+
+    // Printing address of the array using ptr
+    cout << "Memory address of arr: " << ptr << endl;
+
+    return 0;
+}
+Memory address of arr: 0x7fff2f2cabb0
+Memory address of arr: 0x7fff2f2cabb0
+
+Explanation:
+
+In the above code, we first define an array “arr” and then declare a pointer “ptr” and assign the array “arr” to it. We are able to assign arr to ptr because arr is also a pointer. After that, we print the memory address of arr using reference operator (&) and also print the address stored in pointer ptr and we can see arr and ptr, both stores the same memory address. But &arr is gives the memory address of the entire array arr and arr(ptr) gives the address of the first element of array.
+Example 5: Printing Array Elements without Indexing in C++
+
+We generally access and print the array elements using indexing. For example to access the first element we use array_name[0]. We have discussed above that the array name is a pointer that stored the address of the first element and array elements are stored at contiguous locations. Now, we are going to access the elements of an array using the array name only.
+// C++ Program to Print Array Elements without Indexing
+#include <iostream>
+using namespace std;
+
+int main()
+{
+
+    // Define an array
+    int arr[] = { 11, 22, 33, 44 };
+
+    // Print elements of an array
+    cout << "first element: " << *arr << endl;
+    cout << "Second element: " << *(arr + 1) << endl;
+    cout << "Third element: " << *(arr + 2) << endl;
+    cout << "fourth element: " << *(arr + 3) << endl;
+
+    return 0;
+}
+
+Explanation
+
+In the above code, we first declared an array “arr” with four elements. After that, we are printing the array elements. Let’s discuss how we do it. We discussed that the array name is a pointer that stores the address of the first element of an array so, to print the first element we have dereferenced that pointer (*arr) using dereferencing operator (*) which prints the data stored at that address.
+
+To print the second element of an array we first add 1 to arr which is equivalent to (address of arr + size_of_one_element *1) that takes the pointer to the address just after the first one and after that, we dereference that pointer to print the second element. Similarly, we print rest of the elements of an array without using indexing.
+
+Passing Array to Function in C++
+
+To use arrays efficiently we should know how to pass arrays to function. We can pass arrays to functions as an argument same as we pass variables to functions but we know that the array name is treated as a pointer using this concept we can pass the array to functions as an argument and then access all elements of that array using pointer.
+
+So ultimately, arrays are always passed as pointers to the function. Let’s see 3 ways to pass an array to a function that are majorly used.
+1. Passing Array as a Pointer
+
+In this method, we simply pass the array name in function call which means we pass the address to the first element of the array. In this method, we can modify the array elements within the function
+Syntax
+
+return_type function_name ( data_type *array_name ) {
+        // set of statements
+}
+2. Passing Array as an Unsized Array
+
+In this method, the function accepts the array using a simple array declaration with no size as an argument.
+
+Syntax
+
+return_type function_name ( data_type array_name[] ) {
+        // set of statements
+}
+
+3. Passing Array as a Sized Array
+In this method, the function accepts the array using a simple array declaration with size as an argument. We use this method by sizing an array just to indicate the size of an array.
+
+Syntax
+
+return_type function_name(data_type array_name[size_of_array]){
+        // set of statements
+}
+
+    Note: Array will be treated as a pointer in the passed function no matter what method we use. As the array are passed as pointers, they will loose the information about its size leading to a phenomenon named as Array Decay.
+
+#include <iostream>
+using namespace std;
+
+// passing array as a sized array argument
+void printArraySized(int arr[3], int n)
+{
+    cout << "Array as Sized Array Argument: ";
+    for (int i = 0; i < n; i++) {
+        cout << arr[i] << " ";
+    }
+    cout << endl;
+}
+
+// passing array as an unsized array argument
+void printArrayUnsized(int arr[], int n)
+{
+    cout << "Array as Unsized Array Argument: ";
+    for (int i = 0; i < n; i++) {
+        cout << *(arr + i) << " ";
+    }
+    cout << endl;
+}
+
+// Passing array as a pointer argument
+void printArrayPointer(int* ptr, int n)
+{
+    // Print array elements using pointer ptr
+    // that store the address of array passed
+    cout << "Array as Pointer Argument: ";
+    for (int i = 0; i < n; i++) {
+        cout << ptr[i] << " ";
+    }
+}
+
+// driver code
+int main()
+{
+
+    int arr[] = { 10, 20, 30 };
+
+    // Call function printArray and pass
+    // array and its size to it.
+    printArraySized(arr, 3);
+    printArrayUnsized(arr, 3);
+    printArrayPointer(arr, 3);
+
+    return 0;
+}
+
+Array as Sized Array Argument: 10 20 30 
+Array as Unsized Array Argument: 10 20 30 
+Array as Pointer Argument: 10 20 30 
+
+Multidimensional Arrays in C++
+
+Arrays declared with more than one dimension are called multidimensional arrays. The most widely used multidimensional arrays are 2D arrays and 3D arrays. These arrays are generally represented in the form of rows and columns.
+
+Multidimensional Array Declaration
+
+Data_Type Array_Name[Size1][Size2]...[SizeN];
+
+where,
+
+    Data_Type: Type of data to be stored in the array.
+    Array_Name: Name of the array.
+    Size1, Size2,…, SizeN: Size of each dimension.
+
+Two Dimensional Array in C++
+
+In C++, a two-dimensional array is a grouping of elements arranged in rows and columns. Each element is accessed using two indices: one for the row and one for the column, which makes it easy to visualize as a table or grid.
+Syntax of 2D array
+
+data_Type array_name[n][m];
+
+Where,
+
+    n: Number of rows.
+    m: Number of columns.
+    two dimensional array in c++
+
+Example: The C++ Program to Illustrate the Two-Dimensional Array
+// c++ program to illustrate the two dimensional array
+#include <iostream>
+using namespace std;
+
+int main()
+{
+    // Declaring 2D array
+    int arr[4][4];
+
+    // Initialize 2D array using loop
+    for (int i = 0; i < 4; i++) {
+        for (int j = 0; j < 4; j++) {
+            arr[i][j] = i + j;
+        }
+    }
+
+    // Printing the element of 2D array
+    for (int i = 0; i < 4; i++) {
+        for (int j = 0; j < 4; j++) {
+            cout << arr[i][j] << " ";
+        }
+        cout << endl;
+    }
+
+    return 0;
+}
+Three-Dimensional Array in C++
+
+The 3D array uses three dimensions. A collection of various two-dimensional arrays piled on top of one another can be used to represent it. Three indices—the row index, column index, and depth index are used to uniquely identify each element in a 3D array.
+
+Declaration of Three-Dimensional Array in C++
+
+To declare a 3D array in C++, we need to specify its third dimension along with 2D dimensions.
+
+Data_Type Array_Name[D][R][C];
+
+Where,
+
+    Data_Type: Type of data to be stored in each element.
+    Array_Name: Name of the array
+    D: Number of 2D arrays or Depth of array.
+    R: Number of rows in each 2D array.
+    C: Number of columns in each 2D array.
+
+Example
+
+int array[3][3][3];
+
+three dimensional array in c++
+Example: The C++ Program to Illustrate the 3d Array
+
+// C++ program to illustrate the 3d array
+#include <iostream>
+using namespace std;
+
+int main()
+{
+
+    // declaring 3d array
+    int arr[3][3][3];
+    // initializing the array
+    for (int i = 0; i < 3; i++) {
+        for (int j = 0; j < 3; j++) {
+            for (int k = 0; k < 3; k++) {
+                arr[i][j][k] = i + j + k;
+            }
+        }
+    }
+
+    // printing the array
+    for (int i = 0; i < 3; i++) {
+        cout << i << "st layer:" << endl;
+        for (int j = 0; j < 3; j++) {
+            for (int k = 0; k < 3; k++) {
+                cout << arr[i][j][k] << " ";
+            }
+            cout << endl;
+        }
+        cout << endl;
+    }
+
+       return 0;
+}
+
+
+Output
+
+0st layer:
+0 1 2 
+1 2 3 
+2 3 4 
+
+1st layer:
+1 2 3 
+2 3 4 
+3 4 5 
+
+2st layer:
+2 3 4 
+3 4 5 
+4 5 6 
+
+Explanation
+
+In the above code, we have declared a 3D array and then initialized it using three nested for loops. After that, we printed all layers of the 3D array again using three nested for loops as seen in the output.
+
+Variable Length Arrays (VLAs) in C
+In C, variable length arrays (VLAs) are also known as runtime-sized or variable-sized arrays. The size of such arrays is defined at run-time.
+
+Variably modified types include variable-length arrays and pointers to variable-length arrays. Variably changed types must be declared at either block scope or function prototype scope.
+
+Variable length arrays are a feature where we can allocate an auto array (on stack) of variable size. It can be used in a typedef statement. C supports variable-sized arrays from the C99 standard. For example, the below program compiles and runs fine in C.
+
+// C program to demonstrate variable length array
+#include <stdio.h>
+
+// function to initialize array
+void initialize(int* arr, int size)
+{
+    for (int i = 0; i < size; i++) {
+        arr[i] = i + 1;
+    }
+}
+
+// function to print an array
+void printArray(int size)
+{
+    // variable length array
+    int arr[size];
+    initialize(arr, size);
+
+    for (int i = 0; i < size; i++) {
+        printf("%d ", arr[i]);
+    }
+}
+
+// driver code
+int main()
+{
+    int n;
+    printf("Enter the Size: ");
+    scanf("%d", &n);
+    printArray(n);
+
+    return 0;
+}
+Enter the Size: 5
+1 2 3 4 5 
+
+Explanation: The above program illustrate how to create a variable size array in a function in C program. This size is passed as parameter and the variable array is created on the stack memory.
+
+
+How to print size of array parameter in C++?
+
+// A C++ program to show that it is wrong to
+// compute size of an array parameter in a function
+#include <iostream>
+using namespace std;
+
+void findSize(int arr[]) 
+{ 
+cout << sizeof(arr) << endl; 
+}
+
+int main()
+{
+	int a[10];
+	cout << sizeof(a) << " ";
+	findSize(a);
+	return 0;
+}
+
+40 8
+
+Time Complexity: O(1)  
+Auxiliary Space: O(n) where n is the size of the array.
+
+The above output is for a machine where the size of an integer is 4 bytes and the size of a pointer is 8 bytes.
+The cout statement inside main() prints 40, and cout in findSize() prints 8. The reason for different outputs is that the arrays always pass pointers in functions. Therefore, findSize(int arr[]) and findSize(int *arr) mean exact same thing. Therefore the cout statement inside findSize() prints the size of a pointer.
+
+For details, refer to the following articles:
+
+    Do Not Use sizeof For Array Parameters in C
+    Why Does C Treat Array Parameters as Pointers?
+
+How to find the size of an array in function?
+
+We can pass a ‘reference to the array’.
+
+// A C++ program to show that we can use reference to
+// find size of array
+#include <iostream>
+using namespace std;
+
+void findSize(int (&arr)[10])
+{
+	cout << sizeof(arr) << endl;
+}
+
+int main()
+{
+	int a[10];
+	cout << sizeof(a) << " ";
+	findSize(a);
+	return 0;
+}
+
+40 40
+
+Time Complexity: O(1)
+Space Complexity: O(n) where n is the size of the array.
+
+The above program isn’t appealing as we have used the hardcoded size of the array parameter. 
+We can do it better using templates in C++
+
+We can use templates to define the function instead of using the hardcoded size.
+
+
+// A C++ program to show that we use template and
+// reference to find size of integer array parameter
+#include <iostream>
+using namespace std;
+
+template <size_t n>
+void findSize(int (&arr)[n])
+{
+	cout << sizeof(int) * n << endl;
+}
+
+int main()
+{
+	int a[10];
+	cout << sizeof(a) << " ";
+	findSize(a);
+	return 0;
+}
+
+40 40
+
+Time Complexity: O(1)
+Space Complexity: O(n) where n is the size of the array.
+We can make a generic function as well
+
+// A C++ program to show that we use template and
+// reference to find size of any type array parameter
+#include <iostream>
+using namespace std;
+
+template <typename T, size_t n>
+void findSize(T (&arr)[n])
+{
+	cout << sizeof(T) * n << endl;
+}
+
+int main()
+{
+	int a[10];
+	cout << sizeof(a) << " ";
+	findSize(a);
+
+	float f[20];
+	cout << sizeof(f) << " ";
+	findSize(f);
+	return 0;
+}
+
+40 40
+80 80
+
+Time Complexity: O(1)
+Space Complexity: O(n) where n is the size of array.
+Now the next step is to print the size of a dynamically allocated array. 
+
+It’s your task man! I’m giving you a hint.
+
+#include <iostream>
+#include <cstdlib>
+using namespace std;
+ 
+int main()
+{
+    int *arr = (int*)malloc(sizeof(int) * 20);
+    return 0;
+    
+    What is Array Decay in C++? How can it be prevented?
+    What is Array Decay? 
+The loss of type and dimensions of an array is known as decay of an array. This generally occurs when we pass the array into function by value or pointer. What it does is, it sends first address to the array which is a pointer, hence the size of array is not the original one, but the one occupied by the pointer in the memory.
+
+// C++ code to demonstrate array decay
+#include <iostream>
+using namespace std;
+
+// Driver function to show Array decay
+// Passing array by value
+void aDecay(int* p)
+{
+    // Printing size of pointer
+    cout << "Modified size of array is by "
+            " passing by value: ";
+    cout << sizeof(p) << endl;
+}
+
+int main()
+{
+    int a[7] = {
+        1, 2, 3, 4, 5, 6, 7,
+    };
+
+    // Printing original size of array
+    cout << "Actual size of array is: ";
+    cout << sizeof(a) << endl;
+
+    // Passing a pointer to array
+    aDecay(a);
+
+    return 0;
+}
+Actual size of array is: 28
+Modified size of array is by  passing by value: 8
+
+In the above code, the actual array has 7 int elements and hence has 28 size. But by calling by value and pointer, array decays into pointer and prints the size of 1 pointer i.e. 8 (4 in 32 bit).
+
+Another way to prevent array decay is to send the array into functions by reference. This prevents conversion of array into a pointer, hence prevents the decay.
+// C++ code to demonstrate prevention of
+// decay of array
+#include<iostream>
+using namespace std;
+
+// A function that prevents Array decay
+// by passing array by reference
+void fun(int (&p)[7])
+{
+    // Printing size of array
+    cout << "Modified size of array by "
+            "passing by reference: ";
+    cout << sizeof(p) << endl;
+}
+
+int main()
+{
+    int a[7] = {1, 2, 3, 4, 5, 6, 7,};
+
+    // Printing original size of array
+    cout << "Actual size of array is: ";
+    cout << sizeof(a) <<endl;
+
+    // Calling function by reference
+    fun(a);
+
+    return 0;
+}
+
+Actual size of array is: 28
+Modified size of array by passing by reference: 28
+
+
+In the above code, passing array by reference solves the problem of decay of array. Sizes in both cases is 28. 
+
+We can also preserve the size of the array by passing it as a pointer to the array which have one more dimension as compared to our array
+// C++ code to demonstrate array decay
+#include <iostream>
+using namespace std;
+
+// Function to show that array decay happens
+// even if we use pointer
+void pDecay(int (*p)[7])
+{
+    // Printing size of array
+    cout << "Modified size of array by "
+            "passing by pointer: ";
+    cout << sizeof(p) << endl;
+}
+
+int main()
+{
+    int a[7] = { 1, 2, 3, 4, 5, 6, 7 };
+
+    // Printing original size of array
+    cout << "Actual size of array is: ";
+    cout << sizeof(a) << endl;
+
+    // Passing a pointer to array
+    pDecay(&a);
+
+    return 0;
+}
+
+Actual size of array is: 28
+Modified size of array by passing by pointer: 8
+
+But in this case, we will have to treat the array in the function as 2d array and to access the value stored in the array, we have to access it like this: arr[0][1], arr[0][3], .. and so on.
+
+
 
