@@ -6431,5 +6431,82 @@ Modified size of array by passing by pointer: 8
 
 But in this case, we will have to treat the array in the function as 2d array and to access the value stored in the array, we have to access it like this: arr[0][1], arr[0][3], .. and so on.
 
+### **📌 Concise Notes on `vector<int>` in C++**  
+
+---
+
+### **🔹 What is a `vector<int>`?**  
+A **vector** is a **dynamic array** in C++ that can resize itself automatically when needed. It is part of the **Standard Template Library (STL)** and provides various built-in functions for easier manipulation of elements.
+
+---
+
+### **🔹 Why Use `vector<int>` Over Arrays?**  
+
+| Feature            | `vector<int>` | `int arr[n]` (Array) |
+|--------------------|--------------|----------------------|
+| **Size**          | Dynamic (Auto-expanding) | Fixed at compile-time |
+| **Memory Management** | Automatic | Manual |
+| **Ease of Use**   | Built-in functions (push, pop, etc.) | No built-in functions |
+| **Safety**        | Checks for out-of-bounds access (via `.at()`) | No safety checks |
+| **Resizing**      | Can grow/shrink dynamically | Cannot resize |
+
+---
+
+### **🔹 Declaration & Initialization**
+```cpp
+vector<int> v;        // Empty vector  
+vector<int> v(5);     // Vector of size 5 (default 0)  
+vector<int> v(5, 10); // Vector of size 5, all elements = 10  
+vector<int> v = {1, 2, 3, 4, 5}; // Initialize with values  
+```
+
+---
+
+### **🔹 Input & Output**
+```cpp
+int n;
+cin >> n;
+vector<int> v(n);  // Declare vector of size n
+for (int i = 0; i < n; i++) cin >> v[i];  // Input
+for (int x : v) cout << x << " ";  // Print using range-based loop
+```
+
+---
+
+### **🔹 Adding & Removing Elements**
+```cpp
+v.push_back(10);   // Add 10 to the end  
+v.pop_back();      // Remove last element  
+v.clear();         // Remove all elements  
+```
+
+---
+
+### **🔹 Checking Size & Accessing Elements**
+```cpp
+cout << v.size();  // Get number of elements  
+cout << v[2];      // Access 3rd element  
+cout << v.at(2);   // Safe access (checks bounds)  
+```
+
+---
+
+### **🔹 Looping Over a Vector**
+```cpp
+for (int i = 0; i < v.size(); i++) cout << v[i] << " ";  
+for (int x : v) cout << x << " ";  // For-each loop  
+```
+
+---
+
+### **🔹 When to Use `vector<int>`?**
+✅ When you **don’t know the size** beforehand.  
+✅ When you **need dynamic resizing**.  
+✅ When you **want built-in functions** for efficiency.  
+
+**✨ `vector<int>` is a powerful, flexible, and safer alternative to arrays!** 🚀
+
+
+
 
 
