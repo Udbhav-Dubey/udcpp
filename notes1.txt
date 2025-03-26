@@ -6506,7 +6506,4942 @@ for (int x : v) cout << x << " ";  // For-each loop
 
 **✨ `vector<int>` is a powerful, flexible, and safer alternative to arrays!** 🚀
 
+ Strings in C++
+ In C++, strings are sequences of characters that are used to store words and text. They are also used to store data, such as numbers and other types of information in the form of text. Strings are provided by <string> header file in the form of std::string class.
+
+Creating a String
+
+Creating a string means creating an instance of std::string class as shown:
+string str_name;
+
+where str_name is the name of the string.
+Initializing a String
+
+Initializing means assigning some initial value to the string. This can be done by using assignment operator and the text enclosed inside “” double quotes.
+Initializing a String
+
+Initializing means assigning some initial value to the string. This can be done by using assignment operator and the text enclosed inside “” double quotes.
+string str = "Some Text here";
+
+The text inside “” is called string literal and it is the value that is assigned to the string variables. It doesn’t need to have any meaning. It can be any text that is the sequence of characters from the ASCII charset.
+Accessing String
+
+A string can be referred using its name anywhere in the scope once it is declared. For example, the below example prints string using cout:
+#include <iostream>
+using namespace std;
+
+int main() {
+    
+    // Creating a string
+    string greeting = "Welcome to GfG!";
+    
+    // Accessing string
+    cout << greeting;
+
+    return 0;
+}
+
+Welcome to GfG!
+
+The individual characters of the strings can also be accessed using their position (or index) like arrays with [] square brackets. The index in C++ starts from 0 and goes till size – 1, so be careful not go outside this limit.
+The individual characters of the strings can also be accessed using their position (or index) like arrays with [] square brackets. The index in C++ starts from 0 and goes till size – 1, so be careful not go outside this limit.
+#include <iostream>
+using namespace std;
+
+int main() {
+    string str = "Sonu";
+    
+    // Accessing 3rd character
+    cout << str[2] << endl;
+    
+    // Accessing first character
+    cout << str[0];
+
+    return 0;
+}
+
+n
+S
+Updating String
+
+The string variable can be updated store a new string literal in a similar way it is initialized.
+#include <iostream>
+using namespace std;
+
+int main() {
+    string str = "Tara";
+    cout << str << endl;
+    
+    // Updating string
+    str = "Singh";
+    cout << str;
+
+    return 0;
+}
+
+#include <iostream>
+using namespace std;
+
+int main() {
+    string str = "Tara";
+    
+    // Updating second character
+    str[1] = 'o';
+    cout << str;
+
+    return 0;
+}
+
+	Pass Strings to Functions
+
+The string can be passed to a function in the same was as any other type of variable.
+#include <iostream>
+using namespace std;
+
+// Taking string as argument
+void print(string s) {
+    cout << s;
+    return;
+}
+
+int main() {
+    string s = "GeeksforGeeks";
+    
+    // Passing string
+    print(s);
+    return 0;
+}
+
+C Style Strings
+
+C++ is a superset of C language, so it also inherits the way in which we used to create strings in C. In C, strings were nothing, but an array of characters terminated by a NULL character ‘\0’. They were created as:
+char str[] = "Hello";
+
+Due to being array, there were limitations on C strings:
+
+    Fixed Size: Once declared, the size of the C string cannot be changed.
+    Lack of Easy String Operations: No high-level operations like concatenation or substring extraction. Moreover, updating was also complex.
+
+C++ strings resolve this issue by providing a lot of operations that are easy to perform. Internally, these strings are still implemented as dynamic array of characters (or more precisely vectors) Thats why we can access a single character by its index. But the std::string class act as a wrapper and provides lot of built-in functionality for easier and more efficient handling of strings.
+
+C++ String vs C Strings
+
+The main difference between a string and a character array is that strings are immutable, while character arrays are not.
+
+String
+	
+
+Character Array
+Strings define objects that can be represented as string streams.	The null character terminates a character array of characters.
+No Array decay occurs in strings as strings are represented as objects.	
+
+The threat of array decay is present in the case of the character array.
+A string class provides numerous functions for manipulating strings.	Character arrays do not offer inbuilt functions to manipulate strings.
+Memory is allocated dynamically.	The size of the character array has to be allocated statically. 
+C++ String Functions
+
+C++ provides some inbuilt functions which are used for string manipulation, such as the strcpy() and strcat() functions for copying and concatenating strings. Some of them are:
+Function
+	
+
+Description
+length()	This function returns the length of the string.
+swap() 	This function is used to swap the values of 2 strings.
+size() 	Used to find the size of string
+resize()	This function is used to resize the length of the string up to the given number of characters.
+find()	Used to find the string which is passed in parameters
+push_back()	This function is used to push the passed character at the end of the string
+pop_back() 	This function is used to pop the last character from the string
+clear() 	This function is used to remove all the elements of the string.
+strncmp()	This function compares at most the first num bytes of both passed strings.
+strncpy()	This function is similar to strcpy() function, except that at most n bytes of src are copied
+strrchr()	This function locates the last occurrence of a character in the string.
+strcat()	This function appends a copy of the source string to the end of the destination string
+find()	This function is used to search for a certain substring inside a string and returns the position of the first character of the substring. 
+replace()	This function is used to replace each element in the range [first, last) that is equal to old value with new value.
+substr()	This function is used to create a substring from a given string. 
+compare()	This function is used to compare two strings and returns the result in the form of an integer.
+erase()	This function is used to remove a certain part of a string.
+
+rfind()
+	
+
+This function is used to find the string’s last occurrence.
+ A string is a class that defines objects that be represented as a stream of characters.	A character array is simply an array of characters that can be terminated by a null character.
+In the case of strings, memory is allocated dynamically. More memory can be allocated at run time on demand. As no memory is preallocated, no memory is wasted.	The size of the character array has to be allocated statically, more memory cannot be allocated at run time if required. Unused allocated memory is also wasted
+As strings are represented as objects, no array decay occurs.	There is a threat of array decay in the case of the character array. 
+Strings are slower when compared to implementation than character array.	Implementation of character array is faster than std:: string. 
+String class defines a number of functionalities that allow manifold operations on strings.	Character arrays do not offer many inbuilt functions to manipulate strings.
+getline()	This function is used to store a stream of characters as entered by the user in the object memory.
+push_back()	This function is used to input a character at the end of the string.
+pop_back()	Introduced from C++11(for strings), this function is used to delete the last character from the string. 
+
+// C++ Program to demonstrate the working of
+// getline(), push_back() and pop_back()
+#include <iostream>
+#include <string> // for string class
+using namespace std;
+
+// Driver Code
+int main()
+{
+    // Declaring string
+    string str;
+
+    // Taking string input using getline()
+    getline(cin, str);
+
+    // Displaying string
+    cout << "The initial string is : ";
+    cout << str << endl;
+
+    // Inserting a character
+    str.push_back('s');
+
+    // Displaying string
+    cout << "The string after push_back operation is : ";
+    cout << str << endl;
+
+    // Deleting a character
+    str.pop_back();
+
+    // Displaying string
+    cout << "The string after pop_back operation is : ";
+    cout << str << endl;
+
+    return 0;
+}
+
+The initial string is : 
+The string after push_back operation is : s
+The string after pop_back operation is : 
+Time Complexity: O(1)
+
+Space Complexity: O(n) where n is the size of the string
+2) Capacity Functions
+Function	Definition
+capacity()	This function returns the capacity allocated to the string, which can be equal to or more than the size of the string. Additional space is allocated so that when the new characters are added to the string, the operations can be done efficiently.
+resize()	This function changes the size of the string, the size can be increased or decreased.
+length()	This function finds the length of the string.
+shrink_to_fit()	This function decreases the capacity of the string and makes it equal to the minimum capacity of the string. This operation is useful to save additional memory if we are sure that no further addition of characters has to be made.
+// C++ Program to demonstrate the working of
+// capacity(), resize() and shrink_to_fit()
+#include <iostream>
+#include <string> // for string class
+using namespace std;
+
+// Driver Code
+int main()
+{
+    // Initializing string
+    string str = "geeksforgeeks is for geeks";
+
+    // Displaying string
+    cout << "The initial string is : ";
+    cout << str << endl;
+
+    // Resizing string using resize()
+    str.resize(13);
+
+    // Displaying string
+    cout << "The string after resize operation is : ";
+    cout << str << endl;
+
+    // Displaying capacity of string
+    cout << "The capacity of string is : ";
+    cout << str.capacity() << endl;
+
+    // Displaying length of the string
+    cout << "The length of the string is :" << str.length()
+         << endl;
+
+    // Decreasing the capacity of string
+    // using shrink_to_fit()
+    str.shrink_to_fit();
+
+    // Displaying string
+    cout << "The new capacity after shrinking is : ";
+    cout << str.capacity() << endl;
+
+    return 0;
+}
+
+3) Iterator Functions
+Function	Definition
+begin()	This function returns an iterator to the beginning of the string.
+end()	This function returns an iterator to the next to the end of the string.
+rbegin()	This function returns a reverse iterator pointing at the end of the string.
+rend()	This function returns a reverse iterator pointing to the previous of beginning of the string.
+cbegin()	This function returns a constant iterator pointing to the beginning of the string, it cannot be used to modify the contents it points-to.
+cend()	This function returns a constant iterator pointing to the next of end of the string, it cannot be used to modify the contents it points-to.
+crbegin()	This function returns a constant reverse iterator pointing to the end of the string, it cannot be used to modify the contents it points-to.
+crend()	This function returns a constant reverse iterator pointing to the previous of beginning of the string, it cannot be used to modify the contents it points-to.
+
+    Algorithm:
+
+        Declare a string
+        Try to iterate the string using all types of iterators
+        Try modification of the element of the string.
+        Display all the iterations.
+        // C++ Program to demonstrate the working of
+// begin(), end(), rbegin(), rend(), cbegin(), cend(), crbegin(), crend()
+#include <iostream>
+#include <string> // for string class
+using namespace std;
+
+// Driver Code
+int main()
+{
+    // Initializing string`
+    string str = "geeksforgeeks";
+
+    // Declaring iterator
+    std::string::iterator it;
+
+    // Declaring reverse iterator
+    std::string::reverse_iterator it1;
+    cout<<"Str:"<<str<<"\n";
+    // Displaying string
+    cout << "The string using forward iterators is : ";
+    for (it = str.begin(); it != str.end(); it++){
+        if(it == str.begin()) *it='G';
+        cout << *it;
+    }
+    cout << endl;
+
+      str = "geeksforgeeks";
+    // Displaying reverse string
+    cout << "The reverse string using reverse iterators is "
+            ": ";
+    for (it1 = str.rbegin(); it1 != str.rend(); it1++){
+        if(it1 == str.rbegin()) *it1='S';
+        cout << *it1;
+    }
+    cout << endl;
+  
+  str = "geeksforgeeks";
+  //Displaying String
+  cout<<"The string using constant forward iterator is :";
+  for(auto it2 = str.cbegin(); it2!=str.cend(); it2++){
+        //if(it2 == str.cbegin()) *it2='G';
+        //here modification is NOT Possible
+        //error: assignment of read-only location 
+        //As it is a pointer to the const content, but we can inc/dec-rement the iterator
+        cout<<*it2;
+  }
+  cout<<"\n";
+  
+  str = "geeksforgeeks";
+  //Displaying String in reverse
+  cout<<"The reverse string using constant reverse iterator is :";
+  for(auto it3 = str.crbegin(); it3!=str.crend(); it3++){
+        //if(it2 == str.cbegin()) *it2='S';
+        //here modification is NOT Possible
+        //error: assignment of read-only location 
+        //As it is a pointer to the const content, but we can inc/dec-rement the iterator
+        cout<<*it3;
+  }
+  cout<<"\n";
+
+    return 0;
+}
+
+//Code modified by Balakrishnan R (rbkraj000)
+
+Str:geeksforgeeks
+The string using forward iterators is : Geeksforgeeks
+The reverse string using reverse iterators is : Skeegrofskeeg
+The string using constant forward iterator is :geeksforgeeks
+The reverse string using constant reverse iterator is :skeegrofskeeg
+
+Time Complexity: O(1)
+
+Space Complexity: O(n) where n is the size of the string
+
+4) Manipulating Functions:
+Function	Definition
+copy(“char array”, len, pos) 	This function copies the substring in the target character array mentioned in its arguments. It takes 3 arguments, target char array, length to be copied, and starting position in the string to start copying.
+swap()	This function swaps one string with another
+// C++ Program to demonstrate the working of
+// copy() and swap()
+#include <iostream>
+#include <string> // for string class
+using namespace std;
+
+// Driver Code
+int main()
+{
+    // Initializing 1st string
+    string str1 = "geeksforgeeks is for geeks";
+
+    // Declaring 2nd string
+    string str2 = "geeksforgeeks rocks";
+
+    // Declaring character array
+    char ch[80];
+
+    // using copy() to copy elements into char array
+    // copies "geeksforgeeks"
+    str1.copy(ch, 13, 0);
+
+    // Displaying char array
+    cout << "The new copied character array is : ";
+    cout << ch << endl;
+
+    // Displaying strings before swapping
+    cout << "The 1st string before swapping is : ";
+    cout << str1 << endl;
+    cout << "The 2nd string before swapping is : ";
+    cout << str2 << endl;
+
+    // using swap() to swap string content
+    str1.swap(str2);
+
+    // Displaying strings after swapping
+    cout << "The 1st string after swapping is : ";
+    cout << str1 << endl;
+    cout << "The 2nd string after swapping is : ";
+    cout << str2 << endl;
+
+    return 0;
+}
+
+The new copied character array is : geeksforgeeks
+The 1st string before swapping is : geeksforgeeks is for geeks
+The 2nd string before swapping is : geeksforgeeks rocks
+The 1st string after swapping is : geeksforgeeks rocks
+The 2nd string after swapping is : geeksforgeeks is for geeks
+
+Array of Strings in C++
+In C++, a string is sequence of characters that is used to store textual information. Internally, it is implemented as a dynamic array of characters. Array of strings is the array in which each element is a string.
+
+We can easily create an array of string in C++ as shown in the below example:
+#include <iostream>
+using namespace std;
+
+int main() {
+  
+      // Array of C++ style strings
+    string arr[3] = {"This", "is", "array"};
+  
+      for (int i = 0; i < 3; i++)
+          cout << arr[i] << " ";
+    return 0;
+}
+
+This is array 
+
+In the above program, we have created an array of strings arr. It is initialized with 3 strings which are then printed using loops.
+Syntax
+
+The general syntax of array of strings is:
+
+    string arr_name[size]
+
+where arr_name is the name assigned to the array and size is the desired size.
+
+Understanding how to create and manage arrays of strings is essential in C++. The C++ Course covers five different methods for creating arrays of strings, helping you choose the right approach for your needs.
+Problem with C Style Strings
+
+The C style strings are nothing but the fixed size array of characters terminated by null characters. Due to this, following limitations arise:
+
+    Cannot assign new string to any element. Have to use strcpy().
+    If 2D array is used, it results in unused extra space.
+
+This issue is discussed in this article – Array of Strings in C
+
+But as C++ strings are dynamic, there is no space wastage issue as each string only occupies the requires space and these can be updated anytime without worrying about the allocated size. For example, we can modify and update the elements of the array arr simply by using the assignment operator:
+#include <iostream>
+using namespace std;
+
+int main() {
+    string arr[3] = {"This", "is", "array"};
+  
+      // Modifying strings
+      arr[2] = "sparta";
+      for (int i = 0; i < 3; i++)
+          cout << arr[i] << " ";
+    return 0;
+}
+
+This is sparta 
+Problem with C Style Strings
+
+The C style strings are nothing but the fixed size array of characters terminated by null characters. Due to this, following limitations arise:
+
+    Cannot assign new string to any element. Have to use strcpy().
+    If 2D array is used, it results in unused extra space.
+
+This issue is discussed in this article – Array of Strings in C
+
+But as C++ strings are dynamic, there is no space wastage issue as each string only occupies the requires space and these can be updated anytime without worrying about the allocated size. For example, we can modify and update the elements of the array arr simply by using the assignment operator:
+#include <iostream>
+using namespace std;
+
+int main() {
+    string arr[3] = {"This", "is", "array"};
+  
+      // Modifying strings
+      arr[2] = "sparta";
+      for (int i = 0; i < 3; i++)
+          cout << arr[i] << " ";
+    return 0;
+}
+
+Vector of Strings
+
+There is also some problem with this array. The number of strings to be stored will remain same once it is declared i.e. the size of the array remains same. One thing we can do is to create a dynamic array change the size every time we want to insert or delete. But a better way to avoid this manual operation is just using vector container.
+#include <bits/stdc++.h>
+using namespace std;
+
+int main() {
+  
+      // Create a vector of strings
+    vector<string> v{ "This", "is", "vector" };
+
+    // Add one more string
+    v.push_back("container");
+
+    for (int i = 0; i < v.size(); i++)
+        cout << v[i] << " ";
+    return 0;
+}
+
+This is vector container 
+
+In this program, a vector of strings named v is created and initialized with three strings: “This”, “is”, and “vector”. The push_back() function is then used to add another string, “container“, to the vector. This shows the example of automatically resizable container for holding multiple strings.
+Different Ways to Create Array of Strings
+
+Above shown are the most preferred technique to create array of string but there are also some other ways as shown:
+1. Using Array of Pointers
+
+Pointers are the symbolic representation of an address. In simple words, a pointer is something that stores the address of a variable in it. In this method, an array of string literals is created by an array of pointers in which each pointer points to a particular string.
+#include <iostream>
+using namespace std;
+
+int main() {
+    
+    // Initialize array of pointer
+    const char* colour[4]
+        = { "Blue", "Red", "Orange", "Yellow" };
+
+    for (int i = 0; i < 4; i++)
+        cout << colour[i] << "\n";
+    return 0;
+}
+
+lue
+Red
+Orange
+Yellow
+A 2-D array is the simplest form of a multidimensional array in which it stores the data in a tabular form. This method is useful when the length of all strings is known, and a particular memory footprint is desired. Space for strings will be allocated in a single block.
+
+#include <iostream>
+using namespace std;
+
+int main() {
+    
+    // Initialize 2D array
+    char colour[4][10]
+        = { "Blue", "Red", "Orange", "Yellow" };
+
+    // Printing Strings stored in 2D array
+    for (int i = 0; i < 4; i++)
+        cout << colour[i] << "\n";
+    return 0;
+}
+Blue
+Red
+Orange
+Yellow
+
+
+String Concatenation in C++
+
+
+
+String concatenation refers to the process of combining two or more strings into a single string. Generally, one string is appended at the end of the other string. In this article, we will learn how to concatenate two strings in C++.
+
+The simplest method to concatenate two strings in C++ is by using + operator. Let’s take a look at an example:
+
+String concatenation refers to the process of combining two or more strings into a single string. Generally, one string is appended at the end of the other string. In this article, we will learn how to concatenate two strings in C++.
+
+The simplest method to concatenate two strings in C++ is by using + operator. Let’s take a look at an example:
+Hello World
+
+Explanation: The ‘+’ operator combines two string objects and returns the resulting concatenated string. However, this method only works for C++ style strings (std::string) and is not applicable to C-style character arrays.
+
+There are also many other different ways to concatenate two strings in C++:
+
+Table of Content
+
+    Using String append()
+    Using strcat()
+    Using for Loop
+
+Using String append()
+
+The string append() function is a member of the string class that is used to concatenate two string objects in C++. It provides an efficient way to concatenate two strings.
+Hello World
+
+Explanation: The ‘+’ operator combines two string objects and returns the resulting concatenated string. However, this method only works for C++ style strings (std::string) and is not applicable to C-style character arrays.
+
+There are also many other different ways to concatenate two strings in C++:
+
+Table of Content
+
+    Using String append()
+    Using strcat()
+    Using for Loop
+
+Using String append()
+
+The string append() function is a member of the string class that is used to concatenate two string objects in C++. It provides an efficient way to concatenate two strings.
+Hello World
+
+When to use?
+
+Use this method when you need an efficient, in-place concatenation of std::string objects.
+Using strcat()
+
+The strcat() function is a standard library function in C that is also available in C++. It is used to concatenate (append) one C-style string (character array) to another and adds a null terminator at the end. It is defined inside the <cstring> header file.
+
+#include <bits/stdc++.h>
+using namespace std;
+
+int main() {
+    char s1[] = "Hello";
+    char s2[] = " World";
+
+    // Concatenating s1 and s2
+    strcat(s1, s2);
+
+    cout << s1;
+    return 0;
+}
+
+
+Output
+
+Hello World
+
+When to use?
+
+Use this method when concatenating C-style strings (character arrays). Also suitable for legacy code that may run in C compilers.
+Using for Loop
+
+In this method, characters from one string are appended manually one by one to another while iterating through both strings using loops. The final result is a concatenated string that combines both original string.
+When to use?
+
+Use this method when concatenating C-style strings (character arrays). Also suitable for legacy code that may run in C compilers.
+Using for Loop
+
+In this method, characters from one string are appended manually one by one to another while iterating through both strings using loops. The final result is a concatenated string that combines both original string.
+Hello World
+
+When to use?
+
+Use this method when concatenating C-style strings (character arrays). Also suitable for legacy code that may run in C compilers.
+	Using for Loop
+
+In this method, characters from one string are appended manually one by one to another while iterating through both strings using loops. The final result is a concatenated string that combines both original string
+#include <bits/stdc++.h>
+using namespace std;
+
+int main() {
+    string s1("Hello");
+    string s2(" World");
+
+    // Adding characters of s2 at the end of s1
+    for (auto i : s2)
+        s1 += i;
+
+    cout << s1;
+    return 0;
+}
+
+Hello World
+
+When to use?
+
+Use this method for manual control over concatenation, such as with custom string structures or some processing before concatenation. It is also suitable when direct library functions aren’t available or for specific logic during concatenation.
+
+Tokenizing a string in C++
+Tokenizing a string denotes splitting a string with respect to some delimiter(s). There are many ways to tokenize a string.
+
+In this article four of them are explained:
+
+Using stringstream
+A stringstream associates a string object with a stream allowing you to read from the string as if it were a stream.
+
+Below is the C++ implementation 
+// Tokenizing a string using stringstream
+#include <bits/stdc++.h>
+
+using namespace std;
+
+int main()
+{
+    
+    string line = "GeeksForGeeks is a must try";
+    
+    // Vector of string to save tokens
+    vector <string> tokens;
+    
+    // stringstream class check1
+    stringstream check1(line);
+    
+    string intermediate;
+    
+    // Tokenizing w.r.t. space ' '
+    while(getline(check1, intermediate, ' '))
+    {
+        tokens.push_back(intermediate);
+    }
+    
+    // Printing the token vector
+    for(int i = 0; i < tokens.size(); i++)
+        cout << tokens[i] << '\n';
+}
+
+GeeksForGeeks
+is
+a
+must
+try
+
+Time Complexity: O(n ) where n is the length of string.
+Auxiliary Space: O(n-d) where n is the length of string and d is the number of delimiters.
+// Splits str[] according to given delimiters.
+// and returns next token. It needs to be called
+// in a loop to get all tokens. It returns NULL
+// when there are no more tokens.
+char * strtok(char str[], const char *delims);
+// C/C++ program for splitting a string
+// using strtok()
+#include <stdio.h>
+#include <string.h>
+
+int main()
+{
+    char str[] = "Geeks-for-Geeks";
+
+    // Returns first token 
+    char *token = strtok(str, "-");
+
+    // Keep printing tokens while one of the
+    // delimiters present in str[].
+    while (token != NULL)
+    {
+        printf("%s\n", token);
+        token = strtok(NULL, "-");
+    }
+
+    return 0;
+}
+
+Geeks
+for
+Geeks
+
+Time Complexity: O(n ) where n is the length of string.
+Auxiliary Space: O(1)
+// C code to demonstrate working of
+// strtok
+#include <string.h>
+#include <stdio.h>
+
+// Driver function
+int main()
+{
+ // Declaration of string
+    char gfg[100] = " Geeks - for - geeks - Contribute";
+
+    // Declaration of delimiter
+    const char s[4] = "-";
+    char* tok;
+
+    // Use of strtok
+    // get first token
+    tok = strtok(gfg, s);
+
+    // Checks for delimiter
+    while (tok != 0) {
+        printf(" %s\n", tok);
+
+        // Use of strtok
+        // go through other tokens
+        tok = strtok(0, s);
+    }
+
+    return (0);
+}
+
+  Geeks 
+  for 
+  geeks 
+  Contribute
+
+Time Complexity: O(n ) where n is the length of string.
+Auxiliary Space: O(1).
+Using strtok_r()
+
+Just like strtok() function in C, strtok_r() does the same task of parsing a string into a sequence of tokens. strtok_r() is a reentrant version of strtok().
+
+There are two ways we can call strtok_r() 
+
+// The third argument saveptr is a pointer to a char * 
+// variable that is used internally by strtok_r() in 
+// order to maintain context between successive calls
+// that parse the same string.
+char *strtok_r(char *str, const char *delim, char **saveptr)
+Below is a simple C++ program to show the use of strtok_r() : 
+
+// C/C++ program to demonstrate working of strtok_r()
+// by splitting string based on space character.
+#include<stdio.h>
+#include<string.h>
+
+int main()
+{
+    char str[] = "Geeks for Geeks";
+    char *token;
+    char *rest = str;
+
+    while ((token = strtok_r(rest, " ", &rest)))
+        printf("%s\n", token);
+
+    return(0);
+}
+
+
+Geeks
+for
+Geeks
+
+Time Complexity: O(n ) where n is the length of string.
+Auxiliary Space: O(1).
+Using std::sregex_token_iterator
+
+In this method the tokenization is done on the basis of regex matches. Better for use cases when multiple delimiters are needed.
+
+Below is a simple C++ program to show the use of std::sregex_token_iterator:
+// CPP program for above approach
+#include <iostream>
+#include <regex>
+#include <string>
+#include <vector>
+
+/**
+ * @brief Tokenize the given vector 
+   according to the regex
+ * and remove the empty tokens.
+ *
+ * @param str
+ * @param re
+ * @return std::vector<std::string>
+ */
+std::vector<std::string> tokenize(
+                     const std::string str,
+                          const std::regex re)
+{
+    std::sregex_token_iterator it{ str.begin(), 
+                             str.end(), re, -1 };
+    std::vector<std::string> tokenized{ it, {} };
+
+    // Additional check to remove empty strings
+    tokenized.erase(
+        std::remove_if(tokenized.begin(), 
+                            tokenized.end(),
+                       [](std::string const& s) {
+                           return s.size() == 0;
+                       }),
+        tokenized.end());
+
+    return tokenized;
+}
+
+// Driver Code
+int main()
+{
+    const std::string str = "Break string 
+                   a,spaces,and,commas";
+    const std::regex re(R"([\s|,]+)");
+  
+    // Function Call
+    const std::vector<std::string> tokenized = 
+                           tokenize(str, re);
+  
+    for (std::string token : tokenized)
+        std::cout << token << std::endl;
+    return 0;
+}
+
+Break
+string
+a
+spaces
+and
+commas
+
+Time Complexity: O(n * d) where n is the length of string and d is the number of delimiters.
+Auxiliary Space: O(n
+Substring in C++
+The substring function is used for handling string operations like strcat(), append(), etc. It generates a new string with its value initialized to a copy of a sub-string of this object. In C++, the header file which is required for  std::substr(), string functions is <string>. 
+
+The substring function takes two values pos and len as an argument and returns a newly constructed string object with its value initialized to a copy of a sub-string of this object. Copying of string starts from pos and is done till pos+len means [pos, pos+len).
+string substr (size_t pos, size_t len) const;
+Parameters:
+
+    pos: Index of the first character to be copied.
+    len: Length of the sub-string.
+    size_t: It is an unsigned integral type.
+
+Return Value: It returns a string object.
+
+Example:
+// C++ program to demonstrate functioning of substr()
+#include <iostream>
+#include <string>
+using namespace std;
+
+int main()
+{
+    // Take any string
+    string s1 = "Geeks";
+
+    // Copy two characters of s1 (starting
+    // from index 3)
+    string r = s1.substr(3, 2);
+
+    // prints the result
+    cout << "String is: " << r;
+
+    return 0;
+}
+
+String is: ks
+
+    Time complexity: O(N)
+    Auxiliary Space: O(N)
+
+More examples:
+
+string: "h  e  l  l  o   w  o  r  l  d"
+index:   0 1 2 3 4  5  6  7 8  9 10  
+
+if we write: –
+
+    s.substr(s.begin(),3)  => compilation error 🙂  (because cannnot convert a iterator to a int datatype )
+    s.substr(2,3) =>  llo   (three letter from 2nd index)
+    s.substr(*s.begin()-s[0],3)  => hel   (*s.begin() is ‘h’ then ‘h’-s[0]=> ‘h’-‘h’=0 means substr(0,3) —– three letter from zeroth index
+    s.substr(5,1)  => ‘ ‘  (prints blank space , that is at 5th index)
+    s.substr(2,0)  => (not output)  (selects zero letters from second index)
+    Important Points to Remember
+
+    The index of the first character is 0 (not 1).
+    If pos is equal to the string length, the function returns an empty string.
+    If pos is greater than the string length, it throws out_of_range. If this happens, there are no changes in the string.
+    If the requested sub-string len is greater than the size of a string, then returned sub-string is [pos, size()).
+    If len is not passed as a parameter, then returned sub-string is [pos, size()).
+
+Applications of Substring
+
+    Get a Sub-String after a character
+    Get a Sub-String before a character
+    Print all Sub-Strings of a given String
+    Sum of all Substrings of a string representing a number
+    Print the maximum value of all substrings of a string representing a number
+    Print the minimum value of all substrings of a string representing a number
+
+Get a Sub-String after a Character
+
+In this, a string and a character are given and you have to print the sub-string followed by the given character. 
+Extract everything after the “:” in the string “dog:cat“.
+// C++ program to demonstrate functioning of substr()
+#include <iostream>
+#include <string>
+using namespace std;
+
+int main()
+{
+    // Take any string
+    string s = "dog:cat";
+
+    // Find position of ':' using find()
+    int pos = s.find(":");
+
+    // Copy substring after pos
+    string sub = s.substr(pos + 1);
+
+    // prints the result
+    cout << "String is: " << sub;
+
+    return 0;
+}
+
+Time complexity: O(N)
+
+Auxiliary Space: O(N)                    
+How to Get a SubString Before a Character?
+
+In this, a string and a character are given and you have to print the sub-string followed by the given character. 
+
+Example:
+// C++ program to demonstrate functioning of substr()
+#include <iostream>
+#include <string>
+using namespace std;
+
+int main()
+{
+    // Take any string
+    string s = "dog:cat";
+
+    // Find position of ':' using find()
+    int pos = s.find(":");
+
+    // Copy substring before pos
+    // Extract everything before the ":" in the string
+    // "dog:cat".
+    string sub = s.substr(0, pos);
+
+    // prints the result
+    cout << "String is: " << sub;
+
+    return 0;
+}
+
+String is: dog
+
+Time complexity: O(N)
+
+Auxiliary Space: O(N)
+How to Print all Sub-Strings of a Given String?
+
+Given a string as an input. We need to write a program that will print all non-empty substrings of that given string.
+
+
+// C++ program to demonstrate all possible
+// substrings of a given string
+#include <bits/stdc++.h>
+using namespace std;
+
+// Function to print all sub strings
+void subString(string s, int n)
+{
+    // Pick starting point in outer loop
+    // and lengths of different strings for
+    // a given starting point
+    for (int i = 0; i < n; i++)
+        for (int len = 1; len <= n - i; len++)
+            cout << s.substr(i, len) << endl;
+}
+
+// Driver program to test above function
+int main()
+{
+    string s = "abcd";
+    subString(s, s.length());
+    return 0;
+}
+
+a
+ab
+abc
+abcd
+b
+bc
+bcd
+c
+cd
+d
+
+Time complexity: O( N3 )
+
+Auxiliary Space: O(1)
+Print Sum of all Substrings of a String Representing a Number
+
+Given an integer represented as a string, we need to get the sum of all possible substrings of this string.
+// C++ program to print sum of all possible substring of
+// a number represented as a string
+#include <bits/stdc++.h>
+using namespace std;
+
+// Utility method to convert character digit to
+// integer digit
+int toDigit(char ch) { return (ch - '0'); }
+
+// Returns sum of all substring of num
+int sumOfSubstrings(string s)
+{
+    vector<int> v;
+    int n = s.length();
+    for (int i = 0; i < n; i++) {
+        for (int len = 1; len <= n - i; len++) {
+            string sub = (s.substr(i, len));
+            int x = stoi(sub);
+            v.push_back(x);
+        }
+    }
+    int res = accumulate(v.begin(), v.end(), 0);
+
+    return res;
+}
+
+// Driver code to test above methods
+int main()
+{
+    string num = "1234";
+    cout << sumOfSubstrings(num) << endl;
+    return 0;
+}
+
+1670
+
+Time Complexity: O(N3)
+Auxiliary Space: O(N)
+Print the Maximum Value of all Substrings of a String Representing a Number
+
+Given an integer represented as a string, we need to get the maximum of all possible substrings of the given string which represents a number.
+
+Example:
+// C++ program to demonstrate max. of all possible
+// substrings of a given string
+#include <bits/stdc++.h>
+using namespace std;
+
+void subString(string s, int n)
+{
+    vector<int> v;
+    for (int i = 0; i < n; i++) {
+        for (int len = 1; len <= n - i; len++) {
+            string sub = (s.substr(i, len));
+            int x = stoi(sub);
+            v.push_back(x);
+        }
+    }
+    cout << *max_element(v.begin(), v.end()) << endl;
+}
+
+// Driver program to test above function
+int main()
+{
+    string s = "823";
+    subString(s, s.length());
+    return 0;
+}
+
+Explanation: All substrings are { 8, 82, 823, 2, 23, 3 } and the maximum value substring is 823.
+
+Time complexity: O(N3)
+
+Auxiliary space: O(N!)
+Print the Minimum Value of all Substrings of a String Representing a Number
+
+Given an integer represented as a string, we need to get the minimum of all possible substrings of the given string which represents a number.
+
+Example:
+// C++ program to demonstrate minimum of all possible
+// substrings of a given string
+#include <bits/stdc++.h>
+using namespace std;
+
+void subString(string s, int n)
+{
+    vector<int> v;
+    for (int i = 0; i < n; i++) {
+        for (int len = 1; len <= n - i; len++) {
+            string sub = (s.substr(i, len));
+            int x = stoi(sub);
+            v.push_back(x);
+        }
+    }
+    cout << *min_element(v.begin(), v.end()) << endl;
+}
+
+// Driver program to test above function
+int main()
+{
+    string s = "4572";
+    subString(s, s.length());
+    return 0;
+}
+
+Time complexity: O(N3)
+Auxiliary space: O(N!)
+Other Applications of Substring
+
+    Text Searching: Substrings are used to search for words or phrases in larger bodies of text. This is commonly used in search engines, where a user might type in a phrase or keyword and the engine will search for any matches containing that substring.
+    Text Parsing: Substrings are used in text parsing algorithms to break down larger strings into smaller chunks. For example, a parser might be used to extract individual words from a sentence and store them in a data structure.
+    Text Manipulation: Substrings are used in text manipulation applications to find and replace certain words or phrases in larger bodies of text. This can be used to perform search and replace tasks, or to update information in a document.
+    Natural Language Processing: Substrings are used in natural language processing algorithms to identify words and phrases. This is used in applications such as speech recognition, where the algorithm must identify words spoken by a user.
+    Pattern Recognition: Substrings are used in pattern recognition algorithms to identify patterns in data. This can be used to identify trends in financial data, or to detect anomalies in images.
+    Password Security: Substrings are used to verify passwords. This is done by comparing the entered password against a stored substring of the original password. If the two match, then the password is verified. This technique is used in many applications to increase security
+    
+    Functions in C++
+    
+    A function is a set of statements that takes input, does some specific computation, and produces output. The idea is to put some commonly or repeatedly done tasks together to make a function so that instead of writing the same code again and again for different inputs, we can call this function.
+In simple terms, a function is a block of code that runs only when it is called.
+
+// C++ Program to demonstrate working of a function
+#include <iostream>
+using namespace std;
+
+// Following function that takes two parameters 'x' and 'y'
+// as input and returns max of two input numbers
+int max(int x, int y)
+{
+    if (x > y)
+        return x;
+    else
+        return y;
+}
+
+// main function that doesn't receive any parameter and
+// returns integer
+int main()
+{
+    int a = 10, b = 20;
+
+    // Calling above function to find max of 'a' and 'b'
+    int m = max(a, b);
+
+    cout << "m is " << m;
+    return 0;
+}
+
+m is 20
+Time complexity: O(1)
+
+Space complexity: O(1)
+Why Do We Need Functions?
+
+    Functions help us in reducing code redundancy. If functionality is performed at multiple places in software, then rather than writing the same code, again and again, we create a function and call it everywhere. This also helps in maintenance as we have to make changes in only one place if we make changes to the functionality in future.
+    Functions make code modular. Consider a big file having many lines of code. It becomes really simple to read and use the code,  if the code is divided into functions.
+    Functions provide abstraction. For example, we can use library functions without worrying about their internal work
+    Function Declaration
+
+A function declaration tells the compiler about the number of parameters, data types of parameters, and returns type of function. Writing parameter names in the function declaration is optional but it is necessary to put them in the definition. Below is an example of function declarations. (parameter names are not present in the below declarations) 
+
+// C++ Program to show function that takes
+// two integers as parameters and returns
+// an integer
+int max(int, int);
+
+// A function that takes an int
+// pointer and an int variable
+// as parameters and returns
+// a pointer of type int
+int* swap(int*, int);
+
+// A function that takes
+// a char as parameter and
+// returns a reference variable
+char* call(char b);
+
+// A function that takes a
+// char and an int as parameters
+// and returns an integer
+int fun(char, int);
+
+User-defined functions are user/customer-defined blocks of code specially customized to reduce the complexity of big programs. They are also commonly known as “tailor-made functions” which are built only to satisfy the condition in which the user is facing issues meanwhile reducing the complexity of the whole program
+Library Function 
+
+Library functions are also called “built-in Functions“. These functions are part of a compiler package that is already defined and consists of a special function with special and different meanings. Built-in Function gives us an edge as we can directly use them without defining them whereas in the user-defined function we have to declare and define a function before using them. 
+For Example: sqrt(), setw(), strcat(), etc.
+Parameter Passing to Functions
+
+The parameters passed to the function are called actual parameters. For example, in the program below, 5 and 10 are actual parameters. 
+The parameters received by the function are called formal parameters. For example, in the above program x and y are formal parameters.
+There are two most popular ways to pass parameters:
+
+    Pass by Value: In this parameter passing method, values of actual parameters are copied to the function’s formal parameters. The actual and formal parameters are stored in different memory locations so any changes made in the functions are not reflected in the actual parameters of the caller. 
+     
+    Pass by Reference: Both actual and formal parameters refer to the same locations, so any changes made inside the function are reflected in the actual parameters of the caller.
+    
+    Function Definition
+
+Pass by value is used where the value of x is not modified using the function fun()
+
+// C++ Program to demonstrate function definition
+#include <iostream>
+using namespace std;
+
+void fun(int x)
+{
+    // definition of
+    // function
+    x = 30;
+}
+
+int main()
+{
+    int x = 20;
+    fun(x);
+    cout << "x = " << x;
+    return 0;
+}
+
+x = 20
+
+Time complexity: O(1)
+
+Space complexity: O(1)
+
+Functions Using Pointers
+
+The function fun() expects a pointer ptr to an integer (or an address of an integer). It modifies the value at the address ptr. The dereference operator * is used to access the value at an address. In the statement ‘*ptr = 30’, the value at address ptr is changed to 30. The address operator & is used to get the address of a variable of any data type. In the function call statement ‘fun(&x)’, the address of x is passed so that x can be modified using its address.
+	 
+	 // C++ Program to demonstrate working of
+// function using pointers
+#include <iostream>
+using namespace std;
+
+void fun(int* ptr) { *ptr = 30; }
+
+int main()
+{
+    int x = 20;
+    fun(&x);
+    cout << "x = " << x;
+
+    return 0;
+}
+
+x = 30
+
+Time complexity: O(1)
+
+Space complexity: O(1)
+passing string as an argument:
+
+In c++ we can pass string as as argument in various way
+
+    Pass by Value
+    Pass by Reference
+    Pass by Pointer
+    1. Pass by Value
+
+In this when you are passing a values as string it will make a copy of a string values.
+#include <iostream>
+#include <string>
+
+void printString(std::string str) {
+    std::cout << str << std::endl;
+}
+
+int main() {
+    std::string myString = "Hello, GFG!";
+    printString(myString);
+    return 0;
+}
+
+Hello, GFG!
+
+2. Pass by Reference
+
+#include <iostream>
+#include <string>
+
+void printString(const std::string& str) { // Note the 'const' to prevent modification
+    std::cout << str << std::endl;
+}
+
+int main() {
+    std::string myString = "welcome to gfg";
+    printString(myString);
+    return 0;
+}
+
+welcome to gfg
+#include <iostream>
+#include <string>
+
+void printString(const std::string* str) { // Note the 'const' to prevent modification
+    std::cout << *str << std::endl;
+}
+
+int main() {
+    std::string myString = "This is Pss by pointer";
+    printString(&myString);
+    return 0;
+}
+
+#include <iostream>
+#include <string>
+
+void printString(const std::string* str) { // Note the 'const' to prevent modification
+    std::cout << *str << std::endl;
+}
+2. Pass by Reference
+
+This can be done by using ‘&’ operator
+int main() {
+    std::string myString = "This is Pss by pointer";
+    printString(&myString);
+    return 0;
+}
+3. Pass by Pointer
+
+This can be done by using * operator
+Returning string from a function:
+
+This can be done by using the function “std::string”
+
+#include <iostream>
+#include <string>
+
+std::string getGreeting() {
+    return "This is  C++";
+}
+
+int main() {
+    std::string greeting = getGreeting();
+    std::cout << greeting << std::endl;
+    return 0;
+}
+
+#include <iostream>
+#include <string>
+
+std::string getGreeting() {
+    return "This is  C++";
+}
+
+int main() {
+    std::string greeting = getGreeting();
+    std::cout << greeting << std::endl;
+    return 0;
+}
+
+Callback function (function passed as an argument in other function)
+
+A callback function is a function that is passed as an argument to another function 
+
+#include <iostream>
+
+// Define a callback function type
+typedef void (*CallbackFunction)();
+
+// Function that takes a callback function as an argument
+void performAction(CallbackFunction callback) {
+    std::cout << "Performing some action...\n";
+    // Call the callback function
+    callback();
+}
+
+// Example callback function
+void myCallback() {
+    std::cout << "Callback function \n";
+}
+
+int main() {
+    // Pass the callback function to performAction
+    performAction(myCallback);
+    return 0;
+}
+
+Performing some action...
+Callback function 
+
+An array of function pointer and how the elements are accessed
+
+Here, we have c++ example, for accessing elements from array
+
+#include <iostream>
+
+// Function declarations
+int add(int a, int b) {
+    return a + b;
+}
+
+int subtract(int a, int b) {
+    return a - b;
+}
+
+int multiply(int a, int b) {
+    return a * b;
+}
+
+int main() {
+    // Declare and initialize an array of function pointers
+    int (*funcArray[3])(int, int) = { add, subtract, multiply };
+
+    // Variables to use as function parameters
+    int x = 2, y = 3;
+
+    // Access and call the functions using the array of function pointers
+    std::cout << "Add: " << funcArray[0](x, y) << std::endl;       // Calls add(10, 5)
+    std::cout << "Subtract: " << funcArray[1](x, y) << std::endl;  // Calls subtract(10, 5)
+    std::cout << "Multiply: " << funcArray[2](x, y) << std::endl;  // Calls multiply(10, 5)
+
+    return 0;
+}
+
+Add: 5
+Subtract: -1
+Multiply: 6
+
+Difference between call by value and call by reference in C++ 
+Call by value	Call by reference
+A copy of the value is passed to the function	An address of value is passed to the function
+Changes made inside the function are not 
+reflected on other functions	Changes made inside the function are reflected 
+outside the function as well
+Actual and formal arguments will be created at 
+different memory location	Actual and formal arguments will be created at 
+same memory location.
+Points to Remember About Functions in C++
+
+1. Most C++ program has a function called main() that is called by the operating system when a user runs the program. 
+
+2. Every function has a return type. If a function doesn’t return any value, then void is used as a return type. Moreover, if the return type of the function is void, we still can use the return statement in the body of the function definition by not specifying any constant, variable, etc. with it, by only mentioning the ‘return;’ statement which would symbolize the termination of the function as shown below: 
+
+void function name(int a)
+{
+    ....... // Function Body
+        return; // Function execution would get terminated
+}
+
+
+3. To declare a function that can only be called without any parameter, we should use “void fun(void)“. As a side note, in C++, an empty list means a function can only be called without any parameter. In C++, both void fun() and void fun(void) are same.
+
+Main Function 
+
+The main function is a special function. Every C++ program must contain a function named main. It serves as the entry point for the program. The computer will start running the code from the beginning of the main function. 
+Types of Main Functions
+1. Without parameters:
+
+// Without Parameters
+int main() { ... return 0; }
+
+2. With parameters:
+
+// With Parameters
+int main(int argc, char* const argv[]) { ... return 0; }
+
+
+The reason for having the parameter option for the main function is to allow input from the command line. When you use the main function with parameters, it saves every group of characters (separated by a space) after the program name as elements in an array named argv. 
+Since the main function has the return type of int, the programmer must always have a return statement in the code. The number that is returned is used to inform the calling program what the result of the program’s execution was. Returning 0 signals that there were no problems.
+
+### **🔹 Why is `main()` the Entry Point in C++?**  
+
+Good question! Instead of just running from **line 1**, why does C++ always start execution from `main()`?  
+
+---
+
+### **🔹 Reason 1: Standardization Across Platforms**  
+C++ (like C) follows the **ISO C++ standard**, which **defines `main()` as the starting point**.  
+🔹 **If there were no `main()`, how would the compiler know where to start?**  
+
+---
+
+### **🔹 Reason 2: Operating System Needs an Entry Point**  
+When you **run a C++ program**, the **OS looks for a function named `main()`** to start execution.  
+- OS **doesn’t care about line numbers**.  
+- Instead, it looks for **a fixed, standard entry point** = `main()`.  
+
+---
+
+### **🔹 Reason 3: Helps in Function Calling & Modularity**  
+Imagine writing a **large program** with 1000+ lines. If execution just started at **line 1**, how would you control flow?  
+
+- `main()` acts as a **central hub** where you can **call other functions**.  
+- Without `main()`, every program would be a **single long script**—no modularity!  
+
+---
+
+### **🔹 Reason 4: Allows Command-Line Arguments**  
+Using `int main(int argc, char* argv[])`, you can take command-line inputs.  
+🔹 **If execution started at line 1, how would you pass arguments to the program?**  
+
+---
+
+### **🔹 What Happens If You Don't Write `main()`?**
+💥 **Compilation Error!**  
+```cpp
+#include <iostream>
+using namespace std;
+
+void hello() {
+    cout << "Hello, World!";
+}
+
+// No main() function → ERROR!
+```
+🔹 **The OS won’t know where to start execution** → Compiler throws an error.  
+
+---
+
+### **🔹 TL;DR: `main()` is the "Home Base" of Your Program**
+✔️ **OS looks for `main()` to start execution.**  
+✔️ **Standardized across C/C++ for portability.**  
+✔️ **Enables modular programming & function calls.**  
+✔️ **Allows command-line inputs.**  
+
+💡 **Key Takeaway** → Without `main()`, C++ has no idea where to begin! 🚀
+
+Types of Main Functions
+1. Without parameters:
+
+// Without Parameters
+int main() { ... return 0; }
+
+2. With parameters:
+
+// With Parameters
+int main(int argc, char* const argv[]) { ... return 0; }
+
+
+The reason for having the parameter option for the main function is to allow input from the command line. When you use the main function with parameters, it saves every group of characters (separated by a space) after the program name as elements in an array named argv. 
+Since the main function has the return type of int, the programmer must always have a return statement in the code. The number that is returned is used to inform the calling program what the result of the program’s execution was. Returning 0 signals that there were no problems.
+
+C++ Recursion
+
+When function is called within the same function, it is known as recursion in C++. The function which calls the same function, is known as recursive function.
+A function that calls itself, and doesn’t perform any task after function call, is known as tail recursion. In tail recursion, we generally call the same function with return statement.
+Syntax:
+
+We have Direct recursion and in direct recursion
+1. Direct Recursion:
+
+it can be done when the function calls itself
+#include <iostream>
+using namespace std;
+
+void directRecursion(int n) {
+    if (n > 0) {
+        cout << n << " ";
+        directRecursion(n - 1); // Function calls itself
+    }
+}
+
+int main() {
+    directRecursion(10);
+    return 0;
+}
+
+5 4 3 2 1 
+
+2. Indirect Recursion
+
+In this One function calls another function .
+
+#include <iostream>
+using namespace std;
+
+void indirectRecursionB(int n); // Forward declaration
+
+void indirectRecursionA(int n) {
+    if (n > 0) {
+        cout << n << " ";
+        indirectRecursionB(n - 1); // Function A calls Function B
+    }
+}
+
+void indirectRecursionB(int n) {
+    if (n > 1) {
+        cout << n << " ";
+        indirectRecursionA(n / 2); // Function B calls Function A
+    }
+}
+
+int main() {
+    indirectRecursionA(10);
+    return 0;
+}
+
+
+Tail Recursion and Non-Tail Recursion:
+1. Tail Recursion:
+
+Tail recursion occurs when a function makes a recursive call as its last operation,
+
+#include <iostream>
+using namespace std;
+
+void tailRecursion(int n) {
+    if (n > 0) {
+        cout << n << " ";
+        tailRecursion(n - 1); // Recursive call is the last operation
+    }
+}
+
+int main() {
+    tailRecursion(15);
+    return 0;
+}
+
+
+15 14 13 12 11 10 9 8 7 6 5 4 3 2 1 
+
+2. Non-Tail Recursion
+
+Non-tail recursion occurs when a function performs some operations after the recursive call.
+
+#include <iostream>
+using namespace std;
+
+int nonTailRecursion(int n) {
+    if (n > 0) {
+        return n + nonTailRecursion(n - 1); // Recursive call is not the last operation
+    } else {
+        return 0;
+    }
+}
+
+int main() {
+    int result = nonTailRecursion(20);
+    cout << "Result: " << result << endl;
+    return 0;
+}
+
+	Result: 210
+	
+	C++ Passing Array to Function
+
+In C++, to reuse the array logic, we can create a function. To pass an array to a function in C++,  we need to provide only the array name.
+
+
+function_name(array_name[]); //passing array to function
+
+Example: Print the minimum number in the given array.
+#include <iostream>
+using namespace std;
+void printMin(int arr[5]);
+int main()
+{
+    int ar[5] = { 30, 10, 20, 40, 50 };
+    printMin(ar); // passing array to function
+}
+void printMin(int arr[5])
+{
+    int min = arr[0];
+    for (int i = 0; i < 5; i++) {
+        if (min > arr[i]) {
+            min = arr[i];
+        }
+    }
+    cout << "Minimum element is: " << min << "\n";
+}
+
+// Code submitted by Susobhan Akhuli
+
+Minimum element is: 10
+Time complexity: O(n) where n is the size of the array
+Space complexity: O(n) where n is the size of the array.
+C++ Overloading (Function)
+
+If we create two or more members having the same name but different in number or type of parameters, it is known as C++ overloading. In C++, we can overload:
+
+    methods,
+    constructors and
+    indexed properties
+
+Types of overloading in C++ are:
+
+    Function overloading
+    Operator overloading
+
+C++ Function Overloading
+
+Function Overloading is defined as the process of having two or more functions with the same name, but different parameters. In function overloading, the function is redefined by using either different types or number of arguments. It is only through these differences a compiler can differentiate between the functions.
+The advantage of Function overloading is that it increases the readability of the program because you don’t need to use different names for the same action.
+Time complexity: O(n) where n is the size of the array
+Space complexity: O(n) where n is the size of the array.
+C++ Overloading (Function)
+
+If we create two or more members having the same name but different in number or type of parameters, it is known as C++ overloading. In C++, we can overload:
+
+    methods,
+    constructors and
+    indexed properties
+
+Types of overloading in C++ are:
+
+    Function overloading
+    Operator overloading
+
+C++ Function Overloading
+
+Function Overloading is defined as the process of having two or more functions with the same name, but different parameters. In function overloading, the function is redefined by using either different types or number of arguments. It is only through these differences a compiler can differentiate between the functions.
+The advantage of Function overloading is that it increases the readability of the program because you don’t need to use different names for the same action.
+30
+55
+
+Time complexity: O(1)
+Space complexity: O(1)
+
+Example: when the type of the arguments vary
+// Program of function overloading with different types of
+// arguments.
+#include <iostream>
+using namespace std;
+int mul(int, int);
+float mul(float, int);
+
+int mul(int a, int b) { return a * b; }
+float mul(double x, int y) { return x * y; }
+int main()
+{
+    int r1 = mul(6, 7);
+    float r2 = mul(0.2, 3);
+    cout << "r1 is : " << r1 << endl;
+    cout << "r2 is : " << r2 << endl;
+    return 0;
+}
+
+// Code Submitted By Susobhan Akhuli
+
+r1 is : 42
+r2 is : 0.6
+
+Time Complexity: O(1)
+Space Complexity: O(1
+Function Overloading and Ambiguity
+
+When the compiler is unable to decide which function is to be invoked among the overloaded function, this situation is known as function overloading ambiguity.
+When the compiler shows the ambiguity error, the compiler does not run the program.
+
+Causes of Ambiguity:
+
+    Type Conversion.
+    Function with default arguments.
+    Function with pass-by-reference.
+    Function Overloading and Ambiguity
+
+When the compiler is unable to decide which function is to be invoked among the overloaded function, this situation is known as function overloading ambiguity.
+When the compiler shows the ambiguity error, the compiler does not run the program.
+
+Causes of Ambiguity:
+
+    Type Conversion.
+    Function with default arguments.
+    Function with pass-by-reference.
+    The above example shows an error “call of overloaded ‘fun(double)’ is ambiguous“. The fun(10) will call the first function. The fun(1.2) calls the second function according to our prediction. But, this does not refer to any function as in C++, all the floating point constants are treated as double not as a float. If we replace float to double, the program works. Therefore, this is a type conversion from float to double.
+
+Function with Default Arguments:-
+
+	#include <iostream>
+using namespace std;
+void fun(int);
+void fun(int, int);
+void fun(int i) { cout << "Value of i is : " << i << endl; }
+void fun(int a, int b = 9)
+{
+    cout << "Value of a is : " << a << endl;
+    cout << "Value of b is : " << b << endl;
+}
+int main()
+{
+    fun(12);
+
+    return 0;
+}
+
+// Code Submitted By Susobhan Akhuli
+
+
+The above example shows an error “call of overloaded ‘fun(int)’ is ambiguous“. The fun(int a, int b=9) can be called in two ways: first is by calling the function with one argument, i.e., fun(12) and another way is calling the function with two arguments, i.e., fun(4,5). The fun(int i) function is invoked with one argument. Therefore, the compiler could not be able to select among fun(int i) and fun(int a,int b=9).
+
+Function with Pass By Reference:-
+
+The above example shows an error “call of overloaded ‘fun(int)’ is ambiguous“. The fun(int a, int b=9) can be called in two ways: first is by calling the function with one argument, i.e., fun(12) and another way is calling the function with two arguments, i.e., fun(4,5). The fun(int i) function is invoked with one argument. Therefore, the compiler could not be able to select among fun(int i) and fun(int a,int b=9).
+
+Function with Pass By Reference:-
+
+The above example shows an error “call of overloaded ‘fun(int&)’ is ambiguous“. The first function takes one integer argument and the second function takes a reference parameter as an argument. In this case, the compiler does not know which function is needed by the user as there is no syntactical difference between the fun(int) and fun(int &).
+Friend Function
+
+    A friend function is a special function in C++ which in spite of not being a member function of a class has the privilege to access private and protected data of a class.
+     A friend function is a non-member function or an ordinary function of a class, which is declared by using the keyword “friend” inside the class. By declaring a function as a friend, all the access permissions are given to the function.
+    The keyword “friend” is placed only in the function declaration but not in the function definition.
+    When the friend function is called neither the name of the object nor the dot operator is used. However, it may accept the object as an argument whose value it wants to access.
+    A friend function can be declared in any section of the class i.e. public, private, or protected.
+
+Declaration of friend function in C++
+
+
+The above example shows an error “call of overloaded ‘fun(int&)’ is ambiguous“. The first function takes one integer argument and the second function takes a reference parameter as an argument. In this case, the compiler does not know which function is needed by the user as there is no syntactical difference between the fun(int) and fun(int &).
+Friend Function
+
+    A friend function is a special function in C++ which in spite of not being a member function of a class has the privilege to access private and protected data of a class.
+     A friend function is a non-member function or an ordinary function of a class, which is declared by using the keyword “friend” inside the class. By declaring a function as a friend, all the access permissions are given to the function.
+    The keyword “friend” is placed only in the function declaration but not in the function definition.
+    When the friend function is called neither the name of the object nor the dot operator is used. However, it may accept the object as an argument whose value it wants to access.
+    A friend function can be declared in any section of the class i.e. public, private, or protected.
+
+Declaration of friend function in C++
+
+#include <iostream>
+using namespace std;
+class Largest {
+    int a, b, m;
+
+public:
+    void set_data();
+    friend void find_max(Largest);
+};
+
+void Largest::set_data()
+{
+    cout << "Enter the first number : ";
+    cin >> a;
+    cout << "\nEnter the second number : ";
+    cin >> b;
+}
+
+void find_max(Largest t)
+{
+    if (t.a > t.b)
+        t.m = t.a;
+    else
+        t.m = t.b;
+
+    cout << "\nLargest number is " << t.m;
+}
+
+int main()
+{
+    Largest l;
+    l.set_data();
+    find_max(l);
+    return 0;
+}
+
+
+return Statement in C++
+
+n C++, the return statement returns the flow of the execution to the function from where it is called. This statement does not mandatorily need any conditional statements. As soon as the statement is executed, the flow of the program stops immediately and returns the control from where it was called. The return statement may or may not return anything for a void function, but for a non-void function, a return value must be returned. 
+#include <iostream>
+using namespace std;
+
+int add(int a, int b) {
+      
+      // Return the sum and terminate the function
+    return a + b; 
+}
+
+int main() {
+  
+      // Call the function and store the result
+    int res = add(5, 7);
+    cout << res;
+    return 0;
+}
+
+12
+
+Explanation: In this example, in add() function, the return a + b returns the sum to the calling function and terminate the execution of the function. In the main function, return 0 indicates that the program executed successfully.
+
+Syntax:
+
+    return expression[];
+
+There are various ways to use return statements. A few are mentioned below:
+    return expression[];
+
+There are various ways to use return statements. A few are mentioned below:
+1. Methods not returning a value
+
+In C++ one cannot skip the return statement when the methods are of the return type. The return statement can be skipped only for void types.
+
+Not using a return statement in void return type function
+
+When a function does not return anything, the void return type is used. So if there is a void return type in the function definition, then there will be no return statement inside that function (generally).
+
+Example:
+    return expression[];
+
+There are various ways to use return statements. A few are mentioned below:
+1. Methods not returning a value
+
+In C++ one cannot skip the return statement when the methods are of the return type. The return statement can be skipped only for void types.
+
+Not using a return statement in void return type function
+
+When a function does not return anything, the void return type is used. So if there is a void return type in the function definition, then there will be no return statement inside that function (generally).
+
+Example:
+// C++ code to show not using return
+// statement in void return type function
+#include <iostream>
+using namespace std;
+
+// void method
+void Print()
+{
+    cout << "Welcome to GeeksforGeeks";
+}
+
+// Driver method
+int main()
+{
+
+    // Calling print
+    Print();
+
+    return 0;
+}
+
+Welcome to GeeksforGeeks
+
+Using the return statement in void return type function
+
+Now the question arises, what if there is a return statement inside a void return type function? Since we know that, if there is a void return type in the function definition, then there will be no return statement inside that function. But if there is a return statement inside it, then also there will be no problem if the syntax of it will be: 
+
+This syntax is used in function just as a jump statement in order to break the flow of the function and jump out of it. One can think of it as an alternative to “break statement” to use in functions.
+
+ Example: 
+ Welcome to GeeksforGeeks
+
+Using the return statement in void return type function
+
+Now the question arises, what if there is a return statement inside a void return type function? Since we know that, if there is a void return type in the function definition, then there will be no return statement inside that function. But if there is a return statement inside it, then also there will be no problem if the syntax of it will be: 
+
+This syntax is used in function just as a jump statement in order to break the flow of the function and jump out of it. One can think of it as an alternative to “break statement” to use in functions.
+
+ Example: 
+ Welcome to GeekforGeeks
+
+But if the return statement tries to return a value in a void return type function, that will lead to errors. 
+
+Incorrect Syntax:
+
+    void func() {
+        return value;
+    }
+
+
+// C++ code to show using return statement
+// with a value in void return type function
+#include <iostream>
+using namespace std;
+
+// void method
+void Print()
+{
+    cout << "Welcome to GeeksforGeeks";
+
+    // void method using the return
+    // statement to return a value
+    return 10;
+}
+
+// Driver method
+int main()
+{
+
+    // Calling print
+    Print();
+
+    return 0;
+}
+
+warning: 'return' with a value, in function returning void
+
+2. Methods returning a value: 
+
+For methods that define a return type, the return statement must be immediately followed by the return value of that specified return type. 
+
+Syntax:
+
+    return-type func() {
+        return value;
+    }
+
+
+// C++ code to illustrate Methods returning
+// a value using return statement
+#include <iostream>
+using namespace std;
+
+// non-void return type
+// function to calculate sum
+int SUM(int a, int b)
+{
+    int s1 = a + b;
+
+    // method using the return
+    // statement to return a value
+    return s1;
+}
+
+// Driver method
+int main()
+{
+    int num1 = 10;
+    int num2 = 10;
+    int sum_of = SUM(num1, num2);
+    cout << "The sum is " << sum_of;
+    return 0;
+}
+
+Default Arguments in C++
+
+#include <iostream>
+using namespace std;
+
+// Function with an argument with default value
+void f(int a = 10) {
+    cout << a << endl;
+}
+
+int main() {
+      
+      // Uses default argument
+      f();
+  
+      // Uses passed value
+      f(221);
+  
+    return 0;
+}
+
+
+10
+221
+
+Explanation: In this program, the function f has a default argument a = 10, so when no argument is provided, a defaults to 10, which is printed. When 221 is passed, a becomes 221 which is then printed.
+
+Syntax
+
+A default argument is defined by assigning a value to a function parameter in its declaration.
+return_type name (p1= v1, p2= v2, ...);
+
+where v1, v2, … are the default values for the parameters p1, p2, … respectively.
+Rules to Follow
+
+There are some important rules and best practices to keep in mind when using default arguments in C++:
+
+1. Default Values Must Be Specified in Function Declarations
+
+The default values for parameters must be specified in the function declaration (or prototype). If a function is declared and defined separately, the default values must be in the declaration, not in definition.
+// Declaration with default argument
+void func(int x = 10);
+
+// Definition without default argument
+void func(int x) {
+    cout << "Value: " << x << endl;
+}
+
+2. Default Arguments Cannot Be Modified
+
+Once default arguments are defined in the declaration, they cannot be modified in the function definition. If you try to change the default value in the definition, it will result in a compilation error.
+// Declaration
+void f(int a = 10);
+
+// This definintion will throw and error
+void f(int a = 222) {
+      // statements
+}
+
+3. Default Arguments Must Be Provided from Right to Left
+
+In a function with multiple parameters, default values must be provided from the rightmost parameter to the left. It means that if a parameter has a default argument, all parameters to its right must also have default values.
+
+// Valid
+void func(int x, int y = 20);
+
+// Invalid, as `y` does not have a default value
+void func(int x = 10, int y);
+
+4. Ambiguity in Function Overloading
+
+If a function containing default arguments is overloaded, then we need to make sure it is not ambiguous to the compiler, otherwise it will throw an error. For example,
+// Valid
+void f(int a = 10, int b = 20);
+  
+// Will throw error as the signature is same
+void f(int a = 22, int b = 2);
+
+// Will also throw error
+void f(int a);
+
+// Will also throw an error
+void f(int a, b)
+
+Examples
+
+The following examples demonstrate the use of default arguments in different cases:
+Find Area of Rectangle with Optional Length
+
+We want to keep the rectangle height optional in case it is not provided to the area calculator function. One approach could be to create two overloaded functions, one that takes two parameters and one that takes one. However, this can be simplified by using default arguments instead of function overloading by specifying optional values.
+Examples
+
+The following examples demonstrate the use of default arguments in different cases:
+Find Area of Rectangle with Optional Length
+
+We want to keep the rectangle height optional in case it is not provided to the area calculator function. One approach could be to create two overloaded functions, one that takes two parameters and one that takes one. However, this can be simplified by using default arguments instead of function overloading by specifying optional values.
+Area 1:  50
+Area 2: 45
+
+Combine Default and Parameterized Constructor
+
+Just like normal functions, we can also define default values for the arguments of parameterized constructors. All the rules of the default arguments will be applied to these parameters.
+Area 1:  50
+Area 2: 45
+
+Combine Default and Parameterized Constructor
+
+Just like normal functions, we can also define default values for the arguments of parameterized constructors. All the rules of the default arguments will be applied to these parameters.
+5
+25
+
+Explanation: In the above program, we create a class with a parameterized constructor that has a default argument. When we create an object without passing any argument, the constructor uses its default value of x = 5. However, when we pass an argument, the constructor uses the passed value of x = 25.
+Advantages
+
+    Default arguments are useful when we want to increase the capabilities of an existing function.
+    It helps in reducing the size of a program.
+    It provides a simple and effective programming approach.
+    Default arguments improve the consistency of a program.
+
+Disadvantages
+
+    If the default values are not well-documented or understood, it can lead to confusion about what arguments are being used.
+    Overloading functions with default arguments can sometimes lead to ambiguities.
+    It increases the execution time as the compiler needs to replace the omitted arguments by their default values in the function call.
+    
+    
+Inline Functions in C++
+
+
+In C++, a function can be specified as inline to reduce the function call overhead. The whole code of the inline function is inserted or substituted at the point of its call during the compilation instead of using normal function call mechanism.
+### **🔹 What is Function Overhead in C++? (Easy Terms)**  
+
+**Overhead** means **extra cost** in terms of **time and memory** when executing a function. Every time you **call** a function, the CPU does extra work instead of just executing the code directly.  
+
+---
+
+### **🔹 What Happens When You Call a Function?**
+When you call a function in C++, the system needs to:  
+
+1️⃣ **Save the current execution state** (store register values).  
+2️⃣ **Jump to the function’s location in memory**.  
+3️⃣ **Pass function arguments** (copy values to stack or registers).  
+4️⃣ **Execute function code**.  
+5️⃣ **Return back to the caller function**.  
+6️⃣ **Restore previous execution state**.  
+
+Each step **takes extra CPU cycles** → This is **function call overhead**.  
+
+---
+
+### **🔹 Example of Function Overhead**
+```cpp
+#include <iostream>
+using namespace std;
+
+void add(int a, int b) {  // Function call → Adds overhead
+    cout << "Sum: " << a + b << endl;
+}
+
+int main() {
+    add(5, 10);  // Function call (has overhead)
+    return 0;
+}
+```
+👉 Even though `add()` just prints the sum, calling it still has **overhead** due to function jumps and stack operations.  
+
+---
+
+### **🔹 How Much Overhead?**
+✅ **A function call takes ~5-20 CPU cycles extra.**  
+✅ **A direct operation (without a function) takes 0 extra cycles.**  
+
+---
+
+### **🔹 Reducing Overhead Using Inline Functions**
+```cpp
+#include <iostream>
+using namespace std;
+
+inline void add(int a, int b) {  // 👈 No function call, directly replaced
+    cout << "Sum: " << a + b << endl;
+}
+
+int main() {
+    add(5, 10);  // No overhead (code is replaced)
+    return 0;
+}
+```
+✔️ **No jump, no extra stack usage** → **Faster execution**.  
+
+---
+
+### **🔹 When Does Overhead Matter?**
+🚀 In **Competitive Programming (CP)** or **Performance-Critical Code**, calling small functions **millions of times** inside a loop can slow things down.  
+📌 Function call overhead can cause a **5-10% performance loss** in extreme cases.  
+
+---
+
+### **🔹 TL;DR**
+✔️ **Function overhead** = Extra CPU work for calling a function.  
+✔️ **Takes extra CPU cycles (~5-20 cycles per call)**.  
+✔️ **Inline functions** reduce overhead by replacing calls with actual code. 🚀
+### **🔹 What is Function Overhead in C++? (Easy Terms)**  
+
+**Overhead** means **extra cost** in terms of **time and memory** when executing a function. Every time you **call** a function, the CPU does extra work instead of just executing the code directly.  
+
+---
+
+### **🔹 What Happens When You Call a Function?**
+When you call a function in C++, the system needs to:  
+
+1️⃣ **Save the current execution state** (store register values).  
+2️⃣ **Jump to the function’s location in memory**.  
+3️⃣ **Pass function arguments** (copy values to stack or registers).  
+4️⃣ **Execute function code**.  
+5️⃣ **Return back to the caller function**.  
+6️⃣ **Restore previous execution state**.  
+
+Each step **takes extra CPU cycles** → This is **function call overhead**.  
+
+---
+
+### **🔹 Example of Function Overhead**
+```cpp
+#include <iostream>
+using namespace std;
+
+void add(int a, int b) {  // Function call → Adds overhead
+    cout << "Sum: " << a + b << endl;
+}
+
+int main() {
+    add(5, 10);  // Function call (has overhead)
+    return 0;
+}
+```
+👉 Even though `add()` just prints the sum, calling it still has **overhead** due to function jumps and stack operations.  
+
+---
+
+### **🔹 How Much Overhead?**
+✅ **A function call takes ~5-20 CPU cycles extra.**  
+✅ **A direct operation (without a function) takes 0 extra cycles.**  
+
+---
+
+### **🔹 Reducing Overhead Using Inline Functions**
+```cpp
+#include <iostream>
+using namespace std;
+
+inline void add(int a, int b) {  // 👈 No function call, directly replaced
+    cout << "Sum: " << a + b << endl;
+}
+
+int main() {
+    add(5, 10);  // No overhead (code is replaced)
+    return 0;
+}
+```
+✔️ **No jump, no extra stack usage** → **Faster execution**.  
+
+---
+
+### **🔹 When Does Overhead Matter?**
+🚀 In **Competitive Programming (CP)** or **Performance-Critical Code**, calling small functions **millions of times** inside a loop can slow things down.  
+📌 Function call overhead can cause a **5-10% performance loss** in extreme cases.  
+
+---
+
+### **🔹 TL;DR**
+✔️ **Function overhead** = Extra CPU work for calling a function.  
+✔️ **Takes extra CPU cycles (~5-20 cycles per call)**.  
+✔️ **Inline functions** reduce overhead by replacing calls with actual code. 🚀
+
+
+#include <iostream>
+using namespace std;
+
+// Inline function
+inline int square(int x) {
+    return x * x;
+}
+
+int main() {
+    int num = 5;
+    
+    // Calling inline function
+    int res = square(num);
+    cout << res;
+    return 0;
+}
+
+ 	25
+ 	
+ 	Syntax
+
+We just need to add the “inline” keyword before the function prototype:
+
+inline return_type function_name(params)...
+
+Inlining is only a request to the compiler, not a command. The compiler may not perform inlining in such circumstances as: 
+
+    If a function contains a loop.
+    If a function contains static variables. 
+    If a function is recursive. 
+    If a function return type is other than void, and the return statement doesn’t exist in a function body. 
+    If a function contains a switch or goto statement. 
+
+To learn more about performance optimization and inline functions, check out our Complete C++ Course, which covers inline functions, optimization strategies, and high-performance programming techniques.
+Need of Inline Functions
+
+When a function is called, the CPU stores the return address, copies arguments to the stack, and transfers control to the function. After execution, the return value is stored, and control is returned to the caller. This overhead can be significant for small, frequently used functions, as their execution time is less than the time spent on the call and return process.
+
+This is where the inline functions shine. They remove this overhead by substituting the code of the function in place of function call.
+One other thing to remember is that it is only useful to make the function inline if the time spent during a function call is more compared to the function body execution time.
+
+An example where the inline function has no effect at all: 
+
+    inline void show() 
+    { 
+        cout << “value of S = ” << S << endl; 
+    }
+
+The above function relatively takes a long time to execute. In general, a function that performs an input-output (I/O) operation shouldn’t be defined as inline because it spends a considerable amount of time.
+
+Appropriate use of inline functions can provide performance enhancement but if inline functions are used arbitrarily then they can’t provide better results. In other words, don’t make every function inline. It is better to keep inline functions as small as possible.
+Inline Functions in Class
+
+All the functions defined inside the class are implicitly inline. Thus, all the restrictions of inline functions are also applied here. If you need to explicitly declare an inline function in the class, then just declare the function inside the class and define it outside the class using the inline keyword.
+
+One other thing to remember is that it is only useful to make the function inline if the time spent during a function call is more compared to the function body execution time.
+
+An example where the inline function has no effect at all: 
+
+    inline void show() 
+    { 
+        cout << “value of S = ” << S << endl; 
+    }
+
+The above function relatively takes a long time to execute. In general, a function that performs an input-output (I/O) operation shouldn’t be defined as inline because it spends a considerable amount of time.
+
+Appropriate use of inline functions can provide performance enhancement but if inline functions are used arbitrarily then they can’t provide better results. In other words, don’t make every function inline. It is better to keep inline functions as small as possible.
+Inline Functions in Class
+
+All the functions defined inside the class are implicitly inline. Thus, all the restrictions of inline functions are also applied here. If you need to explicitly declare an inline function in the class, then just declare the function inside the class and define it outside the class using the inline keyword.
+
+
+#include <iostream>
+using namespace std;
+
+class A {
+public:
+
+    // declare inline
+    inline int square(int x);
+};
+
+// Define the function
+inline int A::square(int x) {
+    return x*x;
+}
+
+int main() {
+    A obj;
+    cout << obj.square(3);
+    return 0;
+}
+
+Virtual Functions Inlining
+
+C++ compiler cannot inline the virtual function. The reason is that the calls to a virtual function is resolved at runtime instead of compile-time. Virtual means waiting until runtime and inline means during compilation, if the compiler doesn’t know which function will be called, how it can perform inlining?
+Inline vs Macros
+
+Readers familiar with the C language know that the C language uses macro. The preprocessor replaces all macro calls directly within the macro code. However, it is recommended to always use the inline function instead of the macro. According to Dr. Bjarne Stroustrup, the creator of C++ macros are almost never necessary in C++ and they are error prone.
+
+The below table lists the primary differences between inline functions and macros:
+Aspect	Inline Functions	Macros
+Definition	Inline functions are functions defined with the inline keyword.	Macros are preprocessor directives defined using #define.
+Scope	Inline functions have scope and type checking, like regular functions.	Macros have no scope or type checking. They are replaced by the preprocessor.
+Evaluation of Arguments	Arguments are evaluated once.	Arguments may be evaluated multiple times (e.g., in expressions).
+Handling	Inline functions are handled by compiler.	Macros are handled by preprocessor.
+
+Private Members
+	
+
+Can access private members of a class.
+	
+
+Cannot access private members of a class.
+Execution Overhead	Compiler may ignore the inline request if the function is too large.	Macros are always substituted into code.
+Recursion	Inline functions can call themselves recursively.	Macros cannot be recursive.
+
+Advantages
+
+    Function call overhead doesn’t occur.
+    When you inline a function, you may enable the compiler to perform context-specific optimization on the body of the function. Such optimizations are not possible for normal function calls. Other optimizations can be obtained by considering the flows of the calling context and the called context.
+    An inline function may be useful (if it is small) for embedded systems because inline can yield less code than the function called preamble and return.
+
+Disadvantages
+
+    When inline function body is substituted at the point of the function call, the total number of variables used by the function also gets inserted. So, the number of registers going to be used for the variables will also get increased.
+    Inline functions might cause thrashing because inlining might increase the size of the binary executable file.
+    Too much inlining can reduce your instruction cache hit rate, thus reducing the speed of instruction fetch from that of cache memory to that of primary memory. 
+    If someone changes the code inside the inline function, then all the calling location has to be recompiled because the compiler would be required to replace all the code once again to reflect the changes.
+    Inline functions may not be useful for many embedded systems. Because in embedded systems code size is more important than speed.
+    	
+Lambda Expression in C++
+C++ 11 introduced lambda expressions to allow inline functions which can be used for short snippets of code that are not going to be reused. Therefore, they do not require a name. They are mostly used in STL algorithms as callback functions.
+#include <bits/stdc++.h>
+using namespace std;
+
+int main() {
+    
+    // Defining a lambda
+    auto res = [](int x) {
+        return x + x;
+    };
+    cout << res(5);
+    
+    return 0;
+}
+
+10
+
+The lambda expression in the above program takes an integer x as input and returns the sum of x with itself. The result of res(5) prints 10, as the lambda doubles the value of 5.
+Syntax
+[capture-clause] (parameters) -> return-type { 
+    // definition
+}
+
+To learn how to use lambda expressions effectively in your C++ programs, the C++ Course provides detailed explanations and examples.
+
+Return Type
+
+Generally, the return-type in lambda expressions is evaluated by the compiler itself and we don’t need to specify it explicitly. However, in some complex cases e.g. conditional statements, the compiler can’t determine the return type and explicit specification is require
+d.
+
+Parameters
+
+These parameters are similar to the function parameters in every way.
+
+Capture Clause
+
+A lambda expression can have more power than an ordinary function by having access to variables from the enclosing scope. We can capture external variables from the enclosing scope in three ways using capture clause:
+
+    [&]: capture all external variables by reference.
+    [=]: capture all external variables by value.
+    [a, &b]: capture ‘a’ by value and ‘b’ by reference.
+
+A lambda with an empty capture clause [] can only access variables which are local to it
+d.
+
+Parameters
+
+These parameters are similar to the function parameters in every way.
+
+Capture Clause
+
+A lambda expression can have more power than an ordinary function by having access to variables from the enclosing scope. We can capture external variables from the enclosing scope in three ways using capture clause:
+
+    [&]: capture all external variables by reference.
+    [=]: capture all external variables by value.
+    [a, &b]: capture ‘a’ by value and ‘b’ by reference.
+
+A lambda with an empty capture clause [] can only access variables which are local to it
+#include <bits/stdc++.h>
+using namespace std;
+
+void print(vector<int> v) {
+    for (auto x : v) cout << x << " ";
+    cout << endl;
+}
+
+int main() {
+    vector<int> v1, v2;
+
+    // Capture v1 and v2 by reference
+    auto byRef = [&] (int m) {
+        v1.push_back(m);
+        v2.push_back(m);
+    };
+    
+    // Capture v1 and v2 by value
+    auto byVal = [=] (int m) mutable {
+        v1.push_back(m);
+        v2.push_back(m);
+    };
+    
+    // Capture v1 by reference and v2 by value
+    auto mixed = [=, &v1] (int m) mutable {
+        v1.push_back(m);
+        v2.push_back(m);
+    };
+
+    // Push 20 in both v1 and v2
+    byRef(20);
+    
+    // Push 234 in both v1 and v2
+    byVal(234);
+    
+    // Push 10 in both v1 and v2
+    mixed(10);
+    
+    print(v1);
+    print(v2);
+    
+    return 0;
+}
+
+
+20 10 
+20 
+
+Let’s understand what happened in this program:
+
+    byRef captures all by reference. So pushing 20 will push it into original v1 and v2.
+    byVal captures all by value. So pushing 234 will not do anything to original vectors.
+    mixed captures v1 by reference and v2 by value. So pushing 10 will only push it into v1.
+
+The mutable keyword here is used in capture by value lambdas only because, by default, value captured objects are const.
+Examples
+
+Lamda expressions are extensively used in STL in place of callback i.e. functions passed as arguments. The below examples demonstrate that:
+Sort Vector in Descending Order
+
+#include <bits/stdc++.h>
+using namespace std;
+
+int main() {
+    vector<int> v = {5, 1, 8, 3, 9, 2};
+
+    // Sort in descending order
+    sort(v.begin(), v.end(), [] (const int& a, const int&b) {
+        return a > b;
+    });
+
+    for (int x : v)
+        cout << x << " ";
+    return 0;
+}
+
+	9 8 5 3 2 1 
+
+Find First Number Divisible by 3
+
+#include <bits/stdc++.h>
+using namespace std;
+
+int main() {
+    vector<int> v = {5, 1, 8, 3, 9, 2};
+
+    // Sort in descending order
+    auto it = find_if(v.begin(), v.end(), [] (const int& a) {
+        return a % 3 == 0;
+    });
+
+    if (it != v.end()) cout << *it;
+    else cout << "No such element";
+    return 0;
+}
+
+
+3
+
+Applications
+
+Lambda expressions’ main purpose was to replace the functions in callbacks by providing inline definitions. Following are the common applications of lambda expressions in C++
+
+    Inline, Anonymous Functions: Write small functions directly where needed without naming them.
+    STL Algorithms: Pass custom comparison or transformation logic to algorithms like sort, for_each, etc.
+    Callbacks and Event Handling: Use lambdas as callbacks for asynchronous operations or event handlers.
+    Threading and Concurrency: Pass lambdas to threads for quick, inline tasks without defining separate functions.
+    Custom Comparators in Containers: Use lambdas as comparators for containers like priority_queue, set, etc.
+
+
+Pointers and References in C++
+
+In C++ pointers and references both are mechanisms used to deal with memory, memory address, and data in a program. Pointers are used to store the memory address of another variable whereas references are used to create an alias for an already existing variable.
+Pointers in C++
+
+Pointers in C++ are a symbolic representation of addresses. They enable programs to simulate call-by-reference and create and manipulate dynamic data structures. Pointers store the address of variables or a memory location. 
+
+// C++ program to demonstrate use of pointers in C++;
+
+#include <iostream>
+using namespace std;
+
+int main()
+{
+	int x = 10; // variable declared
+	int* myptr; // pointer variable
+
+	// storing address of x in pointer myptr
+	myptr = &x;
+
+	cout << "Value of x is: ";
+	cout << x << endl;
+
+	// print the address stored in myptr pointer variable
+	cout << "Address stored in myptr is: ";
+	cout << myptr << endl;
+
+	// printing value of x using pointer myptr
+	cout << "Value of x using *myptr is: ";
+	cout << *myptr << endl;
+
+	return 0;
+}
+
+Value of x is: 10
+Address stored in myptr is: 0x7ffd2b32c7f4
+Value of x using *myptr is: 10
+
+Explanation: The above program declares an integer variable ‘x’ initialized with value 10 and a pointer variable named ‘myptr’. The memory address of x is assigned to myptr. Then it prints the value of x, the address stored in myptr, and the value of x obtained by dereferencing the pointer myptr.
+
+In C++ pointers and references both are mechanisms used to deal with memory, memory address, and data in a program. Pointers are used to store the memory address of another variable whereas references are used to create an alias for an already existing variable.
+Pointers in C++
+
+Pointers in C++ are a symbolic representation of addresses. They enable programs to simulate call-by-reference and create and manipulate dynamic data structures. Pointers store the address of variables or a memory location. 
+
+Application of Pointers in C++
+
+Following are the Applications of Pointers in C++:
+
+    To pass arguments by reference: Passing by reference serves two purposes
+    For accessing array elements: The Compiler internally uses pointers to access array elements.
+    To return multiple values: For example in returning square and the square root of numbers.
+    Dynamic memory allocation: We can use pointers to dynamically allocate memory. The advantage of dynamically allocated memory is, that it is not deleted until we explicitly delete it.
+    To implement data structures.
+    To do system-level programming where memory addresses are useful.
+
+Features and Use of Pointers in C++
+
+The Pointers have a few important features and uses like it saves memory space, they are used to allocate memory dynamically, it is used for file handling, etc. Pointers store the address of variables or a memory location. 
+Example: pointer “ptr” holds the address of an integer variable or holds the address of memory whose value(s) can be accessed as integer values through “ptr”.
+
+‘this’ Pointer in C++
+
+The ‘this’ pointer is passed as a hidden argument to all nonstatic member function calls and is available as a local variable within the body of all nonstatic functions. ‘this’ pointer is not available in static member functions as static member functions can be called without any object (with class name). Even if only one member of each function exists which is used by multiple objects, the compiler supplies an implicit pointer along with the names of the functions as ‘this’. 
+Declaration: 
+
+this->x = x; 
+
+References in C++
+
+When a variable is declared as a reference, it becomes an alternative name for an existing variable. A variable can be declared as a reference by putting ‘&’ in the declaration. There are 3 ways to pass C++ arguments to a function: 
+
+    call-by-value
+    call-by-reference with a pointer argument
+    call-by-reference with a reference argument
+
+Example of References in C++
+
+The below program demonstrates the use of references in C++.
+
+
+Pointers are symbolic representations of addresses. They enable programs to simulate call-by-reference as well as to create and manipulate dynamic data structures. Iterating over elements in arrays or other data structures is one of the main use of pointers. 
+
+The address of the variable you’re working with is assigned to the pointer variable that points to the same data type (such as an int or string)'
+How to use a pointer?
+
+    Define a pointer variable
+    Assigning the address of a variable to a pointer using the unary operator (&) which returns the address of that variable.
+    Accessing the value stored in the address using unary operator (*) which returns the value of the variable located at the address specified by its operand.
+    	
+    	The reason we associate data type with a pointer is that it knows how many bytes the data is stored in. When we increment a pointer, we increase the pointer by the size of the data type to which it points. To master the use of pointers and their applications, explore the C++ Course for comprehensive lessons and hands-on examples.
+    	
+    	// C++ program to illustrate Pointers
+
+#include <bits/stdc++.h>
+using namespace std;
+void geeks()
+{
+    int var = 20;
+
+    // declare pointer variable
+    int* ptr;
+
+    // note that data type of ptr and var must be same
+    ptr = &var;
+
+    // assign the address of a variable to a pointer
+    cout << "Value at ptr = " << ptr << "\n";
+    cout << "Value at var = " << var << "\n";
+    cout << "Value at *ptr = " << *ptr << "\n";
+}
+// Driver program
+int main() 
+{ 
+  geeks(); 
+  return 0;
+}
+
+Value at ptr = 0x7ffe454c08cc
+Value at var = 20
+Value at *ptr = 20
+
+References and Pointers
+
+There are 3 ways to pass C++ arguments to a function:
+
+    Call-By-Value
+    Call-By-Reference with a Pointer Argument
+    Call-By-Reference with a Reference Argument
+    
+    References and Pointers
+
+There are 3 ways to pass C++ arguments to a function:
+
+    Call-By-Value
+    Call-By-Reference with a Pointer Argument
+    Call-By-Reference with a Reference Argument
+    
+    
+    // C++ program to illustrate call-by-methods
+
+#include <bits/stdc++.h>
+using namespace std;
+
+// Pass-by-Value
+int square1(int n)
+{
+    // Address of n in square1() is not the same as n1 in
+    // main()
+    cout << "address of n1 in square1(): " << &n << "\n";
+
+    // clone modified inside the function
+    n *= n;
+    return n;
+}
+// Pass-by-Reference with Pointer Arguments
+void square2(int* n)
+{
+    // Address of n in square2() is the same as n2 in main()
+    cout << "address of n2 in square2(): " << n << "\n";
+
+    // Explicit de-referencing to get the value pointed-to
+    *n *= *n;
+}
+// Pass-by-Reference with Reference Arguments
+void square3(int& n)
+{
+    // Address of n in square3() is the same as n3 in main()
+    cout << "address of n3 in square3(): " << &n << "\n";
+
+    // Implicit de-referencing (without '*')
+    n *= n;
+}
+void geeks()
+{
+    // Call-by-Value
+    int n1 = 8;
+    cout << "address of n1 in main(): " << &n1 << "\n";
+    cout << "Square of n1: " << square1(n1) << "\n";
+    cout << "No change in n1: " << n1 << "\n";
+
+    // Call-by-Reference with Pointer Arguments
+    int n2 = 8;
+    cout << "address of n2 in main(): " << &n2 << "\n";
+    square2(&n2);
+    cout << "Square of n2: " << n2 << "\n";
+    cout << "Change reflected in n2: " << n2 << "\n";
+
+    // Call-by-Reference with Reference Arguments
+    int n3 = 8;
+    cout << "address of n3 in main(): " << &n3 << "\n";
+    square3(n3);
+    cout << "Square of n3: " << n3 << "\n";
+    cout << "Change reflected in n3: " << n3 << "\n";
+}
+// Driver program
+int main() { geeks(); }
+
+
+In C++, by default arguments are passed by value and the changes made in the called function will not reflect in the passed variable. The changes are made into a clone made by the called function. If wish to modify the original copy directly (especially in passing huge object or array) and/or avoid the overhead of cloning, we use pass-by-reference. Pass-by-Reference with Reference Arguments does not require any clumsy syntax for referencing and dereferencing.
+
+Array Name as Pointers
+
+An array name contains the address of the first element of the array which acts like a constant pointer. It means, the address stored in the array name can’t be changed. For example, if we have an array named val then val and &val[0] can be used interchangeably.
+
+Pointer Expressions and Pointer Arithmetic
+
+A limited set of arithmetic operations can be performed on pointers which are:
+
+    incremented ( ++ )
+    decremented ( — )
+    an integer may be added to a pointer ( + or += )
+    an integer may be subtracted from a pointer ( – or -= )
+    difference between two pointers (p1-p2)
+
+(Note: Pointer arithmetic is meaningless unless performed on an array.) 
+// C++ program to illustrate Pointer Arithmetic
+#include <bits/stdc++.h>
+using namespace std;
+void geeks()
+{
+    // Declare an array
+    int v[3] = { 10, 100, 200 };
+
+    // declare pointer variable
+    int* ptr;
+
+    // Assign the address of v[0] to ptr
+    ptr = v;
+
+    for (int i = 0; i < 3; i++) {
+        cout << "Value at ptr = " << ptr << "\n";
+        cout << "Value at *ptr = " << *ptr << "\n";
+
+        // Increment pointer ptr by 1
+        ptr++;
+    }
+}
+
+// Driver program
+int main() { geeks(); }
+
+Value at ptr = 0x7ffe5a2d8060
+Value at *ptr = 10
+Value at ptr = 0x7ffe5a2d8064
+Value at *ptr = 100
+Value at ptr = 0x7ffe5a2d8068
+Value at *ptr = 200
+
+Advanced Pointer Notation
+Consider pointer notation for the two-dimensional numeric arrays. consider the following declaration
+
+int nums[2][3]  =  { { 16, 18, 20 }, { 25, 26, 27 } };
+Pointers and String literals
+
+String literals are arrays containing null-terminated character sequences. String literals are arrays of type character plus terminating null-character, with each of the elements being of type const char (as characters of string can’t be modified).
+
+
+ This declares an array with the literal representation for “geek”, and then a pointer to its first element is assigned to ptr. If we imagine that “geek” is stored at the memory locations that start at address 1800, we can represent the previous declaration as: 
+ 
+ As pointers and arrays behave in the same way in expressions, ptr can be used to access the characters of a string literal. For example:
+
+char ptr = 0;
+char x = *(ptr+3);
+char y = ptr[3];
+
+Here, both x and y contain k stored at 1803 (1800+3).
+Pointers to pointers
+
+In C++, we can create a pointer to a pointer that in turn may point to data or another pointer. The syntax simply requires the unary operator (*) for each level of indirection while declaring the pointer.
+
+char a;
+char *b;
+char ** c;
+a = ’g’;
+b = &a;
+c = &b;
+
+Here b points to a char that stores ‘g’ and c points to the pointer b.
+Void Pointers
+
+This is a special type of pointer available in C++ which represents the absence of type. Void pointers are pointers that point to a value that has no type (and thus also an undetermined length and undetermined dereferencing properties). This means that void pointers have great flexibility as they can point to any data type. There is a payoff for this flexibility. These pointers cannot be directly dereferenced. They have to be first transformed into some other pointer type that points to a concrete data type before being dereferenced
+
+// C++ program to illustrate Void Pointer
+#include <bits/stdc++.h>
+using namespace std;
+void increase(void* data, int ptrsize)
+{
+    if (ptrsize == sizeof(char)) {
+        char* ptrchar;
+
+        // Typecast data to a char pointer
+        ptrchar = (char*)data;
+
+        // Increase the char stored at *ptrchar by 1
+        (*ptrchar)++;
+        cout << "*data points to a char"
+             << "\n";
+    }
+    else if (ptrsize == sizeof(int)) {
+        int* ptrint;
+
+        // Typecast data to a int pointer
+        ptrint = (int*)data;
+
+        // Increase the int stored at *ptrchar by 1
+        (*ptrint)++;
+        cout << "*data points to an int"
+             << "\n";
+    }
+}
+void geek()
+{
+    // Declare a character
+    char c = 'x';
+
+    // Declare an integer
+    int i = 10;
+
+    // Call increase function using a char and int address
+    // respectively
+    increase(&c, sizeof(c));
+    cout << "The new value of c is: " << c << "\n";
+    increase(&i, sizeof(i));
+    cout << "The new value of i is: " << i << "\n";
+}
+// Driver program
+int main() { geek(); }
+
+data points to a char
+The new value of c is: y
+*data points to an int
+The new value of i is: 11
+
+Invalid pointers
+
+A pointer should point to a valid address but not necessarily to valid elements (like for arrays). These are called invalid pointers. Uninitialized pointers are also invalid pointers.
+
+int *ptr1;
+int arr[10];
+int *ptr2 = arr+20;
+
+Here, ptr1 is uninitialized so it becomes an invalid pointer and ptr2 is out of bounds of arr so it also becomes an invalid pointer. (Note: invalid pointers do not necessarily raise compile errors)
+NULL Pointers
+
+A null pointer is a pointer that point nowhere and not just an invalid address. Following are 2 methods to assign a pointer as NULL;
+
+int *ptr1 = 0;
+int *ptr2 = NULL;
+
+Advantages of Pointers
+
+    Pointers reduce the code and improve performance. They are used to retrieve strings, trees, arrays, structures, and functions.
+    Pointers allow us to return multiple values from functions.
+    In addition to this, pointers allow us to access a memory location in the computer’s memory.
+    
+    
+    
+Understanding nullptr in C++
+
+// C++ program to demonstrate problem with NULL
+#include <bits/stdc++.h>
+using namespace std;
+
+// function with integer argument
+void fun(int N)   { cout << "fun(int)"; return;}
+
+// Overloaded function with char pointer argument
+void fun(char* s)  { cout << "fun(char *)"; return;}
+
+int main() 
+{
+    // Ideally, it should have called fun(char *),
+    // but it causes compiler error.
+    fun(NULL);  
+}
+
+16:13: error: call of overloaded 'fun(NULL)' is ambiguous
+     fun(NULL);
+
+
+ 
+What is the problem with above program? 
+NULL is typically defined as (void *)0 and conversion of NULL to integral types is allowed. So the function call fun(NULL) becomes ambiguous. 
+ 
+ What is the problem with above program? 
+NULL is typically defined as (void *)0 and conversion of NULL to integral types is allowed. So the function call fun(NULL) becomes ambiguous. 
+
+// This program compiles (may produce warning)
+#include<stdio.h>
+int main() 
+{
+   int x = NULL;
+}
+
+// This program compiles (may produce warning)
+#include<stdio.h>
+int main() 
+{
+   int x = NULL;
+}
+
+How does nullptr solve the problem? 
+In the above program, if we replace NULL with nullptr, we get the output as “fun(char *)”.
+nullptr is a keyword that can be used at all places where NULL is expected. Like NULL, nullptr is implicitly convertible and comparable to any pointer type. Unlike NULL, it is not implicitly convertible or comparable to integral types.
+// This program does NOT compile
+#include<stdio.h>
+int main() 
+{
+   int x = nullptr;
+}
+
+Compiler Error
+
+
+As a side note, nullptr is convertible to bool. 
+ 
+
+// This program compiles
+#include<iostream>
+using namespace std;
+
+int main() 
+{
+   int *ptr = nullptr;
+
+   // Below line compiles
+   if (ptr) { cout << "true"; }    
+   else { cout << "false"; }    
+}
+
+Output: 
+
+false
+
+
+       There are some unspecified things when we compare two simple pointers but comparison between two values of type nullptr_t is specified as, comparison by <= and >= return true and comparison by < and > returns false and comparing any pointer type with nullptr by == and != returns true or false if it is null or non-null respectively.
+       
+       // C++ program to show comparisons with nullptr
+#include <bits/stdc++.h>
+using namespace std;
+
+// Driver program to test behavior of nullptr
+int main()
+{
+    // creating two variables of nullptr_t type 
+    // i.e., with value equal to nullptr
+    nullptr_t np1, np2;
+
+    // <= and >= comparison always return true
+    if (np1 >= np2)
+        cout << "can compare" << endl;
+    else
+        cout << "can not compare" << endl;
+
+    // Initialize a pointer with value equal to np1
+    char *x = np1;  // same as x = nullptr (or x = NULL
+                    // will also work) 
+    if (x == nullptr)
+        cout << "x is null" << endl;
+    else
+        cout << "x is not null" << endl;
+
+    return 0;
+}
+
+References in C++
+
+
+In C++, a reference works as an alias for an existing variable, providing an alternative name for it and allowing you to work with the original data directly.
+
+
+#include <iostream>
+using namespace std;
+
+int main() {
+    int x = 10;
+
+    // ref is a reference to x.
+    int& ref = x;
+
+    // printing value using ref
+    cout << ref << endl;
+    
+    // Changing the value and printing again
+    ref = 22;
+    cout << ref;
+
+    return 0;
+}
+
+10
+22
+
+Explanation: In this program, ref is a reference to the variable x, meaning ref is just another name for x. When the value of ref is modified, it directly changes the value of x, since both ref and x refer to the same memory location.
+
+Syntax
+
+& is used to create a reference to a variable as shown:
+
+    T &ref = var;
+
+Here, ref refers to the variable named var which is of type T.
+
+It is important to keep in mind the following things about reference.
+
+    It is necessary to initialize the reference at the time of creation.
+    A reference cannot refer to another variable once it is declared.
+
+
+Applications
+
+There are multiple applications for references in C++, a few of them are mentioned below:
+1. Passing Arguments by Reference
+
+References are commonly used in function arguments to allow modification of the original variable passed to the function. They are also more efficient for large data structures since no copies are made.
+
+#include <iostream>
+using namespace std;
+
+void modifyValue(int &x) {
+  
+    // Modifies the original variable
+    x = 20;  
+}
+
+int main() {
+    int a = 10;
+  
+    // Pass a by reference
+    modifyValue(a);
+    
+    cout << a;
+    return 0;
+}
+20
+
+Explanation: In this example, the function modifyValue() modifies the value of a directly by using a reference to it. No copy of a is made, and the original variable is modified.
+2. Returning Reference from Functions
+
+In C++, functions can return references to variables. This is especially useful when you need to return large data structures or want to allow direct modifications to a variable inside a function.
+
+#include <iostream>
+using namespace std;
+
+int& getMax(int &a, int &b) {
+  
+    // Return the larger of the two numbers
+    return (a > b) ? a : b;  
+}
+
+int main() {
+    int x = 10, y = 20;
+    int &maxVal = getMax(x, y);
+  
+    // Modify the value of the larger number
+    maxVal = 30;  
+    cout << "x = " << x << ", y = " << y;
+    return 0;
+}
+
+x = 10, y = 30
+
+Explanation: Here, the function getMax() returns a reference to the larger of two integers. Since maxVal is a reference, changing maxVal also modifies the value of y.
+
+    Note: Keep in mind not to return a reference to local variables as they are destroyed once the function returns some value.
+
+
+3. Modify Data in Range Based Loops
+
+The range based for loops generally
+
+#include <iostream>
+#include <vector>
+using namespace std;
+
+int main() {
+    vector<int> vect{ 10, 20, 30, 40 };
+
+    // We can modify elements if we
+    // use reference
+    for (int& x : vect) {
+        x = x + 5;
+    }
+
+    // Printing elements
+    for (int x : vect) {
+        cout << x << " ";
+    }
+    return 0;
+}
+
+
+References vs Pointers
+
+Both references and pointers can be used to change the local variables of one function inside another function. Despite the similarity, there are the following differences between references and pointers which are listed in the below table:
+
+Highlighting the key differences between References and Pointers in C++:
+
+Highlighting the key differences between References and Pointers in C++:
+Aspect	Reference	Pointer
+Definition	A reference is an alias for an existing variable.	A pointer is a variable that stores the memory address of another variable.
+Initialization	Must be initialized when declared and cannot be reassigned.	Can be initialized later and can be reassigned to point to different objects.
+Nullability	Cannot be null; must always refer to an object.	Can be null, pointing to no object (e.g., nullptr).
+Syntax	Uses & for declaration and accessing.	Uses * for declaration and dereferencing, & for address-of.
+Dereferencing	No dereferencing required, ca be used directly like a normal variable.	Must be dereferenced using * to access the value it points to.
+
+Void Type
+	
+
+A reference can never be void.
+	
+
+A pointer can be declared as void
+
+Nesting
+	
+
+Reference variable has only one/single level of indirection.  
+	
+
+A pointer variable has n-levels/multiple levels of indirection i.e. single-pointer, double-pointer, triple-pointer
+Pointer Arithmetic	Cannot perform arithmetic operations (e.g., increment or decrement).	Can perform arithmetic operations (e.g., increment or decrement).
+Use Case	Primarily used for simpler, more readable references to variables.	Used for more complex memory management, dynamic memory allocation, and handling arrays.
+Example	int& ref = x;	int* ptr = &x;
+
+
+Limitations of References
+
+    Once a reference is created, it cannot be later made to reference another object; it cannot be reset. This is often done with pointers. 
+    References cannot be NULL. Pointers are often made NULL to indicate that they are not pointing to any valid thing. 
+    A reference must be initialized when declared. There is no such restriction with pointers.
+
+Due to the above limitations, references in C++ cannot be used for implementing data structures like Linked List, Tree, etc. In Java, references don’t have the above restrictions and can be used to implement all data structures. References being more powerful in Java is the main reason Java doesn’t need pointers.
+Advantages of using References
+
+    Safer: Since references must be initialized, wild references like wild pointers are unlikely to exist. It is still possible to have references that don’t refer to a valid location
+    Easier to use: References don’t need a dereferencing operator to access the value. They can be used like normal variables. The ‘&’ operator is needed only at the time of declaration. Also, members of an object reference can be accessed with the dot operator (‘.’), unlike pointers where the arrow operator (->) is needed to access members.
+
+Together with the above reasons, there are a few places like the copy constructor argument where a pointer cannot be used. Reference must be used to pass the argument in the copy constructor. Similarly, references must be used for overloading some operators like ++
+
+What are Wild Pointers? How can we avoid?
+Last Updated : 30 Oct, 2023
+
+Uninitialized pointers are known as wild pointers because they point to some arbitrary memory location and may cause a program to crash or behave unexpectedly.
+
+Can References Refer to Invalid Location in C++?
+Last Updated : 07 Jan, 2022
+
+Reference Variables: You can create a second name for a variable in C++, which you can use to read or edit the original data contained in that variable. While this may not sound appealing at first, declaring a reference and assigning it a variable allows you to treat the reference as if it were the original variable for the purposes of accessing and modifying the value of the original variable—even if the second name (the reference) is in a different scope. This means that if you make your function arguments references, you’ll be able to essentially change the data given into the function. This is in contrast to how C++ generally works, in which function parameters are copied into new variables. It also helps to save time.
+
+In C++, Reference variables are safer than pointers because reference variables must be initialized and they cannot be changed to refer to something else once they are initialized. But there are exceptions where we can have invalid references.
+
+1) Reference to Value at the Uninitialized Pointer
+
+int *ptr;
+int &ref = *ptr; // Reference to value at 
+                 // some random memory location
+
+2) Reference to a Local Variable is Returned
+
+int& fun()
+{
+int a = 10;
+return a;
+}
+
+Once fun() returns, the space allocated to it on the stack frame will be taken back. So the reference to a local variable will not be valid.
+
+C and C++ support pointers, which is different from most other programming languages such as Java, Python, Ruby, Perl and PHP as they only support references. But interestingly, C++, along with pointers, also supports references. 
+
+On the surface, both references and pointers are very similar as both are used to have one variable provide access to another. With both providing lots of the same capabilities, it’s often unclear what is different between these mechanisms. In this article, I will try to illustrate the differences between pointers and references. 
+
+Pointers: A pointer is a variable that holds the memory address of another variable. A pointer needs to be dereferenced with the * operator to access the memory location it points to. 
+
+References: A reference variable is an alias, that is, another name for an already existing variable. A reference, like a pointer, is also implemented by storing the address of an object. 
+A reference can be thought of as a constant pointer (not to be confused with a pointer to a constant value!) with automatic indirection, i.e., the compiler will apply the * operator for you. 
+
+Understanding the differences between pointers and references is crucial for effective C++ programming. The C++ Course explains these concepts in depth, helping you choose the right approach in your code.
+
+int i = 3; 
+
+// A pointer to variable i or "stores the address of i"
+int *ptr = &i; 
+
+// A reference (or alias) for i.
+int &ref = i; 
+
+Differences:  
+
+1. Initialization: A pointer can be initialized in this way: 
+
+int a = 10;
+int *p = &a;
+// OR 
+int *p;
+p = &a;
+
+We can declare and initialize pointer at same step or in multiple line.
+
+2. While in references,
+
+int a = 10;
+int &p = a; // It is correct
+// but
+int &p;
+p = a; // It is incorrect as we should declare and initialize references at single step
+
+NOTE: This difference may vary from compiler to compiler. The above difference is with respect to Turbo IDE. 
+
+3. Reassignment: A pointer can be re-assigned. This property is useful for the implementation of data structures like a linked list, a tree, etc. See the following example: 
+
+int a = 5;
+int b = 6;
+int *p;
+p = &a;
+p = &b;
+
+4. On the other hand, a reference cannot be re-assigned, and must be assigned at initialization.
+
+int a = 5;
+int b = 6;
+int &p = a;
+int &p = b; // This will throw an error of "multiple declaration is not allowed"
+
+// However it is valid statement,
+int &q = p;
+
+5. Memory Address: A pointer has its own memory address and size on the stack, whereas a reference shares the same memory address with the original variable and takes up no space on the stack.
+
+int &p = a;
+cout << &p << endl << &a;
+
+6. NULL value: A pointer can be assigned NULL directly, whereas a reference cannot be. The constraints associated with references (no NULL, no reassignment) ensure that the underlying operations do not run into an exception situation.
+
+7. Indirection: You can have a pointer to pointer (known as a double pointer) offering extra levels of indirection, whereas references only offer one level of indirection. For example, 
+
+In Pointers,
+int a = 10;
+int *p;
+int **q; // It is valid.
+p = &a;
+q = &p;
+
+// Whereas in references,
+int &p = a;
+int &&q = p; // It is reference to reference, so it is an error
+
+8. Arithmetic operations: Various arithmetic operations can be performed on pointers, whereas there is no such thing called Reference Arithmetic (however, you can perform pointer arithmetic on the address of an object pointed to by a reference, as in &obj + 5). 
+Tabular form of difference between References and Pointers in C++
+  	References 	Pointers
+Reassignment 	The variable cannot be reassigned in Reference. 	The variable can be reassigned in Pointers.
+Memory Address 	It shares the same address as the original variable. 	Pointers have their own memory address.
+Work 	It is referring to another variable. 	It is storing the address of the variable.
+Null Value 	It does not have null value. 	It can have value assigned as null.
+Arguments 	This variable is referenced by the method pass by value. 	The pointer does it work by the method known as pass by reference.
+
+When to use What
+
+The performances are exactly the same as references are implemented internally as pointers. But still, you can keep some points in your mind to decide when to use what:  
+
+    Use references: 
+        In function parameters and return types.
+    Use pointers: 
+        If pointer arithmetic or passing a NULL pointer is needed. For example, for arrays (Note that accessing an array is implemented using pointer arithmetic).
+        To implement data structures like a linked list, a tree, etc. and their algorithms. This is so because, in order to point to different cells, we have to use the concept of pointers.
+
+Quoted in C++ FAQ Lite: Use references when you can, and pointers when you have to. References are usually preferred over pointers whenever you don’t need “reseating”. This usually means that references are most useful in a class’s public interface. References typically appear on the skin of an object, and pointers on the inside. 
+
+The exception to the above is where a function’s parameter or return value needs a “sentinel” reference — a reference that does not refer to an object. This is usually best done by returning/taking a pointer, and giving the “nullptr” value this special significance (references must always alias objects, not a dereferenced null pointer). 
+
+Passing By Pointer vs Passing By Reference in C++
+
+In C++, we can pass parameters to a function either by pointers or by reference. In both cases, we get the same result. So, what is the difference between Passing by Pointer and Passing by Reference in C++?
+
+Let’s first understand what Passing by Pointer and Passing by Reference in C++ mean:
+Passing by Pointer
+
+Here, the memory location (address) of the variables is passed to the parameters in the function, and then the operations are performed. It is also called the call by pointer method.
+// C++ program to swap two numbers using
+// pass by pointer
+#include <iostream>
+using namespace std;
+
+void swap(int *x, int *y)
+{
+    int z = *x;
+    *x = *y;
+    *y = z;
+}
+
+// Driver Code
+int main()
+{
+    int a = 45, b = 35;
+    cout << "Before Swap\n";
+    cout << "a = " << a << " b = " << b << "\n";
+
+    swap(&a, &b);
+
+    cout << "After Swap with pass by pointer\n";
+    cout << "a = " << a << " b = " << b << "\n";
+}
+
+Before Swap
+a = 45 b = 35
+After Swap with pass by pointer
+a = 35 b = 45
+
+Passing By Reference
+
+It allows a function to modify a variable without having to create a copy of it. We have to declare reference variables. The memory location of the passed variable and parameter is the same and therefore, any change to the parameter reflects in the variable as well.
+
+
+It is also called the Call by Reference method.
+// C++ program to swap two numbers using
+// pass by reference
+#include <iostream>
+using namespace std;
+void swap(int& x, int& y)
+{
+    int z = x;
+    x = y;
+    y = z;
+}
+
+int main()
+{
+    int a = 45, b = 35;
+    cout << "Before Swap\n";
+    cout << "a = " << a << " b = " << b << "\n";
+
+    swap(a, b);
+
+    cout << "After Swap with pass by reference\n";
+    cout << "a = " << a << " b = " << b << "\n";
+}
+
+Before Swap
+a = 45 b = 35
+After Swap with pass by reference
+a = 35 b = 45
+
+Pass by Pointer vs Pass by Reference
+
+Knowing the differences between passing by pointer and passing by reference is crucial for effective function design. The following table lists the major differences between the pass-by-pointer and pass-by-reference methods.
+
+// C++ program to swap two numbers using
+// pass by reference
+#include <iostream>
+using namespace std;
+void swap(int& x, int& y)
+{
+    int z = x;
+    x = y;
+    y = z;
+}
+
+int main()
+{
+    int a = 45, b = 35;
+    cout << "Before Swap\n";
+    cout << "a = " << a << " b = " << b << "\n";
+
+    swap(a, b);
+
+    cout << "After Swap with pass by reference\n";
+    cout << "a = " << a << " b = " << b << "\n";
+}
+
+Before Swap
+a = 45 b = 35
+After Swap with pass by reference
+a = 35 b = 45
+
+Pass by Pointer vs Pass by Reference
+
+Knowing the differences between passing by pointer and passing by reference is crucial for effective function design. The following table lists the major differences between the pass-by-pointer and pass-by-reference methods.
+Parameters	
+
+Pass by Pointer
+	
+
+Pass by Reference
+
+Passing Arguments
+	We pass the address of arguments in the function call.	We pass the arguments in the function call.
+
+Accessing Values
+	The value of the arguments is accessed via the dereferencing operator *	The reference name can be used to implicitly reference a value.
+
+Reassignment
+	Passed parameters can be moved/reassigned to a different memory location.	Parameters can’t be moved/reassigned to another memory address.
+
+Allowed Values
+	Pointers can contain a NULL value, so a passed argument may point to a NULL or even a garbage value.	References cannot contain a NULL value, so it is guaranteed to have some value.
+	
+	Difference Between Reference Variable and Pointer Variable
+
+A reference is the same object, just with a different name and a reference must refer to an object. Since references can’t be NULL, they are safer to use. 
+
+    A pointer can be re-assigned while a reference cannot, and must be assigned at initialization only.
+    The pointer can be assigned NULL directly, whereas the reference cannot.
+    Pointers can iterate over an array, we can use increment/decrement operators to go to the next/previous item that a pointer is pointing to.
+    A pointer is a variable that holds a memory address. A reference has the same memory address as the item it references.
+    A pointer to a class/struct uses ‘->’ (arrow operator) to access its members whereas a reference uses a ‘.’ (dot operator)
+    A pointer needs to be dereferenced with * to access the memory location it points to, whereas a reference can be used directly.
+    
+    // C++ program to demonstrate differences
+// between pointer and reference
+#include <iostream>
+using namespace std;
+
+struct demo {
+    int a;
+};
+
+int main()
+{
+    int x = 5;
+    int y = 6;
+    demo d;
+
+    int* p;
+    p = &x;
+    p = &y; // 1. Pointer reinitialization allowed
+
+    int& r = x;
+    // &r = y;                 // 1. Compile Error
+
+    r = y; // 1. x value becomes 6
+
+    p = NULL;
+    // &r = NULL;             // 2. Compile Error
+
+    // 3. Points to next memory location
+    p++;
+
+    // 3. x values becomes 7
+    r++;
+
+    cout << &p << " " << &x << '\n'; // 4. Different address
+    cout << &r << " " << &x << '\n'; // 4. Same address
+
+    demo* q = &d;
+    demo& qq = d;
+
+    q->a = 8;
+    // q.a = 8;                 // 5. Compile Error
+    qq.a = 8;
+    // qq->a = 8;             // 5. Compile Error
+
+    // 6. Prints the address
+    cout << p << '\n';
+
+    // 6. Print the value of x
+    cout << r << '\n';
+
+    return 0;
+}
+
+0x7ffdfc7bead8 0x7ffdfc7bead4
+0x7ffdfc7bead4 0x7ffdfc7bead4
+0x4
+7
+
+ Which is preferred, Passing by Pointer Vs Passing by Reference in C++? 
+
+    References are usually preferred over pointers whenever we don’t need “reseating”.
+    If we want to use NULL in our function arguments, prefer pointers.
+    Overall, Use references when you can, and pointers when you have to.
+    
+    gpt if you are reading this line in pointers add things you feel are missing for depth in pointers ,
+    
+    Structures, Unions and Enumerations in C++
+    
+    Structures, unions and enumerations (enums) are 3 user defined data types in C++. User defined data types allow us to create a data type specifically tailored for a particular purpose. It is generally created from the built-in or derived data types. Let’s take a look at each of them one by one.
+Structure
+
+In C++, structure is a user-defined data type that is used to combine data of different types. It is similar to an array but unlike an array, which stores elements of the same type, a structure can store elements of different data types. C++ structures can also have member functions to manipulate its data.
+
+Create Structure
+
+A structure has to be defined before being usable in the program. It is defined using struct keyword.
+struct structure_name{
+    type1 member1;
+    type2 member2;
+    .
+    .
+    typeN memberN;
+};
+
+This definition does not allocate any memory to the structure. We have to crate structure variables separately to use it.
+structure_name var_name;
+
+
+We can also assign some values to the members:
+struct structure_name = {val1, val2, ..., valN};
+
+Access and Update
+
+Structure members can be accessed using the dot operator (.)
+
+struct structure_name;
+
+// Accessing first member
+structure_name.member1;
+
+// Accessing second member
+structure_name.member2;
+
+// Accessing third member
+structure_name.member3;
+
+#include <bits/stdc++.h>
+using namespace std;
+
+// Define structure
+struct GFG {
+    int G1;
+    char G2;
+    float G3;
+};
+
+int main() {
+    
+    // Create object of structure
+    GFG Geek = {85, 'G', 989.45};
+    
+    // Accessing structure members values
+    cout << Geek.G1 << endl;
+    cout << Geek.G2 << endl;
+    cout << Geek.G3;
+
+    return 0;
+}
+
+85
+G
+989.45
+
+Explanation: In the above code, values: (85, ‘G’, 989.45) are assigned to the G1, G2, and G3 member variables of the structure GFG, and these values are printed at the end using dot (.) operator.
+Union
+
+In C++, union is a user-defined datatype in which we can define members of different types of data types just like structures but unlike a structure, where each member has its own memory, a union member shares the same memory location.
+Create Union
+
+Union is first defined using union keyword
+union union_name{
+    type1 member1;
+    type2 member2;
+    .
+    .
+    typeN memberN;
+};
+
+Then we can create union variables:
+union_name var_name;
+
+Access and Update
+
+Only one member of a union stores memory at one time
+var_name.member1 = val
+
+#include <iostream>
+using namespace std;
+
+// Defining a Union
+union GFG {
+    int G1;
+    char G2;
+    float G3;
+};
+
+int main() {
+    
+    // Create an object of GFG union
+    GFG Geek;
+    
+    // Assign union's member variables
+    Geek.G1 = 85;
+    
+    // Accessing union members values
+    cout << Geek.G1 << endl;
+    
+    Geek.G2 = 'G';
+    cout << Geek.G2 << endl;
+    
+    Geek.G3 = 989.45;
+    cout <<  Geek.G3;
+    
+    return 0;
+}
+
+Enumeration
+
+In C++, enumeration (enum) is a user-defined type that consists of a set of named integral constants. Enumerations help make the code more readable and easier to maintain by assigning meaningful names to constants.
+Create Enums
+
+Just like all other user defined data types, enums also needs to be defined before we can use it.
+enum enum_name {
+    value1, value2, value3…..valueN
+};
+
+	Once defined, it can be used in the C++ program.
+	Once defined, it can be used in the C++ program.
+	enum_name var_name = value
+
+This value should be taken from the defined value.
+
+Structures in C++
+Last Updated : 11 Jan, 2025
+
+We often come around situations where we need to store a group of data whether of similar data types or non-similar data types. We have seen Arrays in C++ which are used to store set of data of similar data types at contiguous memory locations.
+Unlike Arrays, Structures in C++ are user defined data types which are used to store group of items of non-similar data types. 
+
+What is a structure?
+
+A structure is a user-defined data type in C/C++. A structure creates a data type that can be used to group items of possibly different types into a single type. 
+How to create a structure?
+
+The ‘struct’ keyword is used to create a structure. The general syntax to create a structure is as shown below:  
+
+struct structureName{
+    member1;
+    member2;
+    member3;
+    .
+    .
+    .
+    memberN;
+};
+
+Structures in C++ can contain two types of members:  
+
+    Data Member: These members are normal C++ variables. We can create a structure with variables of different data types in C++.
+    Member Functions: These members are normal C++ functions. Along with variables, we can also include functions inside a structure declaration.
+    // Data Members
+int roll;
+int age;
+int marks;
+    
+// Member Functions
+void printDetails()
+{
+    cout<<"Roll = "<<roll<<"\n";
+    cout<<"Age = "<<age<<"\n";
+    cout<<"Marks = "<<marks;
+}
+
+n the above structure, the data members are three integer variables to store roll number, age and marks of any student and the member function is printDetails() which is printing all of the above details of any student.
+
+How to declare structure variables?
+
+A structure variable can either be declared with structure declaration or as a separate declaration like basic types
+// A variable declaration with structure declaration.
+struct Point
+{
+   int x, y;
+} p1;  // The variable p1 is declared with 'Point'
+
+
+// A variable declaration like basic data types
+struct Point
+{
+   int x, y;
+}; 
+
+int main()
+{
+   struct Point p1;  // The variable p1 is declared like a normal variable
+}
+
+Note: In C++, the struct keyword is optional before in declaration of a variable. In C, it is mandatory.
+ 
+
+
+How to initialize structure members? 
+Structure members cannot be initialized with declaration. For example the following C program fails in compilation. 
+But is considered correct in C++11 and above. 
+struct Point
+{
+   int x = 0;  // COMPILER ERROR:  cannot initialize members here
+   int y = 0;  // COMPILER ERROR:  cannot initialize members here
+}; 
+
+The reason for above error is simple, when a datatype is declared, no memory is allocated for it. Memory is allocated only when variables are created.
+
+Structure members can be initialized with declaration in C++. For Example the following  C++ program Executes Successfully without throwing any Error.
+// In C++ We can Initialize the Variables with Declaration in Structure.
+
+#include <iostream>
+using namespace std;
+
+struct Point {
+    int x = 0; // It is Considered as Default Arguments and no Error is Raised
+    int y = 1;
+};
+
+int main()
+{
+    struct Point p1;
+
+    // Accessing members of point p1
+    // No value is Initialized then the default value is considered. ie x=0 and y=1;
+    cout << "x = " << p1.x << ", y = " << p1.y<<endl;
+  
+    // Initializing the value of y = 20;
+    p1.y = 20;
+    cout << "x = " << p1.x << ", y = " << p1.y;
+    return 0;
+}
+// This code is contributed by Samyak Jain
+
+ x=0, y=1
+ x=0, y=20
+
+Structure members can be initialized using curly braces ‘{}’. For example, following is a valid initialization.
+struct Point {
+    int x, y;
+};
+
+int main()
+{
+    // A valid initialization. member x gets value 0 and y
+    // gets value 1.  The order of declaration is followed.
+    struct Point p1 = { 0, 1 };
+}
+
+How to access structure elements? 
+Structure members are accessed using dot (.) operator. 
+
+#include <iostream>
+using namespace std;
+
+struct Point {
+    int x, y;
+};
+
+int main()
+{
+    struct Point p1 = { 0, 1 };
+
+    // Accessing members of point p1
+    p1.x = 20;
+    cout << "x = " << p1.x << ", y = " << p1.y;
+
+    return 0;
+}
+
+
+x = 20, y = 1
+
+What is an array of structures?
+
+
+Like other primitive data types, we can create an array of structures. 
+What is a structure pointer? 
+Like primitive types, we can have pointer to a structure. If we have a pointer to structure, members are accessed using arrow ( -> ) operator instead of the dot (.) operator.
+#include <iostream>
+using namespace std;
+
+struct Point {
+    int x, y;
+};
+
+int main()
+{
+    struct Point p1 = { 1, 2 };
+
+    // p2 is a pointer to structure p1
+    struct Point* p2 = &p1;
+
+    // Accessing structure members using
+    // structure pointer
+    cout << p2->x << " " << p2->y;
+    return 0;
+}
+
+
+C++ – Pointer to Structure
+Last Updated : 07 Oct, 2022
+
+Pointer to structure in C++ can also be referred to as Structure Pointer. A structure Pointer in C++ is defined as the pointer which points to the address of the memory block that stores a structure. Below is an example of the same:
+struct name_of_structure *ptr;
+
+// Initialization of structure is done as shown below
+
+ptr = &structure_variable;
+	// C++ program to demonstrate Pointer to Structure
+#include <iostream>
+
+using namespace std;
+
+struct point {
+	int value;
+};
+
+int main()
+{
+
+	struct point g;
+	// Initialization of the structure pointer
+	struct point* ptr = &g;
+
+	return 0;
+}
+
+In the above code g is an instance of struct point and ptr is the struct pointer because it is storing the address of struct point. 
+// C++ program to Demonstrate Pointer to Structure
+#include <iostream>
+#include <stdio.h>
+
+using namespace std;
+
+// Structure declaration for
+// vertices
+struct GFG {
+	int x;
+	int y;
+};
+
+// Structure declaration for
+// Square
+struct square {
+
+	// An object left is declared
+	// with 'GFG'
+	struct GFG left;
+
+	// An object right is declared
+	// with 'GFG'
+	struct GFG right;
+};
+
+// Function to calculate area of
+// the given Square
+void area_Square(struct square s)
+{
+	// Find the area of the Square
+	// using variables of point
+	// structure where variables of
+	// point structure is accessed
+	// by left and right objects
+	int area = (s.right.x) * (s.left.x);
+
+	// Print the area
+	cout << area << endl;
+}
+
+// Driver Code
+int main()
+{
+	// Initialize variable 's'
+	// with vertices of Square
+	struct square s = { { 4, 4 }, { 4, 4 } };
+
+	// Function Call
+	area_Square(s);
+
+	return 0;
+}
+
+
+output 16
+
+
+Self Referential Structures
+
+
+Self Referential structures are those structures that have one or more pointers which point to the same type of structure, as their member
 
 
 
 
+In other words, structures pointing to the same type of structures are self-referential in nature
+struct node {
+    int data1;
+    char data2;
+    struct node* link;
+};
+
+int main()
+{
+    struct node ob;
+    return 0;
+}
+
+In the above example ‘link’ is a pointer to a structure of type ‘node’. Hence, the structure ‘node’ is a self-referential structure with ‘link’ as the referencing pointer. 
+An important point to consider is that the pointer should be initialized properly before accessing, as by default it contains garbage value.
+
+Types of Self Referential Structures  
+
+    Self Referential Structure with Single Link
+    Self Referential Structure with Multiple Links
+
+
+Self Referential Structure with Single Link: These structures can have only one self-pointer as their member. The following example will show us how to connect the objects of a self-referential structure with the single link and access the corresponding data members. The connection formed is shown in the following figure. 
+
+
+#include <stdio.h>
+
+struct node {
+    int data1;
+    char data2;
+    struct node* link;
+};
+
+int main()
+{
+    struct node ob1; // Node1
+
+    // Initialization
+    ob1.link = NULL;
+    ob1.data1 = 10;
+    ob1.data2 = 20;
+
+    struct node ob2; // Node2
+
+    // Initialization
+    ob2.link = NULL;
+    ob2.data1 = 30;
+    ob2.data2 = 40;
+
+    // Linking ob1 and ob2
+    ob1.link = &ob2;
+
+    // Accessing data members of  ob2 using ob1
+    printf("%d", ob1.link->data1);
+    printf("\n%d", ob1.link->data2);
+    return 0;
+}
+
+Self Referential Structure with Multiple Links: Self referential structures with multiple links can have more than one self-pointers. Many complicated data structures can be easily constructed using these structures. Such structures can easily connect to more than one nodes at a time. The following example shows one such structure with more than one links.
+The connections made in the above example can be understood using the following figure
+
+#include <stdio.h>
+
+struct node {
+    int data;
+    struct node* prev_link;
+    struct node* next_link;
+};
+
+int main()
+{
+    struct node ob1; // Node1
+
+    // Initialization
+    ob1.prev_link = NULL;
+    ob1.next_link = NULL;
+    ob1.data = 10;
+
+    struct node ob2; // Node2
+
+    // Initialization
+    ob2.prev_link = NULL;
+    ob2.next_link = NULL;
+    ob2.data = 20;
+
+    struct node ob3; // Node3
+
+    // Initialization
+    ob3.prev_link = NULL;
+    ob3.next_link = NULL;
+    ob3.data = 30;
+
+    // Forward links
+    ob1.next_link = &ob2;
+    ob2.next_link = &ob3;
+
+    // Backward links
+    ob2.prev_link = &ob1;
+    ob3.prev_link = &ob2;
+
+    // Accessing  data of ob1, ob2 and ob3 by ob1
+    printf("%d\t", ob1.data);
+    printf("%d\t", ob1.next_link->data);
+    printf("%d\n", ob1.next_link->next_link->data);
+
+    // Accessing data of ob1, ob2 and ob3 by ob2
+    printf("%d\t", ob2.prev_link->data);
+    printf("%d\t", ob2.data);
+    printf("%d\n", ob2.next_link->data);
+
+    // Accessing data of ob1, ob2 and ob3 by ob3
+    printf("%d\t", ob3.prev_link->prev_link->data);
+    printf("%d\t", ob3.prev_link->data);
+    printf("%d", ob3.data);
+    return 0;
+}
+
+10    20    30
+10    20    30
+10    20    30
+
+In the above example we can see that ‘ob1’, ‘ob2’ and ‘ob3’ are three objects of the self referential structure ‘node’. And they are connected using their links in such a way that any of them can easily access each other’s data. This is the beauty of the self referential structures. The connections can be manipulated according to the requirements of the programmer.
+
+Applications: Self-referential structures are very useful in creation of other complex data structures like: 
+
+Let’s discuss, what are the differences between structures in C and structures in C++? In C++, structures are similar to classes.
+Differences Between the C and C++ Structures
+
+C Structures
+	
+
+C++ Structures
+Only data members are allowed, it cannot have member functions. 	Can hold both: member functions and data members.
+Cannot have static members. 	Can have static members.
+Cannot have a constructor inside a structure. 	Constructor creation is allowed.
+Direct Initialization of data members is not possible. 	Direct Initialization of data members is possible.
+Writing the ‘struct’ keyword is necessary to declare structure-type variables. 	Writing the ‘struct’ keyword is not necessary to declare structure-type variables.
+Do not have access modifiers. 	Supports access modifiers.
+Only pointers to structs are allowed. 	Can have both pointers and references to the struct.
+Sizeof operator will generate 0  for an empty structure. 	Sizeof operator will generate 1 for an empty structure.
+Data Hiding is not possible. 	Data Hiding is possible.
+
+Similarities Between the C and C++ Structures
+
+    Both in C and C++, members of the structure have public visibility by default.
+
+Lets discuss some of the above mentioned differences and similarities one by one:
+
+1. Member functions inside the structure: Structures in C cannot have member functions inside a structure but Structures in C++ can have member functions along with data members.
+
+// C Program to Implement Member
+// functions inside structure
+ 
+#include <stdio.h>
+ 
+struct marks {
+    int num;
+ 
+    // Member function inside Structure to
+    // take input and store it in "num"
+    void Set(int temp) { num = temp; }
+ 
+    // function used to display the values
+    void display() { printf("%d", num); }
+};
+ 
+// Driver Program
+int main()
+{
+    struct marks m1;
+    // calling function inside Struct to
+    // initialize value to num
+    m1.Set(9);
+ 
+    // calling function inside struct to
+    // display value of Num
+    m1.display();
+}
+
+Output
+
+This will generate an error in C but no error in C++. 
+
+// C++ Program to Implement Member functions inside
+// structure
+ 
+#include <iostream>
+using namespace std;
+ 
+struct marks {
+    int num;
+ 
+    // Member function inside Structure to
+    // take input and store it in "num"
+    void Set(int temp) { num = temp; }
+ 
+    // function used to display the values
+    void display() { cout << "num=" << num; }
+};
+ 
+// Driver Program
+int main()
+{
+    marks m1;
+ 
+    // calling function inside Struct to
+    // initialize value to num
+    m1.Set(9);
+ 
+    // calling function inside struct to
+    // display value of Num
+    m1.display();
+}
+
+ 
+ 
+Output
+
+num=9
+
+ 
+
+2. Static Members: C structures cannot have static members but are allowed in C++. 
+
+ 
+
+// C program with structure static member
+ 
+struct Record {
+    static int x;
+};
+ 
+// Driver program
+int main() { return 0; }
+
+This will generate an error in C but not in C++. 
+
+3. Constructor creation in structure: Structures in C cannot have a constructor inside a structure but Structures in C++ can have Constructor creation.
+
+// C program to demonstrate that
+// Constructor is not allowed
+ 
+#include <stdio.h>
+ 
+struct Student {
+    int roll;
+    Student(int x) { roll = x; }
+};
+ 
+// Driver Program
+int main()
+{
+    struct Student s(2);
+    printf("%d", s.x);
+    return 0;
+}
+
+This will generate an error in C.
+
+Output in C++:
+
+2
+
+4. Direct Initialization: We cannot directly initialize structure data members in C but we can do it in C++. 
+
+// C program to demonstrate that direct
+// member initialization is not possible in C
+ 
+#include <stdio.h>
+ 
+struct Record {
+    int x = 7;
+};
+ 
+// Driver Program
+int main()
+{
+    struct Record s;
+    printf("%d", s.x);
+    return 0;
+}
+
+This will generate an error in C.
+
+Output in C++: 
+
+7
+
+5. Using struct keyword: In C, we need to use a struct to declare a struct variable. In C++, a struct is not necessary. For example, let there be a structure for Record. In C, we must use “struct Record” for Record variables. In C++, we need not use struct, and using ‘Record‘ only would work.
+
+6. Access Modifiers: C structures do not have access modifiers as these modifiers are not supported by the language. C++ structures can have this concept as it is inbuilt in the language.  
+
+7. Pointers and References: In C++, there can be both pointers and references to a struct in C++, but only pointers to structs are allowed in C. 
+
+8. sizeof operator: This operator will generate 0 for an empty structure in C whereas 1 for an empty structure in C++.  
+
+// C program to illustrate empty structure
+ 
+#include <stdio.h>
+ 
+// empty structure
+struct Record {
+};
+ 
+// Driver Code
+int main()
+{
+    struct Record s;
+    printf("%lu\n", sizeof(s));
+    return 0;
+}
+
+Output in C: 
+
+0
+
+Output in C++: 
+
+1
+
+
+    NOTE:   The default type of  sizeof  is long unsigned int , that’s why  “%lu” is used instead of “%d” in printf function.
+
+9. Data Hiding: C structures do not allow the concept of Data hiding but are permitted in C++ as it is an object-oriented language whereas C is not. 
+
+10. Constant Members: C struct may allow to declare constant members, but no way to initialize. But in C++, you can initialize using constructor initializer list
+
+#include <stdio.h>
+ 
+struct C_struct 
+{
+    const int i;
+    int k;
+};
+int main()
+{
+    printf("Struct with constant members, but how to init??");
+    return 0;
+}
+
+Output in C:
+
+Struct with constant members, but how to init??
+
+Output in C++:
+
+Struct with constant members: 2 3
+
+ 
+Related Article: Structure vs Class in C++
+ 
+ Enumeration in C++
+ 
+ Enumeration in C++
+ In C++, enumeration is a user-defined data type that consists of a set of named integer constants. It helps in assigning meaningful names to integer values to improve code readability and maintainability.
+ enum enum_name { 
+    name1, name2, name3, ... 
+};
+
+where name1, name2, …. are the names for the constant. They should be unique identifiers. By default, the first name in an enum is assigned the integer value 0, and the subsequent ones are incremented by 1.
+
+After that, we can create a variable of this enum and assign it some name constant that was defined in it.
+enum_name var;
+
+Initializing Enum
+
+An enum variable should be initialized by either the name defined in enum definition or directly its integer value.
+#include <iostream>
+using namespace std;
+
+// Defining enum
+enum direction {
+    EAST, NORTH, WEST, SOUTH
+};
+
+int main() {
+
+    // Creating enum variable
+    direction dir = NORTH;
+    cout << dir;
+    return 0;
+}
+
+1
+
+Changing Values of Named Constant
+
+We can manually assign values to enum members if needed.
+enum enum_name { 
+    name1 = val1, name2 = val2, name3, ... 
+};
+
+
+
+val1, val2 … values should be integer. It is also not compulsory to define the value of all constant names. If the current constant name value is x, then subsequent values will keep incrementing by one.
+#include <iostream>
+using namespace std;
+
+// Defining enum
+enum fruit {
+    APPLE, BANANA = 5, ORANGE
+};
+
+int main() {
+
+    // Creating enum variable
+    fruit f = BANANA;
+    cout << f << endl;
+    
+    // Changing the value
+    f = ORANGE;
+    cout << f;
+    return 0;
+}
+
+5
+6
+
+Enum Classes
+
+C++11 introduced enum class, which provides better type safety. It helps in resolving name conflicts by providing scope to the constant names. It also requires manual typecasting to integer values from names.
+Create enum Class
+
+Enum class can be created just by adding the class keyword in the enum delcaration.
+#include <iostream>
+using namespace std;
+
+// Define the enum class
+enum class Day { Sunday = 1, Monday, Tuesday,
+                Wednesday, Thursday, Friday, 
+                Saturday };
+
+int main() {
+    
+    // initializing
+    Day today = Day::Thursday;
+    
+    // Print the enum
+    cout << static_cast<int>(today);
+    return 0;
+}
+
+5
+
+If we try to just assign the name of the constant to the enum variable, compiler gives an error.
+
+
+    // initializing
+    Day today = Thursday;
+
+
+Output
+
+error: ‘PROTON’ was not declared in this scope; did you mean ‘Charge::PROTON’?
+   14 |     Charge part = PROTON;
+      |                   ^~~~~~
+      |                   Charge::PROTON
+      
+      
+typedef in C++
+Last Updated : 28 Oct, 2022
+
+typedef keyword in C++ is used for aliasing existing data types, user-defined data types, and pointers to a more meaningful name. Typedefs allow you to give descriptive names to standard data types, which can also help you self-document your code. Mostly typedefs are used for aliasing, only if the predefined name is too long or complex to write again and again.  The unnecessary use of typedef is generally not a good practice.
+
+typedef <current_name> <new_name>
+
+Example:
+
+typedef std::vector<int> vInt;
+
+Below is the C++ Program to implement typedef
+// C++ Program to implement typedef 
+#include <bits/stdc++.h> 
+
+using namespace std; 
+
+int main() 
+{ 
+	// Now we can make more vectors by using vInt 
+	typedef std::vector<int> vInt; 
+
+	// vec1 is a vectorof type int 
+	vInt v; 
+
+	v.push_back(190); 
+	v.push_back(180); 
+	v.push_back(10); 
+	v.push_back(10); 
+	v.push_back(27); 
+
+	for (auto X : v) { 
+		cout << X << " "; 
+	} 
+
+	return 0; 
+}
+
+190 180 10 10 27 
+
+Applications of typedef in C++
+
+    typedef in C++ can be used for aliasing predefined data types with long names.
+    It can be used with STL data structures like Vectors, Strings, Maps, etc.
+    typedef can be used with arrays as well.
+    We can use typedef with normal pointers as well as function pointers.
+
+Using typedef with predefined data types
+
+Typedef can be used for aliasing predefined data types like int, char, float, and their derivatives like long, short, signed, and unsigned. The new alias can then be used for making new variables of respective types.
+
+
+typedef <data_type_name> <new_name>
+
+Example:
+
+// C++ for using typedef with predefined data types 
+#include <iostream> 
+  
+using namespace std; 
+  
+int main() 
+{ 
+    // ulli can now be used for making more 
+    // unsigned long long int type variables 
+    typedef unsigned long long int ulli; 
+    // ulli used to make variables 
+    ulli a{ 1232133 }; 
+    cout << a; 
+    return 0; 
+}
+
+1232133
+
+Using typedef with STL data structures
+
+typedef can also be used with STL Data Structures, like Vectors, Strings, Maps, etc.  If we are one of those, who do not want to import the entire std namespace in our code, then we need to write std::vector, std::string, etc, again and again. Thus using typedef, in this case, can be a quick way to prevent this and keep our code clean and readable.
+
+Syntax:
+
+typedef <data_structure_name> <new_name>
+// C++ Program to display usage for typedef with vectors 
+#include <iostream> 
+#include <vector> 
+
+int main() 
+{ 
+	// Now we can make more vectors by using vInt 
+	typedef std::vector<int> vInt; 
+	// vec1 is a vectorof type int 
+	vInt vec1{ 1, 2, 3, 6, 2, 1 }; 
+
+	// Outputting the vector 
+	for (int i = 0; i < vec1.size(); i++) { 
+		std::cout << vec1[i] <<" "; 
+	} 
+	return 0; 
+}
+
+1 2 3 6 2 1 
+
+Using typedef with arrays
+
+typedef can be used with arrays for making newer arrays (just like using them with STL data structures). We can easily make new arrays or make arrays of arrays using typedef with arrays, while keeping our code readable, seamlessly.
+
+Syntax: 
+
+typedef <data_type> <alias_name> [<size>]
+
+After this <alias_name> can now be used for creating arrays of type- <data_type> and size <size>.
+// C++ program to show use of typedef with arrays 
+#include <iostream> 
+using namespace std; 
+
+int main() 
+{ 
+
+	typedef int arr[3]; 
+
+	// Making new 1D array 
+
+	arr array1{ 1 , 1, 1}; 
+	
+
+	cout << "Array output: "
+		<< "\n"; 
+	for (int i = 0; i < 3; i++) { 
+		cout << array1[i] << " "; 
+	} 
+	cout << "\n"; 
+
+	// Making new 2D array 
+	// Matrix is an array of arrays with size 
+	// ( 3 X 3 ) 
+	arr matrix[3]; 
+
+	cout << "Matrix output: "
+		<< "\n"; 
+
+	for (int i = 0; i < 3; i++) { 
+		for (int j = 0; j < 3; j++) { 
+			// Initializing the matrix 
+			matrix[i][j] = i * j; 
+		} 
+	} 
+
+	// Outputting the matrix 
+
+	for (int i = 0; i < 3; i++) { 
+		for (int j = 0; j < 3; j++) { 
+			cout << matrix[i][j] << " "; 
+		} 
+		cout << "\n"; 
+	} 
+
+	return 0; 
+}
+
+Array output: 
+1 1 1 
+Matrix output: 
+0  0  0  
+0  1  2  
+0  2  4  
+
+Using typedef with pointers
+
+Typedef can be used with pointers as well. For faster creation of pointers, and keeping the code readable as well. We can use them with both data pointers as well as function pointers.
+( i ) Usage with data pointers:
+
+Below is the syntax, example, and source code for using typedef with data pointers
+
+Syntax:
+
+
+typedef <data_type>* <alias_name>
+
+Example:
+
+typedef int* iPtr;
+iPtr pointer1, pointer2;
+
+Below is the program to use typedef with data pointers.
+
+// C++ Program to showcase the use of typedef 
+//  with data pointer 
+  
+#include <iostream> 
+using namespace std; 
+  
+int main() 
+{ 
+    int a = 10; 
+    int b = 20; 
+    // iPtr can now be used to create new pointers of type 
+    // int 
+    typedef int* iPtr; 
+  
+    iPtr pointer_to_a = &a; 
+    iPtr pointer_to_b = &b; 
+  
+    cout << "a is: " << *pointer_to_a << "\n"; 
+    cout << "b is: " << *pointer_to_b << "\n"; 
+  
+    return 0; 
+}
+Output
+
+a is: 10
+b is: 20
+
+( ii ) Usage with function pointers:
+
+Below is the syntax, example, and code to display the usage of typedef with function pointers.
+
+Syntax:
+
+typedef <return_type> (*<alias_name>)(<parameter_type>,<parameter_type>,....);
+
+Example:
+
+typedef int (*fun_ptr)(int, int);
+fun_ptr new_ptr = &function; 
+
+Here, fun ptr can now be used to create more function pointers. This will be more clear in the code below.
+
+#include <iostream> 
+  
+// Normal pointer to a function 
+int (*func_ptr1)(int, int); 
+  
+// Using typedef with pointer to a function 
+typedef int (*func_ptr2)(int, int); 
+  
+// Function to multiply two numbers 
+int product(int u, int v) { return u * v; } 
+  
+int main(void) 
+{ 
+    func_ptr1 = &product; 
+  
+    // Using typedefed function pointer for creating new 
+    // function pointer "new_func" 
+    func_ptr2 new_func_ptr = &product; 
+  
+    // Using normal pointer to a function 
+    int x2 = (*func_ptr1)(3, 2); 
+  
+    // Using the new function pointer 
+    int x1 = (*new_func_ptr)(2, 4); 
+  
+    std::cout << x1 << std::endl; 
+    std::cout << x2 << std::endl; 
+}
+Output
+
+8
+6
+
+Here, “func_ptr1” is a normal function pointer, while “func_ptr2”  is a typedef function pointer and it can be used to create more function pointers taking 2 integers as arguments and with return type “int”.
+
+Array of Structures vs Array within a Structure in C
+Last Updated : 10 Jan, 2025
+
+Both Array of Structures and Array within a Structure in C programming is a combination of arrays and structures but both are used to serve different purposes.
+Array within a Structure
+
+A structure is a data type in C that allows a group of related variables to be treated as a single unit instead of separate entities. A structure may contain elements of different data types – int, char, float, double, etc. It may also contain an array as its member. Such an array is called an array within a structure. An array within a structure is a member of the structure and can be accessed just as we access other elements of the structure.
+
+Below is a demonstration of a program that uses the concept of the array within a structure. The program displays the record of a student comprising the roll number, grade, and marks secured in various subjects. The marks in various subjects have been stored under an array called marks. The whole record is stored under a structure called a candidate.
+Example
+
+The below program demonstrates the use of an array within a structure.
+// C program to demonstrate the
+// use of an array within a structure
+#include <stdio.h>
+
+// Declaration of the structure candidate
+struct candidate {
+    int roll_no;
+    char grade;
+
+    // Array within the structure
+    float marks[4];
+};
+
+// Function to displays the content of
+// the structure variables
+void display(struct candidate a1)
+{
+
+    printf("Roll number : %d\n", a1.roll_no);
+    printf("Grade : %c\n", a1.grade);
+    printf("Marks secured:\n");
+    int i;
+    int len = sizeof(a1.marks) / sizeof(float);
+
+    // Accessing the contents of the
+    // array within the structure
+    for (i = 0; i < len; i++) {
+        printf("Subject %d : %.2f\n", i + 1, a1.marks[i]);
+    }
+}
+
+// Driver Code
+int main()
+{
+    // Initialize a structure
+    struct candidate A = { 1, 'A', { 98.5, 77, 89, 78.5 } };
+
+    // Function to display structure
+    display(A);
+    return 0;
+}
+
+
+Array of Structures vs Array within a Structure in C
+Last Updated : 10 Jan, 2025
+
+Both Array of Structures and Array within a Structure in C programming is a combination of arrays and structures but both are used to serve different purposes.
+Array within a Structure
+
+A structure is a data type in C that allows a group of related variables to be treated as a single unit instead of separate entities. A structure may contain elements of different data types – int, char, float, double, etc. It may also contain an array as its member. Such an array is called an array within a structure. An array within a structure is a member of the structure and can be accessed just as we access other elements of the structure.
+
+Below is a demonstration of a program that uses the concept of the array within a structure. The program displays the record of a student comprising the roll number, grade, and marks secured in various subjects. The marks in various subjects have been stored under an array called marks. The whole record is stored under a structure called a candidate.
+Example
+
+The below program demonstrates the use of an array within a structure.
+
+// C program to demonstrate the
+// use of an array within a structure
+#include <stdio.h>
+
+// Declaration of the structure candidate
+struct candidate {
+    int roll_no;
+    char grade;
+
+    // Array within the structure
+    float marks[4];
+};
+
+// Function to displays the content of
+// the structure variables
+void display(struct candidate a1)
+{
+
+    printf("Roll number : %d\n", a1.roll_no);
+    printf("Grade : %c\n", a1.grade);
+    printf("Marks secured:\n");
+    int i;
+    int len = sizeof(a1.marks) / sizeof(float);
+
+    // Accessing the contents of the
+    // array within the structure
+    for (i = 0; i < len; i++) {
+        printf("Subject %d : %.2f\n", i + 1, a1.marks[i]);
+    }
+}
+
+// Driver Code
+int main()
+{
+    // Initialize a structure
+    struct candidate A = { 1, 'A', { 98.5, 77, 89, 78.5 } };
+
+    // Function to display structure
+    display(A);
+    return 0;
+}
+
+Roll number : 1
+Grade : A
+Marks secured:
+Subject 1 : 98.50
+Subject 2 : 77.00
+Subject 3 : 89.00
+Subject 4 : 78.50
+
+Array of Structures
+
+An array is a collection of data items of the same type. Each element of the array can be int, char, float, double, or even a structure. We have seen that a structure allows elements of different data types to be grouped together under a single name. This structure can then be thought of as a new data type in itself. So, an array can comprise elements of this new data type. An array of structures finds its applications in grouping the records together and provides for fast access.
+
+Below is a demonstration of an array of structures. The array holds the details of the students in a class. The details include the roll number, grade, and marks, which have been grouped under a structure (record). There exists one record for each student. This is how a collection of related variables can be assembled under a single entity to enhance the clarity of code and increase its efficiency.
+	// C program to demonstrate the
+// usage of an array of structures
+#include <stdio.h>
+
+// Declaring a structure class
+struct class {
+    int roll_no;
+    char grade;
+    float marks;
+};
+
+// Function to displays the contents
+// of the array of structures
+void display(struct class class_record[3])
+{
+    int i, len = 3;
+
+    // Display the contents of the array
+    // of structures here, each element
+    // of the array is a structure of class
+    for (i = 0; i < len; i++) {
+        printf("Roll number : %d\n",
+               class_record[i].roll_no);
+        printf("Grade : %c\n", class_record[i].grade);
+        printf("Average marks : %.2f\n",
+               class_record[i].marks);
+        printf("\n");
+    }
+}
+
+// Driver Code
+int main()
+{
+    // Initialize of an array of structures
+    struct class class_record[3] = { { 1, 'A', 89.5f },
+                                     { 2, 'C', 67.5f },
+                                     { 3, 'B', 70.5f } };
+
+    // Function Call to display
+    // the class_record
+    display(class_record);
+    return 0;
+}
+
+Roll number : 1
+Grade : A
+Average marks : 89.50
+
+Roll number : 2
+Grade : C
+Average marks : 67.50
+
+Roll number : 3
+Grade : B
+Average marks : 70.50
+
+Difference between Array of Structures and Array within Structures
+
+Below is the tabular difference between the Array within a Structure and Array of Structures:
+
+Parameter  
+	
+
+Array within a Structure
+	
+
+Array of Structures
+Basic idea	A structure contains an array as its member variable.	An array in which each element is of type structure.
+Syntax	struct class { int ar[10]; } a1, a2, a3;	struct class { int a, b, c; } students[10];
+Access	Can be accessed using the dot operator just as we access other elements of the structure.	Can be accessed by indexing just as we access an array.
+Access elements syntax	structure.array[index]	array[index].member
+Memory Structure	Array within the structure will be stored in sequential memory and structure padding is not dependent on the size of the array.	There will be some empty space between structure elements due to structure padding.
+	

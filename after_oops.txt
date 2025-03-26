@@ -1,0 +1,1615 @@
+Variations of Scopes in C++
+
+Apart from the primary classification of the scopes as global and local, there are few other specialized variations of these scopes that divides the declared variable based on its accessibility and visibility. Following are some common variations of variable scopes in C++.
+
+    Instance Scope
+    Static Member Scope
+    Namespace Scope
+
+Instance Scope
+
+In C++, instance scope refers to the region inside a class but outside any member function of the class. The variable declared here are called instance variables and are accessible to whole class. They can be accessed by the objects of the class.
+
+Let’s look at an example:
+
+#include <iostream>
+using namespace std;
+
+class A {
+public:
+  
+      // Instance variable with instance scope i.e. accessible
+      // in whole class
+    int instanceVar;
+
+    A(int val) {
+        instanceVar = val;
+    }
+
+    void display() {
+        cout << instanceVar << endl;
+    }
+};
+
+int main() {
+  
+      // Creates a1 with instanceVar = 10
+    A a1(1);
+    a1.display();
+
+      // Creates a2 with instanceVar = 20
+    A a2(33);
+    a2.display();
+
+    return 0;
+}
+
+
+Output
+
+1
+33
+
+Static Member Scope
+
+The static scope applies to variables and functions declared with the static keyword within the class. These variables are shared across all instances of a class and can be accessed using the class name without creating the instance.
+
+Let’s take a look at an example:
+
+#include <iostream>
+using namespace std;
+
+class A {
+public:
+  
+      // Static variable with static scope i.e. accessible
+      // in whole class
+    static int staticVar;
+};
+
+int A::staticVar = 1;
+
+int main() {
+  
+      // Access static variable
+      cout << A::staticVar;
+
+    return 0;
+}
+
+
+Output
+
+1
+
+Namespace Scope
+
+A namespace in C++ is a container that allows users to create a separate scope where the given variables are defined. It is used to avoid name conflicts and group related code together. These variables can be then accessed using their namespace name and scope resolution operator.
+
+For example, the below program creates a variable inside a namespace and access it later using namespace name and scope resolution operator.
+
+#include <iostream>
+using namespace std;
+
+namespace N {
+      
+      // Variable with namespace scope
+    int namespaceVar = 10;
+}
+
+int main() {
+  
+      // Access variable using namespace
+    cout << N::namespaceVar;  
+
+    return 0;
+}
+
+
+Output
+
+10
+
+
+5. mutable Storage Class
+
+Sometimes there is a requirement to modify one or more data members of class/struct through the const function even though you don’t want the function to update other members of class/struct. This task can be easily performed by using the mutable keyword. The keyword mutable is mainly used to allow a particular data member of a const object to be modified. 
+
+When we declare a function as const, this pointer passed to the function becomes const. Adding a mutable to a variable allows a const pointer to change members.
+Properties of mutable Storage Class
+
+The mutable specifier does not affect the linkage or lifetime of the object. It will be the same as the normal object declared in that place.
+
+Let’s take a look at an example:
+
+#include <iostream>
+using namespace std;
+
+class A {
+public:
+    int x;
+
+    // Defining mutable variable y
+    // now this can be modified
+    mutable int y;
+
+    A(): x(4), y(10) {}
+};
+
+int main() {
+  
+    // a is created as constant
+    const A a;
+
+    // Trying to change the value
+    a.y = 200;
+    cout << a.y;
+
+    // Uncommenting below lines
+    // will throw error
+    /* a.x = 8;
+    cout << a.x; */
+  
+    return 0;
+}
+
+
+Output
+
+200
+
+6. thread_local Storage Class
+
+The thread_local Storage Class is the new storage class that was added in C++11. We can use the thread_local storage class specifier to define the object as thread_local. The thread_local variable can be combined with other storage specifiers like static or extern and the properties of the thread_local object changes accordingly.
+
+Properties of thread_local Storage Class
+
+    Memory Location: RAM
+    Lifetime: Till the end of its thread
+
+Let’s take a look at an example:
+
+
+C++ Style Typecasting
+
+C++ introduced its own typecasting method using cast operators. Cast operator is an unary operator which forces one data type to be converted into another data type. C++ supports four types of casting:
+
+    Static Cast: Used for standard compile time type conversions.
+    Dynamic Cast: Used for runtime type conversion in polymorphism and inheritance.
+    Const Cast: Removes or adds const or volatile qualifiers.
+    Reinterpret Cast: Used for low-level reinterpretation of bits (e.g., converting pointers).
+
+Example:
+
+#include <iostream>
+using namespace std;
+
+int main() {
+    double x = 1.2;
+
+    // Explicit conversion from double to int
+    int sum = static_cast<int>(x + 1);
+
+    cout << sum;
+    return 0;
+}
+
+
+Output
+
+2
+
+Risks of Type Conversion
+
+Type conversion provides useful functionality to the language but also introduces certain risks:
+
+    Data loss that occurs when converting from a larger type to a smaller type (e.g., int to char).
+    Undefined behavior that happens when casting pointers between unrelated types and dereferencing them.
+    Violation of const correctness when removing const with const_cast and modifying the variable leads to undefined behavior.
+    Memory misalignment casting pointers to types with stricter alignment can cause crashes.
+    
+    2. dynamic_cast
+
+The dynamic_cast operator is mainly used to perform downcasting (converting a pointer/reference of a base class to a derived class) in polymorphisms and inheritance. It ensures type safety by performing a runtime check to verify the validity of the conversion.
+
+Syntax
+
+    dynamic_cast <new_type> (exp);
+
+If the conversion is not possible, dynamic_cast returns a null pointer (for pointer conversions) or throws a bad_cast exception (for reference conversions).
+
+Example
+
+#include <iostream>
+using namespace std;
+
+// Base Class
+class Animal {
+public:
+    virtual void speak() {
+        cout << "Animal speaks." << endl;
+    }
+};
+
+// Derived Class
+class Dog : public Animal {
+public:
+    void speak() override  {
+        cout << "Dog barks." << endl;
+    }
+};
+
+// Derived Class
+class Cat : public Animal {
+public:
+    void speak() override {
+        cout << "Cat meows." << endl;
+    }
+};
+
+int main() {
+  
+    // Base class pointer to derived class object
+    Animal* animalPtr = new Dog();
+
+    // Downcasting
+    Dog* dogPtr = dynamic_cast<Dog*>(animalPtr);
+
+    // Checking if the typecasting is successfull
+    if (dogPtr) {
+        dogPtr->speak();
+    }
+    else {
+        cout << "Failed to cast to Dog." << endl;
+    }
+
+    // Typecasting to other dervied class
+    Cat* catPtr = dynamic_cast<Cat*>(animalPtr);
+    if (catPtr) {
+        catPtr->speak();
+    }
+    else {
+        cout << "Failed to cast to Cat." << endl;
+    }
+
+    delete animalPtr;
+    return 0;
+}
+
+
+Output
+
+Dog barks.
+Failed to cast to Cat.
+
+Explanation: The first line of output is printed because the animalPtr of the Animal type is successfully cast to the Dog type and speak() function of the Dog class is invoked but the casting of the Animal type to ‘Cat’ type is failed because animalPtr points to a Dog object thus, the dynamic cast fails because the typecasting is not safe.
+
+3. const_cast
+
+The const_cast operator is used to modify the const or volatile qualifier of a variable. It allows programmers to temporarily remove the constancy of an object and make modifications. Caution must be exercised when using const_cast, as modifying a const object can lead to undefined behavior.
+
+Syntax
+
+    const_cast <new_type> (exp);
+
+Example
+
+#include <iostream>
+using namespace std;
+
+int main() {
+
+    const int n = 5;
+  
+    // Pointer to a const int
+    const int* ptr = &n;
+
+    // int* nonConstPtr = ptr; if we use this
+    // instead of without using const_cast
+    // we will get error of invalid conversion
+    int* nonConstPtr = const_cast<int*>(ptr);
+    *nonConstPtr = 10;
+
+    cout << *nonConstPtr;
+
+    return 0;
+}
+
+
+Output
+
+10
+
+Explanation: In the above example, we have modified the value of the const type pointer by changing its qualifier from const to non-const and then printing the modified value.
+4. reinterpret_cast
+
+The reinterpret_cast operator is used to convert the pointer to any other type of pointer. It does not perform any check whether the pointer converted is of the same type or not.
+
+Syntax
+
+    reinterpret_cast <new_type> (exp);
+
+Example
+
+#include <iostream>
+using namespace std;
+
+int main() {
+    int n = 10;
+  
+    // Store the address of number in nptr
+    int* nptr = &n;
+
+    // Reinterpreting the pointer as a char pointer
+    char* charptr = reinterpret_cast<char*>(nptr);
+
+    // Printing the memory addresses and values
+    cout << "Integer Address: " << nptr << endl;
+    cout << "Char Address: " << charptr;
+
+    return 0;
+}
+
+
+Output
+
+Integer Address: 0x7ffcd595d6fc
+Char Address: 0x7ffcd595d6fc
+
+Explanation: In the above example, we have defined an int variable n and then store the address of n in nptr of the int type after that we have converted the nptr of the int type into char pointer and then store it into charptr variable. To verify that we have printed the address of both nptr and charptr. To print the address stored in charptr reinterpret_cast<void*> is used to bypass the type-checking mechanism of C++ and allow the pointer to be printed as a generic memory address without any type-specific interpretation.
+
+
+Scope Resolution Operator in C++
+Last Updated : 11 Jan, 2025
+
+In C++, the scope resolution operator (::) is used to access the identifiers such as variable names and function names defined inside some other scope in the current scope. Let’s take a look at an example:
+
+#include <iostream>
+
+int main() {
+
+      // Accessing cout from std namespace using scope
+      // resolution operator
+    std::cout << "GeeksforGeeks";
+
+    return 0;
+}
+
+
+Output
+
+GeeksforGeeks
+
+Explanation: The std namespace contains the declaration of cout. So, to use cout, we first need to tell the compiler that it is declared inside the std namespace which is done using ::. The compiler then resolves the cout from there.
+
+Table of Content
+
+    Syntax of Scope Resolution Operator
+    Applications of Scope Resolution Operator
+        Accessing Global Variables
+        Namespace Resolution
+        Define Class Member Function Outside Class
+        Access Class’s Static Member Variables and Functions
+        Refer to Base Class Member in Derived Class
+
+Syntax of Scope Resolution Operator
+
+The scope resolution operator follows this general syntax:
+
+    scope_name :: identifier
+
+where scope_name is the name of the scope where identifier is defined.
+Applications of Scope Resolution Operator
+
+Following are the main applications of scope resolution operator illustrated with an example:
+Accessing Global Variables
+
+When a local variable shadows a global variable, we can use :: to access the global variable.
+
+#include <iostream>
+using namespace std;
+
+// Global x
+int x = 3;
+
+int main() {
+      
+      // Local x
+    int x = 10;
+  
+      // Printing the global x
+    cout << ::x;
+  
+    return 0;
+}
+
+
+Output
+
+3
+
+Namespace Resolution
+
+It is also used to resolve the identifier declared inside different namespaces.
+
+#include <bits/stdc++.h>
+using namespace std;
+
+// A sample namespace with a variable
+namespace N {
+      int val = 10;
+};
+
+int main() {
+  
+      // Accessing val from namespace N
+    cout << N::val;
+
+      return 0;
+}
+
+
+Output
+
+10
+
+Define Class Member Function Outside Class
+
+It is also used to define the member function of the class outside the class template.
+
+#include <iostream>
+using namespace std;
+
+// A sample class
+class A {
+public:
+  
+    // Only declaration of member function
+    void fun();
+};
+
+// Definition outside class by referring to it
+// using ::
+void A::fun() {
+      cout << "fun() called";
+}
+
+int main() {
+    A a;
+    a.fun();
+    return 0;
+}
+
+
+Output
+
+fun() called
+
+Access Class’s Static Members
+
+Static members of a class can be accessed without creating the object of the class. It is possible to access them using scope resolution operator.
+
+#include<iostream>
+using namespace std;
+
+class A {
+public:
+    static int x; 
+};
+
+// In C++, static members must be explicitly defined 
+// like this
+int A::x = 1;
+
+int main() {
+    
+      // Accessing static data member
+      cout << A::x;
+
+    return 0;
+}
+
+
+Output
+
+1
+
+Refer to Base Class Member in Derived Class
+
+The scope resolution operator can also be used to refer to the members of base class in a derived class especially if they have the same name.
+
+#include <bits/stdc++.h>
+using namespace std;
+
+class Base {
+public:
+    void func() {
+        cout << "Base class func()" << endl;
+    }
+};
+
+class Derived : public Base {
+public:
+  
+      // Overridden function
+    void func() {
+        cout << "Derived class func()" << endl;
+    }
+};
+
+int main() {
+    Derived obj;
+  
+      // Calling base class's func() from the object of
+      // derived class
+    obj.Base::func();
+  
+    obj.func();
+    return 0;
+}
+
+
+Output
+
+Base class func()
+Derived class func()
+
+
+Range-Based for Loop in C++
+Last Updated : 14 Feb, 2025
+
+In C++, the range-based for loop introduced in C++ 11 is a version of for loop that is able to iterate over a range. This range can be anything that is iteratable, such as arrays, strings and STL containers. It provides a more readable and concise syntax compared to traditional for loops.
+
+Let’s take a look at an example:
+
+#include <bits/stdc++.h>
+using namespace std;
+
+int main() {
+    vector<int> v = {1, 2, 3, 4, 5};
+
+    // Iterating through vector
+    for (int i : v) {
+        cout << i << " ";
+    }
+  
+    return 0;
+}
+
+
+Output
+
+1 2 3 4 5 
+
+Explanation: In this program, the vector is iterated using range based for loop. As we can see, we don’t need to pass any size information or any iterator to iterate the vector. We just use the name of the vector.
+Syntax of Range Based for Loop
+
+    for (declaration: range) {
+        // statements
+    }
+
+where,
+
+    declaration: Declaration of the variable that will be used to represent each element of the rage.
+    range: Name of the range.
+
+The range-based for loop simplifies iteration over containers in C++.
+Examples of Range Based for Loop
+
+The below example demonstrates the use of range based for loop in our C++ programs:
+Iterate over an Array using Range Based for Loop
+
+
+int main() {
+    int arr[] = {1, 2, 3, 4, 5};
+      
+      // Range based for loop to iterate over array
+      // and i is used to represent each element 
+    for (int i : arr) {
+        cout << i << " ";
+    }
+
+
+Output
+
+1 2 3 4 5 
+
+Iterate over a Map using Range Based for Loop
+
+Each element of the map is a pair of the same type as that of a map. We have to specify that in declaration, or we can use auto keyword.
+
+#include <bits/stdc++.h>
+using namespace std;
+
+int main() {
+    map<int, char> m = {{1, 'A'}, {2, 'B'}, {3, 'C'},
+                  {4, 'D'}, {5, 'E'}};
+      
+      // Range based for loop to iterate over array
+      // and i is used to represent each element 
+    for (auto p: m) {
+        cout << p.first << ": " << p.second << endl;
+    }
+
+    return 0;
+}
+
+
+Output
+
+1: A
+2: B
+3: C
+4: D
+5: E
+
+Since C++ 17, there is also another method of declaration of range based for loop.
+
+#include <bits/stdc++.h>
+using namespace std;
+
+int main() {
+    map<int, char> m = {{1, 'A'}, {2, 'B'}, {3, 'C'},
+                  {4, 'D'}, {5, 'E'}};
+      
+      // Range based for loop to iterate over array
+      // and i is used to represent each element 
+    for (auto [k, v]: m) {
+        cout << k << ": " << v << endl;
+    }
+
+    return 0;
+}
+
+
+Output
+
+1: A
+2: B
+3: C
+4: D
+5: E
+
+Iterate Vector by Reference using Range Based for Loop
+
+By default, the variable that represents each element is a copy of the element. We cannot make changes in actual range using that variable. In this case, we have to declare it as a reference as shown in the below program.
+
+#include <bits/stdc++.h>
+using namespace std;
+
+int main() {
+    vector<int> v = {1, 2, 3, 4, 5};
+  
+      // Increment each element
+      for (auto i: v) {
+          i++;
+    }
+  
+      // Increment each element using reference
+      for (auto& i: v) {
+          i++;
+    }
+
+    // Iterating through vector
+    for (auto& i : v)
+        cout << i << " ";
+  
+    return 0;
+}
+
+Try it on GfG Practice
+redirect icon
+
+Output
+
+2 3 4 5 6 
+
+
+
+Vector in C++ STL
+
+
+Using std::sregex_token_iterator
+
+In this method the tokenization is done on the basis of regex matches. Better for use cases when multiple delimiters are needed.
+
+Below is a simple C++ program to show the use of std::sregex_token_iterator:
+
+// CPP program for above approach
+#include <iostream>
+#include <regex>
+#include <string>
+#include <vector>
+
+/**
+ * @brief Tokenize the given vector 
+   according to the regex
+ * and remove the empty tokens.
+ *
+ * @param str
+ * @param re
+ * @return std::vector<std::string>
+ */
+std::vector<std::string> tokenize(
+                     const std::string str,
+                          const std::regex re)
+{
+    std::sregex_token_iterator it{ str.begin(), 
+                             str.end(), re, -1 };
+    std::vector<std::string> tokenized{ it, {} };
+
+    // Additional check to remove empty strings
+    tokenized.erase(
+        std::remove_if(tokenized.begin(), 
+                            tokenized.end(),
+                       [](std::string const& s) {
+                           return s.size() == 0;
+                       }),
+        tokenized.end());
+
+    return tokenized;
+}
+
+// Driver Code
+int main()
+{
+    const std::string str = "Break string 
+                   a,spaces,and,commas";
+    const std::regex re(R"([\s|,]+)");
+  
+    // Function Call
+    const std::vector<std::string> tokenized = 
+                           tokenize(str, re);
+  
+    for (std::string token : tokenized)
+        std::cout << token << std::endl;
+    return 0;
+}
+
+Output
+
+Break
+string
+a
+spaces
+and
+commas
+
+Time Complexity: O(n * d) where n is the length of string and d is the number of delimiters.
+Auxiliary Space: O(n)
+
+Enum Classes
+
+C++11 introduced enum class, which provides better type safety. It helps in resolving name conflicts by providing scope to the constant names. It also requires manual typecasting to integer values from names.
+Create enum Class
+
+Enum class can be created just by adding the class keyword in the enum delcaration.
+
+
+// Define the enum class
+enum class Day { Sunday = 1, Monday, Tuesday,
+                Wednesday, Thursday, Friday, 
+                Saturday };
+
+int main() {
+    
+    // initializing
+    Day today = Day::Thursday;
+    
+    // Print the enum
+    cout << static_cast<int>(today);
+
+
+Output
+
+5
+
+If we try to just assign the name of the constant to the enum variable, compiler gives an error.
+
+
+    // initializing
+    Day today = Thursday;
+    
+    typedef in C++
+Last Updated : 28 Oct, 2022
+
+typedef keyword in C++ is used for aliasing existing data types, user-defined data types, and pointers to a more meaningful name. Typedefs allow you to give descriptive names to standard data types, which can also help you self-document your code. Mostly typedefs are used for aliasing, only if the predefined name is too long or complex to write again and again.  The unnecessary use of typedef is generally not a good practice.
+
+Syntax:
+
+typedef <current_name> <new_name>
+
+Example:
+
+typedef std::vector<int> vInt;
+
+Below is the C++ Program to implement typedef
+
+// C++ Program to implement typedef 
+#include <bits/stdc++.h> 
+  
+using namespace std; 
+  
+int main() 
+{ 
+    // Now we can make more vectors by using vInt 
+    typedef std::vector<int> vInt; 
+  
+    // vec1 is a vectorof type int 
+    vInt v; 
+  
+    v.push_back(190); 
+    v.push_back(180); 
+    v.push_back(10); 
+    v.push_back(10); 
+    v.push_back(27); 
+  
+    for (auto X : v) { 
+        cout << X << " "; 
+    } 
+  
+    return 0; 
+}
+Output
+
+190 180 10 10 27 
+
+Applications of typedef in C++
+
+    typedef in C++ can be used for aliasing predefined data types with long names.
+    It can be used with STL data structures like Vectors, Strings, Maps, etc.
+    typedef can be used with arrays as well.
+    We can use typedef with normal pointers as well as function pointers.
+
+Using typedef with predefined data types
+
+Typedef can be used for aliasing predefined data types like int, char, float, and their derivatives like long, short, signed, and unsigned. The new alias can then be used for making new variables of respective types.
+
+Syntax:
+
+typedef <data_type_name> <new_name>
+
+Example:
+
+// C++ for using typedef with predefined data types 
+#include <iostream> 
+  
+using namespace std; 
+  
+int main() 
+{ 
+    // ulli can now be used for making more 
+    // unsigned long long int type variables 
+    typedef unsigned long long int ulli; 
+    // ulli used to make variables 
+    ulli a{ 1232133 }; 
+    cout << a; 
+    return 0; 
+}
+Output
+
+1232133
+
+Using typedef with STL data structures
+
+typedef can also be used with STL Data Structures, like Vectors, Strings, Maps, etc.  If we are one of those, who do not want to import the entire std namespace in our code, then we need to write std::vector, std::string, etc, again and again. Thus using typedef, in this case, can be a quick way to prevent this and keep our code clean and readable.
+
+Syntax:
+
+typedef <data_structure_name> <new_name>
+
+Example:
+
+// C++ Program to display usage for typedef with vectors 
+#include <iostream> 
+#include <vector> 
+  
+int main() 
+{ 
+    // Now we can make more vectors by using vInt 
+    typedef std::vector<int> vInt; 
+    // vec1 is a vectorof type int 
+    vInt vec1{ 1, 2, 3, 6, 2, 1 }; 
+  
+    // Outputting the vector 
+    for (int i = 0; i < vec1.size(); i++) { 
+        std::cout << vec1[i] <<" "; 
+    } 
+     return 0; 
+}
+Output
+
+1 2 3 6 2 1 
+
+Using typedef with arrays
+
+typedef can be used with arrays for making newer arrays (just like using them with STL data structures). We can easily make new arrays or make arrays of arrays using typedef with arrays, while keeping our code readable, seamlessly.
+
+Syntax: 
+
+typedef <data_type> <alias_name> [<size>]
+
+After this <alias_name> can now be used for creating arrays of type- <data_type> and size <size>.
+
+// C++ program to show use of typedef with arrays 
+#include <iostream> 
+using namespace std; 
+  
+int main() 
+{ 
+  
+    typedef int arr[3]; 
+  
+    // Making new 1D array 
+  
+    arr array1{ 1 , 1, 1}; 
+      
+  
+    cout << "Array output: "
+         << "\n"; 
+    for (int i = 0; i < 3; i++) { 
+        cout << array1[i] << " "; 
+    } 
+    cout << "\n"; 
+  
+    // Making new 2D array 
+    // Matrix is an array of arrays with size 
+    // ( 3 X 3 ) 
+    arr matrix[3]; 
+  
+    cout << "Matrix output: "
+         << "\n"; 
+  
+    for (int i = 0; i < 3; i++) { 
+        for (int j = 0; j < 3; j++) { 
+            // Initializing the matrix 
+            matrix[i][j] = i * j; 
+        } 
+    } 
+  
+    // Outputting the matrix 
+  
+    for (int i = 0; i < 3; i++) { 
+        for (int j = 0; j < 3; j++) { 
+            cout << matrix[i][j] << "  "; 
+        } 
+        cout << "\n"; 
+    } 
+  
+    return 0; 
+}
+Output
+
+Array output: 
+1 1 1 
+Matrix output: 
+0  0  0  
+0  1  2  
+0  2  4  
+
+Using typedef with pointers
+
+Typedef can be used with pointers as well. For faster creation of pointers, and keeping the code readable as well. We can use them with both data pointers as well as function pointers.
+( i ) Usage with data pointers:
+
+Below is the syntax, example, and source code for using typedef with data pointers
+
+Syntax:
+
+typedef <data_type>* <alias_name>
+
+Example:
+
+typedef int* iPtr;
+iPtr pointer1, pointer2;
+
+Below is the program to use typedef with data pointers.
+
+// C++ Program to showcase the use of typedef 
+//  with data pointer 
+  
+#include <iostream> 
+using namespace std; 
+  
+int main() 
+{ 
+    int a = 10; 
+    int b = 20; 
+    // iPtr can now be used to create new pointers of type 
+    // int 
+    typedef int* iPtr; 
+  
+    iPtr pointer_to_a = &a; 
+    iPtr pointer_to_b = &b; 
+  
+    cout << "a is: " << *pointer_to_a << "\n"; 
+    cout << "b is: " << *pointer_to_b << "\n"; 
+  
+    return 0; 
+}
+Output
+
+a is: 10
+b is: 20
+
+( ii ) Usage with function pointers:
+
+Below is the syntax, example, and code to display the usage of typedef with function pointers.
+
+Syntax:
+
+typedef <return_type> (*<alias_name>)(<parameter_type>,<parameter_type>,....);
+
+Example:
+
+typedef int (*fun_ptr)(int, int);
+fun_ptr new_ptr = &function; 
+
+Here, fun ptr can now be used to create more function pointers. This will be more clear in the code below.
+
+#include <iostream> 
+  
+// Normal pointer to a function 
+int (*func_ptr1)(int, int); 
+  
+// Using typedef with pointer to a function 
+typedef int (*func_ptr2)(int, int); 
+  
+// Function to multiply two numbers 
+int product(int u, int v) { return u * v; } 
+  
+int main(void) 
+{ 
+    func_ptr1 = &product; 
+  
+    // Using typedefed function pointer for creating new 
+    // function pointer "new_func" 
+    func_ptr2 new_func_ptr = &product; 
+  
+    // Using normal pointer to a function 
+    int x2 = (*func_ptr1)(3, 2); 
+  
+    // Using the new function pointer 
+    int x1 = (*new_func_ptr)(2, 4); 
+  
+    std::cout << x1 << std::endl; 
+    std::cout << x2 << std::endl; 
+}
+Output
+
+8
+6
+
+Here, “func_ptr1” is a normal function pointer, while “func_ptr2”  is a typedef function pointer and it can be used to create more function pointers taking 2 integers as arguments and with return type “int”.
+
+
+    Note: “func_ptr2” can no longer be used as an independent function po
+    Array of Structures vs Array within a Structure in C
+Last Updated : 10 Jan, 2025
+
+Both Array of Structures and Array within a Structure in C programming is a combination of arrays and structures but both are used to serve different purposes.
+Array within a Structure
+
+A structure is a data type in C that allows a group of related variables to be treated as a single unit instead of separate entities. A structure may contain elements of different data types – int, char, float, double, etc. It may also contain an array as its member. Such an array is called an array within a structure. An array within a structure is a member of the structure and can be accessed just as we access other elements of the structure.
+
+Below is a demonstration of a program that uses the concept of the array within a structure. The program displays the record of a student comprising the roll number, grade, and marks secured in various subjects. The marks in various subjects have been stored under an array called marks. The whole record is stored under a structure called a candidate.
+Example
+
+The below program demonstrates the use of an array within a structure.
+
+// C program to demonstrate the
+// use of an array within a structure
+#include <stdio.h>
+
+// Declaration of the structure candidate
+struct candidate {
+    int roll_no;
+    char grade;
+
+    // Array within the structure
+    float marks[4];
+};
+
+// Function to displays the content of
+// the structure variables
+void display(struct candidate a1)
+{
+
+    printf("Roll number : %d\n", a1.roll_no);
+    printf("Grade : %c\n", a1.grade);
+    printf("Marks secured:\n");
+    int i;
+    int len = sizeof(a1.marks) / sizeof(float);
+
+    // Accessing the contents of the
+    // array within the structure
+    for (i = 0; i < len; i++) {
+        printf("Subject %d : %.2f\n", i + 1, a1.marks[i]);
+    }
+}
+
+// Driver Code
+int main()
+{
+    // Initialize a structure
+    struct candidate A = { 1, 'A', { 98.5, 77, 89, 78.5 } };
+
+    // Function to display structure
+    display(A);
+    return 0;
+}
+
+
+Output
+
+Roll number : 1
+Grade : A
+Marks secured:
+Subject 1 : 98.50
+Subject 2 : 77.00
+Subject 3 : 89.00
+Subject 4 : 78.50
+
+Array of Structures
+
+An array is a collection of data items of the same type. Each element of the array can be int, char, float, double, or even a structure. We have seen that a structure allows elements of different data types to be grouped together under a single name. This structure can then be thought of as a new data type in itself. So, an array can comprise elements of this new data type. An array of structures finds its applications in grouping the records together and provides for fast access.
+
+Below is a demonstration of an array of structures. The array holds the details of the students in a class. The details include the roll number, grade, and marks, which have been grouped under a structure (record). There exists one record for each student. This is how a collection of related variables can be assembled under a single entity to enhance the clarity of code and increase its efficiency.
+Example
+
+The below program demonstrates the usage of an array of structures.
+
+// C program to demonstrate the
+// usage of an array of structures
+#include <stdio.h>
+
+// Declaring a structure class
+struct class {
+    int roll_no;
+    char grade;
+    float marks;
+};
+
+// Function to displays the contents
+// of the array of structures
+void display(struct class class_record[3])
+{
+    int i, len = 3;
+
+    // Display the contents of the array
+    // of structures here, each element
+    // of the array is a structure of class
+    for (i = 0; i < len; i++) {
+        printf("Roll number : %d\n",
+               class_record[i].roll_no);
+        printf("Grade : %c\n", class_record[i].grade);
+        printf("Average marks : %.2f\n",
+               class_record[i].marks);
+        printf("\n");
+    }
+}
+
+// Driver Code
+int main()
+{
+    // Initialize of an array of structures
+    struct class class_record[3] = { { 1, 'A', 89.5f },
+                                     { 2, 'C', 67.5f },
+                                     { 3, 'B', 70.5f } };
+
+    // Function Call to display
+    // the class_record
+    display(class_record);
+    return 0;
+}
+
+
+Output
+
+Roll number : 1
+Grade : A
+Average marks : 89.50
+
+Roll number : 2
+Grade : C
+Average marks : 67.50
+
+Roll number : 3
+Grade : B
+Average marks : 70.50
+
+Difference between Array of Structures and Array within Structures
+
+Below is the tabular difference between the Array within a Structure and Array of Structures:
+
+Parameter  
+	
+
+Array within a Structure
+	
+
+Array of Structures
+Basic idea	A structure contains an array as its member variable.	An array in which each element is of type structure.
+Syntax	struct class { int ar[10]; } a1, a2, a3;	struct class { int a, b, c; } students[10];
+Access	Can be accessed using the dot operator just as we access other elements of the structure.	Can be accessed by indexing just as we access an array.
+Access elements syntax	structure.array[index]	array[index].member
+Memory Structure	Array within the structure will be stored in sequential memory and structure padding is not dependent on the size of the array.	There will be some empty space between structure elements due to structure padding.
+
+https://www.geeksforgeeks.org/array-of-structures-vs-array-within-a-structure-in-c-and-cpp/?ref=lbp
+
+Friend Function
+
+    A friend function is a special function in C++ which in spite of not being a member function of a class has the privilege to access private and protected data of a class.
+     A friend function is a non-member function or an ordinary function of a class, which is declared by using the keyword “friend” inside the class. By declaring a function as a friend, all the access permissions are given to the function.
+    The keyword “friend” is placed only in the function declaration but not in the function definition.
+    When the friend function is called neither the name of the object nor the dot operator is used. However, it may accept the object as an argument whose value it wants to access.
+    A friend function can be declared in any section of the class i.e. public, private, or protected.
+
+Declaration of friend function in C++
+
+Syntax:
+
+class <class_name> {    
+           friend  <return_type>  <function_name>(argument/s);
+};
+
+
+Example_1: Find the largest of two numbers using Friend Function
+
+#include <iostream>
+using namespace std;
+class Largest {
+    int a, b, m;
+
+public:
+    void set_data();
+    friend void find_max(Largest);
+};
+
+void Largest::set_data()
+{
+    cout << "Enter the first number : ";
+    cin >> a;
+    cout << "\nEnter the second number : ";
+    cin >> b;
+}
+
+void find_max(Largest t)
+{
+    if (t.a > t.b)
+        t.m = t.a;
+    else
+        t.m = t.b;
+
+    cout << "\nLargest number is " << t.m;
+}
+
+int main()
+{
+    Largest l;
+    l.set_data();
+    find_max(l);
+    return 0;
+}
+
+
+Output
+
+Enter the first number : 789
+Enter the second number : 982
+Largest number is 982
+Default Arguments in C++ – FAQs
+Can default arguments be specified in the function definition?
+
+    No, default values should only appear in the declaration.
+
+Can default arguments be specified in the function definition?
+
+    No, default values should only appear in the declaration.
+
+What happens if a function with default arguments is called with extra arguments?
+
+    If you provide more arguments than the function expects, the provided arguments are used for the corresponding parameters, and the remaining parameters use their default values.
+
+Can default arguments be used with overloaded functions?
+
+    Yes, but be cautious of ambiguity. Overloaded functions with default arguments can cause confusion if the compiler can’t determine which version to call.
+
+What happens when default arguments are used in virtual functions in C++?
+
+    Default arguments can be used in virtual functions. However, when a derived class overrides a base class function, the default arguments of the base class are not inherited. If the derived class provides new default arguments, it may lead to different behaviour.
+
+Can default arguments be used for template parameters?
+
+    Yes, default arguments can be specified for template parameters as well.
+    
+Inline Functions in C++
+Last Updated : 04 Mar, 2025
+
+In C++, a function can be specified as inline to reduce the function call overhead. The whole code of the inline function is inserted or substituted at the point of its call during the compilation instead of using normal function call mechanism.
+
+Example:
+
+#include <iostream>
+using namespace std;
+
+// Inline function
+inline int square(int x) {
+    return x * x;
+}
+
+int main() {
+    int num = 5;
+    
+    // Calling inline function
+    int res = square(num);
+    cout << res;
+    return 0;
+}
+
+
+Output
+
+25
+
+Syntax
+
+We just need to add the “inline” keyword before the function prototype:
+
+inline return_type function_name(params)...
+
+Inlining is only a request to the compiler, not a command. The compiler may not perform inlining in such circumstances as: 
+
+    If a function contains a loop.
+    If a function contains static variables. 
+    If a function is recursive. 
+    If a function return type is other than void, and the return statement doesn’t exist in a function body. 
+    If a function contains a switch or goto statement. 
+
+To learn more about performance optimization and inline functions, check out our Complete C++ Course, which covers inline functions, optimization strategies, and high-performance programming techniques.
+Need of Inline Functions
+
+When a function is called, the CPU stores the return address, copies arguments to the stack, and transfers control to the function. After execution, the return value is stored, and control is returned to the caller. This overhead can be significant for small, frequently used functions, as their execution time is less than the time spent on the call and return process.
+
+This is where the inline functions shine. They remove this overhead by substituting the code of the function in place of function call.
+
+One other thing to remember is that it is only useful to make the function inline if the time spent during a function call is more compared to the function body execution time.
+
+An example where the inline function has no effect at all: 
+
+    inline void show() 
+    { 
+        cout << “value of S = ” << S << endl; 
+    }
+
+The above function relatively takes a long time to execute. In general, a function that performs an input-output (I/O) operation shouldn’t be defined as inline because it spends a considerable amount of time.
+
+Appropriate use of inline functions can provide performance enhancement but if inline functions are used arbitrarily then they can’t provide better results. In other words, don’t make every function inline. It is better to keep inline functions as small as possible.
+Inline Functions in Class
+
+All the functions defined inside the class are implicitly inline. Thus, all the restrictions of inline functions are also applied here. If you need to explicitly declare an inline function in the class, then just declare the function inside the class and define it outside the class using the inline keyword.
+
+Example:
+
+
+    // declare inline
+    inline int square(int x);
+};
+
+// Define the function
+inline int A::square(int x) {
+    return x*x;
+}
+
+
+Output
+
+9
+
+Virtual Functions Inlining
+
+C++ compiler cannot inline the virtual function. The reason is that the calls to a virtual function is resolved at runtime instead of compile-time. Virtual means waiting until runtime and inline means during compilation, if the compiler doesn’t know which function will be called, how it can perform inlining?
+Inline vs Macros
+
+Readers familiar with the C language know that the C language uses macro. The preprocessor replaces all macro calls directly within the macro code. However, it is recommended to always use the inline function instead of the macro. According to Dr. Bjarne Stroustrup, the creator of C++ macros are almost never necessary in C++ and they are error prone.
+
+The below table lists the primary differences between inline functions and macros:
+Aspect	Inline Functions	Macros
+Definition	Inline functions are functions defined with the inline keyword.	Macros are preprocessor directives defined using #define.
+Scope	Inline functions have scope and type checking, like regular functions.	Macros have no scope or type checking. They are replaced by the preprocessor.
+Evaluation of Arguments	Arguments are evaluated once.	Arguments may be evaluated multiple times (e.g., in expressions).
+Handling	Inline functions are handled by compiler.	Macros are handled by preprocessor.
+
+Private Members
+	
+
+Can access private members of a class.
+	
+
+Cannot access private members of a class.
+Execution Overhead	Compiler may ignore the inline request if the function is too large.	Macros are always substituted into code.
+Recursion	Inline functions can call themselves recursively.	Macros cannot be recursive.
+Advantages
+
+    Function call overhead doesn’t occur.
+    When you inline a function, you may enable the compiler to perform context-specific optimization on the body of the function. Such optimizations are not possible for normal function calls. Other optimizations can be obtained by considering the flows of the calling context and the called context.
+    An inline function may be useful (if it is small) for embedded systems because inline can yield less code than the function called preamble and return.
+
+Disadvantages
+
+    When inline function body is substituted at the point of the function call, the total number of variables used by the function also gets inserted. So, the number of registers going to be used for the variables will also get increased.
+    Inline functions might cause thrashing because inlining might increase the size of the binary executable file.
+    Too much inlining can reduce your instruction cache hit rate, thus reducing the speed of instruction fetch from that of cache memory to that of primary memory. 
+    If someone changes the code inside the inline function, then all the calling location has to be recompiled because the compiler would be required to replace all the code once again to reflect the changes.
+    Inline functions may not be useful for many embedded systems. Because in embedded systems code size is more important than speed.
+    
+    Lambda Expression in C++
+Last Updated : 06 Mar, 2025
+
+C++ 11 introduced lambda expressions to allow inline functions which can be used for short snippets of code that are not going to be reused. Therefore, they do not require a name. They are mostly used in STL algorithms as callback functions.
+
+Example:
+
+
+    // Defining a lambda
+    auto res = [](int x) {
+        return x + x;
+    };
+    cout << res(5);
+
+
+Output
+
+10
+
+The lambda expression in the above program takes an integer x as input and returns the sum of x with itself. The result of res(5) prints 10, as the lambda doubles the value of 5.
+Syntax
+
+[capture-clause] (parameters) -> return-type { 
+    // definition
+}
+
+To learn how to use lambda expressions effectively in your C++ programs, the C++ Course provides detailed explanations and examples.
+
+Return Type
+
+Generally, the return-type in lambda expressions is evaluated by the compiler itself and we don’t need to specify it explicitly. However, in some complex cases e.g. conditional statements, the compiler can’t determine the return type and explicit specification is required.
+
+Parameters
+
+These parameters are similar to the function parameters in every way.
+
+Capture Clause
+
+A lambda expression can have more power than an ordinary function by having access to variables from the enclosing scope. We can capture external variables from the enclosing scope in three ways using capture clause:
+
+    [&]: capture all external variables by reference.
+    [=]: capture all external variables by value.
+    [a, &b]: capture ‘a’ by value and ‘b’ by reference.
+
+A lambda with an empty capture clause [] can only access variables which are local to it.
+
+
+    vector<int> v1, v2;
+
+    // Capture v1 and v2 by reference
+    auto byRef = [&] (int m) {
+        v1.push_back(m);
+        v2.push_back(m);
+    };
+    
+    // Capture v1 and v2 by value
+    auto byVal = [=] (int m) mutable {
+        v1.push_back(m);
+        v2.push_back(m);
+    };
+    
+    // Capture v1 by reference and v2 by value
+    auto mixed = [=, &v1] (int m) mutable {
+        v1.push_back(m);
+        v2.push_back(m);
+    };
+
+    // Push 20 in both v1 and v2
+    byRef(20);
+    
+    // Push 234 in both v1 and v2
+    byVal(234);
+    
+    // Push 10 in both v1 and v2
+    mixed(10);
+
+
+Output
+
+20 10 
+20 
+
+Let’s understand what happened in this program:
+
+    byRef captures all by reference. So pushing 20 will push it into original v1 and v2.
+    byVal captures all by value. So pushing 234 will not do anything to original vectors.
+    mixed captures v1 by reference and v2 by value. So pushing 10 will only push it into v1.
+
+The mutable keyword here is used in capture by value lambdas only because, by default, value captured objects are const.
+Examples
+
+Lamda expressions are extensively used in STL in place of callback i.e. functions passed as arguments. The below examples demonstrate that:
+Sort Vector in Descending Order
+
+#include <bits/stdc++.h>
+using namespace std;
+
+int main() {
+    vector<int> v = {5, 1, 8, 3, 9, 2};
+
+    // Sort in descending order
+    sort(v.begin(), v.end(), [] (const int& a, const int&b) {
+        return a > b;
+    });
+
+    for (int x : v)
+        cout << x << " ";
+    return 0;
+}
+
+
+Output
+
+9 8 5 3 2 1 
+
+Find First Number Divisible by 3
+
+#include <bits/stdc++.h>
+using namespace std;
+
+int main() {
+    vector<int> v = {5, 1, 8, 3, 9, 2};
+
+    // Sort in descending order
+    auto it = find_if(v.begin(), v.end(), [] (const int& a) {
+        return a % 3 == 0;
+    });
+
+    if (it != v.end()) cout << *it;
+    else cout << "No such element";
+    return 0;
+}
+
+
+Output
+
+3
+
+Applications
+
+Lambda expressions’ main purpose was to replace the functions in callbacks by providing inline definitions. Following are the common applications of lambda expressions in C++
+
+    Inline, Anonymous Functions: Write small functions directly where needed without naming them.
+    STL Algorithms: Pass custom comparison or transformation logic to algorithms like sort, for_each, etc.
+    Callbacks and Event Handling: Use lambdas as callbacks for asynchronous operations or event handlers.
+    Threading and Concurrency: Pass lambdas to threads for quick, inline tasks without defining separate functions.
+    Custom Comparators in Containers: Use lambdas as comparators for containers like priority_queue, set, etc.
+
+C++ Lambda Expression – FAQs
+How do you capture variables in a lambda?
+
+    Use [=] for by-value, [&] for by-reference, or [x]/[&x] for specific variables.
+
+Can a lambda modify value captured variables?
+
+    By default, no, but you can use mutable to modify by-value captures. But these changes will not be done on original variable.
+
+When should I avoid using lambdas?
+
+    Avoid lambdas for complex logic; prefer regular functions or named function objects for readability.
+
+Can lambdas have default arguments?
+
+    Yes, just like regular functions, lambdas can have default value arugments.
+    
+    https://www.geeksforgeeks.org/unordered_map-in-cpp-stl/
+    
+    
+    
+    
