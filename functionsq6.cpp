@@ -1,15 +1,19 @@
 #include <iostream>
 using namespace std;
-int prime(int upp,int low){
-    int i;
+void prime(int upp,int low){
+    int i,flag=0;
     for (i=low;i<=upp;i++){
+        	flag=0;
          for (int k=2;k<i;k++){
             if (i%k==0){
-            break;
+            flag=1;
             }
-            else {printf(":")}
          }
+        if (flag==0){
+         printf("%d ",i);}
+         
     }
+return;
 }
 int main (){
     cout << "program to find prime numbers in given range using functions\n";
