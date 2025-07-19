@@ -3,20 +3,20 @@ using namespace std;
 class Solution {
 public:
     int maxSubarrayLength(vector<int>& nums, int k) {
-        int left=0;
-        int freq[26]={0};
-        int max=0;
-        for (int right =0 ;right<nums.size();right++){
-            freq[nums[right]]++;
-            if (freq[nums[right]]>k) {
-                freq[nums[left]]--;
-                left++;
-                //freq[nums[right]]--;
-            }
-            int size=right-left;
-            if (size>max) max=size;
-        }
-    return max-1;
+        int left = 0;
+        int maxLen=0;
+       vector<int> freq(101); // max value in nums is 100
+
+    for (int right = 0; right < nums.size(); right++) {
+    freq[nums[right]]++;
+    while (freq[nums[right]] > k) {
+        freq[nums[left]]--;
+        left++;
+    }
+    maxLen = max(maxLen, right - left + 1);
+}
+
+        return maxLen;
     }
 };
 int main (){

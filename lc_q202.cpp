@@ -20,7 +20,7 @@ public:
         }
         return n == 1;
     }
-};a
+};
 
     cout << "please enter the number : ";
     int number;
