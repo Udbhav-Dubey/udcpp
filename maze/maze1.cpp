@@ -2,7 +2,6 @@
 #include <random>
 #include <termios.h>
 #include <unistd.h>
-
 char getch() {
     char buf = 0;
     termios old = {};
@@ -56,6 +55,28 @@ void carve_maze(int x,int y){
         }
     }
 }
+int exitX =0,exitY=0;
+void exit_E(){
+    vector<pair<int,int>>possible_exits;
+    for (int i=1;i<width-1;++i){
+        if (maze[1][i]==' '){possible_exits.emplace_back(0,i);}
+        if (maze[height-2][i]==' ')possible_exits.emplace_back(height-1,i);
+    }
+    for (int i=1;i<height-1;++i){
+        if (maze[i][1]==' '){possible_exits.emplace_back(i,0);}
+        if (maze[i][width-2]==' '){possible_exits.emplace_back(i,width-1);}
+        }
+    
+    if (!possible_exits.empty()) {
+        random_device rd;
+        mt19937 g(rd());
+        uniform_int_distribution<> dis(0, possible_exits.size() - 1);
+        auto [ex, ey] = possible_exits[dis(g)];
+        exitX = ex;
+        exitY = ey;
+        maze[exitX][exitY] = 'E'; 
+    }
+}
 void playGame(vector<vector<char>>&maze,int N){
     int x=1,y=1;
     maze[x][y]='P';
@@ -78,11 +99,16 @@ void playGame(vector<vector<char>>&maze,int N){
     else if (move=='d'||move=='D')posy++;
     else if (move=='Q') break; // quit
     
-    if (maze[posx][posy]==' '){
+    if (maze[posx][posy]==' ' || maze[posx][posy]=='E'){
         maze[x][y]=' '; // make previous position empty 
         x=posx; 
         y=posy;
         maze[x][y]='P'; // player moved
+        if (x==exitX && y==exitY){
+            system("clear");
+            cout<<"\n\nyou win " ;
+            break;
+        }
     } 
 }
 }
@@ -91,6 +117,7 @@ int main (){
     srand(time(0));//for random genration 
     carve_maze(1,1); // 1,1 for starting point 
     printmaze();
+    exit_E();
     playGame(maze,N); 
     return 0;
 }
