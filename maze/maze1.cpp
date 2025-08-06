@@ -1,5 +1,24 @@
 #include <bits/stdc++.h>
 #include <random>
+#include <termios.h>
+#include <unistd.h>
+
+char getch() {
+    char buf = 0;
+    termios old = {};
+    if (tcgetattr(STDIN_FILENO, &old) < 0)
+        perror("tcsetattr()");
+    termios new_t = old;
+    new_t.c_lflag &= ~ICANON;
+    new_t.c_lflag &= ~ECHO;
+    if (tcsetattr(STDIN_FILENO, TCSANOW, &new_t) < 0)
+        perror("tcsetattr ICANON");
+    if (read(STDIN_FILENO, &buf, 1) < 0)
+        perror("read()");
+    if (tcsetattr(STDIN_FILENO, TCSADRAIN, &old) < 0)
+        perror("tcsetattr ~ICANON");
+    return buf;
+}
 using namespace std;
 const int width=21; 
 const int height=21;
@@ -24,22 +43,54 @@ bool isValid(int x,int y){
 void carve_maze(int x,int y){
     maze[x][y]=' ';
     vector<pair<int,int>>dirs=directions;
-    std::random_device rd; // for random genration 
-std::mt19937 g(rd()); // we use this 
+    random_device rd; // for random genration 
+    mt19937 g(rd()); // we use this 
    shuffle(dirs.begin(),dirs.end(),g);
     for (auto[dx,dy]:dirs){
         int nx=x+dx; // new x 
         int ny=y+dy; // new y
 
-        if (isValid(nx,ny)&&maze[nx][ny]=='#'){
-            maze[x+dx/2][y+dy/2]=' ';
-            carve_maze(nx,ny);
+        if (isValid(nx,ny)&&maze[nx][ny]=='#'){ // first it should be in constraints then if it is a wall we carve it 
+          maze[x+dx/2][y+dy/2]=' ';   // by 2 + 1 to ensure even 
+            carve_maze(nx,ny); // call the function again 
         }
     }
 }
+void playGame(vector<vector<char>>&maze,int N){
+    int x=1,y=1;
+    maze[x][y]='P';
+    while(true){
+        system("clear");
+   cout << "complete the maze using wasd under 3 minutes and to exit enter Q \n\n\n";
+
+    for (int i=0;i<N;++i){
+        for (int j=0;j<N;++j){
+            cout << maze[i][j];
+        }
+        cout << "\n";
+    }
+    char move=getch();
+    int posx=x;
+    int posy=y;
+    if (move=='w' ||move=='W') posx--;
+    else if (move=='a'||move=='A')posy--;
+    else if (move=='s'||move=='S')posx++;
+    else if (move=='d'||move=='D')posy++;
+    else if (move=='Q') break; // quit
+    
+    if (maze[posx][posy]==' '){
+        maze[x][y]=' '; // make previous position empty 
+        x=posx; 
+        y=posy;
+        maze[x][y]='P'; // player moved
+    } 
+}
+}
 int main (){
+    int N=21;
     srand(time(0));//for random genration 
     carve_maze(1,1); // 1,1 for starting point 
     printmaze();
+    playGame(maze,N); 
     return 0;
 }
