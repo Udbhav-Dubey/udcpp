@@ -2,8 +2,9 @@
 #include <random>
 #include <termios.h>
 #include <unistd.h>
-
-char getch() {
+#include <chrono>
+using namespace std::chrono;
+char getch() { // lord gpt 
     char buf = 0;
     termios old = {};
     if (tcgetattr(STDIN_FILENO, &old) < 0)
@@ -18,7 +19,7 @@ char getch() {
     if (tcsetattr(STDIN_FILENO, TCSADRAIN, &old) < 0)
         perror("tcsetattr ~ICANON");
     return buf;
-}
+} // gpt yahan tak 
 using namespace std;
 const int width=31; 
 const int height=31;
@@ -82,10 +83,21 @@ void carve_maze(int x,int y){
 void playGame(vector<vector<char>>&maze,int N){
     int x=1,y=1;
     maze[x][y]='P';
+    const int time_limit=120; // 2 minutes 
+    auto now=steady_clock::now();
     while(true){
         system("clear");
-   cout << "complete the maze using wasd under 3 minutes and to exit enter Q \n\n\n";
-
+   //     auto now=steady_clock::now();
+        auto start_time=steady_clock::now();
+    int elapsed = duration_cast<seconds>(start_time-now).count();
+    int remaining=time_limit-elapsed;
+    if (remaining<=0){
+        cout << "\n\n\ntime's up you lost \n";
+        break;
+    }
+    //bool first_move=true; // for keystroke
+   cout << "complete the maze using wasd under 2 minutes and to exit enter Q \n\n";
+    cout << "Time left : " << remaining << "seconds\n";
     for (int i=0;i<N;++i){
         for (int j=0;j<N;++j){
             cout << maze[i][j];
