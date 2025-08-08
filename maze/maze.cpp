@@ -99,6 +99,24 @@ void carve_maze(int x,int y){
         }
     }
 }
+void move_bot(){
+      vector<pair<int,int>>dirs=directions;
+      random_device rd;
+      mt19937 g(rd());
+      shuffle(dirs.begin(),dirs.end(),g);
+      for (auto [dx,dy]:dirs){
+            int nx=botX+dx;
+            int ny=botY+dy;
+            if (nx>=0 && nx<height && ny>=0 && ny<width){
+            if (maze[nx][ny]!='|' && maze[nx][ny]!='E') { // wall aur exit mein na ghuse 
+                if (!(botX==1 && botY==1)) {maze[botX][botY]=' ';}
+                botX=nx;
+                botY=ny;
+                maze[botX][botY]='B';
+                break;
+            }}
+            }
+}
 void playGame(vector<vector<char>>&maze,int N){
     int x=1,y=1;
     maze[x][y]='P';
@@ -106,7 +124,6 @@ void playGame(vector<vector<char>>&maze,int N){
     auto now=steady_clock::now();
     while(true){
         system("clear");
-   //     auto now=steady_clock::now();
         auto start_time=steady_clock::now();
     int elapsed = duration_cast<seconds>(start_time-now).count();
     int remaining=time_limit-elapsed;
@@ -114,7 +131,6 @@ void playGame(vector<vector<char>>&maze,int N){
         cout << "\n\n\ntime's up you lost \n";
         break;
     }
-    //bool first_move=true; // for keystroke
    cout << "complete the maze using wasd under 2 minutes and to exit enter Q \n\n";
     cout << "Time left : " << remaining << "seconds\n";
     for (int i=0;i<N;++i){
@@ -131,7 +147,7 @@ void playGame(vector<vector<char>>&maze,int N){
     else if (move=='s'||move=='S')posx++;
     else if (move=='d'||move=='D')posy++;
     else if (move=='Q') break; // quit
-    
+
     if (maze[posx][posy]==' '|| maze[posx][posy]=='E'){
         maze[x][y]=' '; // make previous position empty 
         x=posx; 
@@ -143,7 +159,12 @@ void playGame(vector<vector<char>>&maze,int N){
             break;
          }
     }
-
+    move_bot();
+    if (botX==x && botY==y){
+        system("clear");
+        cout << "\n\n the bot caught you ! Game over .\n";
+        break;
+    }
 }
 }
 int main (){
