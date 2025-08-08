@@ -23,7 +23,7 @@ char getch() { // lord gpt
 using namespace std;
 const int width=21; 
 const int height=21;
-vector<vector<char>> maze(height,vector<char>(width,'#')); // fill the maze;
+vector<vector<char>> maze(height,vector<char>(width,'|')); // fill the maze;
 void printmaze(){
     for (int i=0;i<height;++i){
         for (int j=0;j<width;++j){
@@ -43,6 +43,8 @@ bool isValid(int x,int y){
 }
 int exitX;
 int exitY;
+int botX;
+int botY;
 void exit_E(){
     vector<pair<int,int>>possible_exits;
     for (int i=1;i<width-1;++i){
@@ -64,6 +66,23 @@ void exit_E(){
         maze[exitX][exitY] = 'E'; 
     }
 }
+void place_bot(){
+    vector<pair<int,int>> empty_cells;
+    for (int i=1;i<height-1;++i){
+        for (int j=1;j<width-1;++j){
+            if (maze[i][j]==' ' && !(i==1 && j==1) && !(i==exitX && j==exitY)){ // correct position se start ho 
+                empty_cells.emplace_back(i,j);
+            }
+            }
+    }
+    random_device rd;
+    mt19937 g(rd());
+    uniform_int_distribution<> dis(0,empty_cells.size()-1);
+    auto[bx,by]=empty_cells[dis(g)];
+    botX=bx;
+    botY=by;
+    maze[botX][botY]='B';
+}
 void carve_maze(int x,int y){
     maze[x][y]=' ';
     vector<pair<int,int>>dirs=directions;
@@ -74,7 +93,7 @@ void carve_maze(int x,int y){
         int nx=x+dx; // new x 
         int ny=y+dy; // new y
 
-        if (isValid(nx,ny)&&maze[nx][ny]=='#'){ // first it should be in constraints then if it is a wall we carve it 
+        if (isValid(nx,ny)&&maze[nx][ny]=='|'){ // first it should be in constraints then if it is a wall we carve it 
           maze[x+dx/2][y+dy/2]=' ';   // by 2 + 1 to ensure even 
             carve_maze(nx,ny); // call the function again 
         }
@@ -133,6 +152,7 @@ int main (){
     carve_maze(1,1); // 1,1 for starting point 
     printmaze();
     exit_E();
+    place_bot();
     playGame(maze,N); 
     return 0;
 }
