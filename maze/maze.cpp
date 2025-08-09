@@ -82,6 +82,7 @@ void place_bot(){
     botX=bx;
     botY=by;
     maze[botX][botY]='B';
+    if (empty_cells.empty()) return; // no space for bot
 }
 void carve_maze(int x,int y){
     maze[x][y]=' ';
