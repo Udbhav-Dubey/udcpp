@@ -8,36 +8,20 @@ struct Node{
         this->next=nullptr;
     }
 };
-Node*delatend(Node*&head,Node*&tail){
-    if (tail==nullptr){
-        cout << "empty";
-        return nullptr;
-    }
-    if (head==tail){
-        delete head;
-        head=tail=nullptr;
-        return nullptr;
-    }
-    Node*curr=head;
-    while(curr->next!=tail){
-        curr=curr->next;
-    }
-    curr->next=head;
-    tail=curr;
-    return head;
-}
 void printy(Node*head){
-       if (head == nullptr) {
-        cout << "Empty list" << endl;
-        return;
-    }
     Node*curr=head;
-    do{
+    while(curr!=nullptr){
         cout << curr->data << "-";
         curr=curr->next;
     }
-    while(curr!=head);
     cout << endl;
+}
+void deletelinkedlist(Node*&head){
+    while(head!=nullptr){
+        Node*temp=head->next;
+        delete head;
+        head=temp;
+    }
 }
 int main (){
     int x;
@@ -51,13 +35,11 @@ int main (){
         }
         else{
             tail->next=newnode;
-            tail=newnode;
         }
-        if (cin.peek()=='\n') break;
+        if (cin.peek()=='\n'){break;}
     }
-    tail->next=head;
     printy(head);
-    head=delatend(head,tail);
+    deletelinkedlist(head);
     printy(head);
 return 0;
 }
