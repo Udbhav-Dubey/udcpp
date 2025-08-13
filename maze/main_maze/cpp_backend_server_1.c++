@@ -38,7 +38,7 @@ struct GameState {
     int exitX, exitY;
     bool gameActive;
     steady_clock::time_point startTime;
-    int timeLimit = 120;
+    int timeLimit = 60;
     string playerName;
 };
 
