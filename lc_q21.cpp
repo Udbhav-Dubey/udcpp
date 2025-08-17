@@ -28,7 +28,7 @@ public:
             curr = curr->next;
         }
 
-        // Attach the rest
+ 
         curr->next = list1 ? list1 : list2;
 
         return head;
