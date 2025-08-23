@@ -45,7 +45,6 @@ My experimental sandbox for exploring C++ concepts and satisfying programming cu
 
 - **Language**: C++17 (with some C++20 features)
 - **Compiler**: GCC 7+ / MSVC 2017+
-- **Build System**: Makefile / CMake (project dependent)
-- **Development Environment**: [Your preferred IDE/editor]
+- **Development Environment**: Nvim
 - **Version Control**: Git
 
