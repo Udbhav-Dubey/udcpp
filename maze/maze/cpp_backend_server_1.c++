@@ -153,9 +153,21 @@ bool isValidPosition(int x, int y) {
            (game.maze[x][y] == ' ' || (x == game.exitX && y == game.exitY));
 }
 
-// Simple random bot movement AI - bots move randomly in valid directions (2 steps at a time)
 void moveBots() {
     auto moveBot = [](int& botX, int& botY) {
+        
+        int distanceToPlayer = abs(botX - game.playerX) + abs(botY - game.playerY);
+        
+
+        if (distanceToPlayer <= 2) {
+            uniform_int_distribution<> catchChance(1, 100);
+            if (catchChance(rng) <= 60) {
+                
+                cout << "Bot caught the player!" << endl;
+                return;
+            }
+        }
+        
         vector<pair<int, int>> validMoves;
         vector<pair<int, int>> directions = {{-2, 0}, {2, 0}, {0, -2}, {0, 2}};
         
@@ -177,7 +189,6 @@ void moveBots() {
     moveBot(game.bot1X, game.bot1Y);
     moveBot(game.bot2X, game.bot2Y);
 }
-
 void initNewGame() {
     game.maze.assign(HEIGHT, vector<char>(WIDTH, '|'));
     game.playerX = 1; 
