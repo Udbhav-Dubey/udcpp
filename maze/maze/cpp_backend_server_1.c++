@@ -161,7 +161,7 @@ void moveBots() {
 
         if (distanceToPlayer <= 2) {
             uniform_int_distribution<> catchChance(1, 100);
-            if (catchChance(rng) <= 60) {
+            if (catchChance(rng) <= 90) {
                 
                 cout << "Bot caught the player!" << endl;
                 return;
