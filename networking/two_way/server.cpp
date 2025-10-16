@@ -16,7 +16,7 @@ int main (){
     hints.ai_socktype=SOCK_STREAM;
     hints.ai_flags=AI_PASSIVE;
     int yes=1;
-    int status=getaddrinfo(NULL,"3030",&hints,&res);
+    int status=getaddrinfo(NULL,"3031",&hints,&res);
     if (status!=0){
         std::cerr<<"error in getaddrinfo" << gai_strerror(status)<<"\n";
         return 1;
@@ -47,7 +47,7 @@ int main (){
         return 3;
     }
     freeaddrinfo(res);
-    std::cout <<"[+] bound successfully on port " << "3030" << "\n";
+    std::cout <<"[+] bound successfully on port " << "3031" << "\n";
     if (listen(sockfd,BACKLOG)==-1){
         perror("listen");
         close (sockfd);
