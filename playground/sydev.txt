@@ -1,5 +1,0 @@
-first we started with bump allocator , a bump allocator is  a simple device = 
-
-then now we are testing it 
-for it making a header file and all 
-    ... work in progress 

@@ -1,52 +1,42 @@
 # C++ Learning & Problem Solving Repository 🚀
 
-Welcome to my comprehensive C++ learning journey! This repository documents my progress through competitive programming, algorithm implementation, and personal projects as I master C++ programming.
+Welcome to my comprehensive C++ learning journey! This repository documents my progress through competitive programming, algorithm implementation, networking projects, and personal experiments as I master C++ programming.
 
 ## 📁 Repository Structure
 
 ```
-├── cses/              # CSES Problem Set Solutions
-├── leetcode/          # LeetCode Problem Solutions  
-├── playground/        # Experimental Code & Curiosity Projects
-├── maze/              # Maze Chase Game Project
-
-
+├── cf/             # Codeforces Problem Solutions
+├── cses/           # CSES Problem Set Solutions
+├── lc/             # LeetCode Problem Solutions
+├── networking/     # Socket Programming & Networking Projects
+├── src/            # Miscellaneous C++ Learning Code Snippets
+```
 
 ## 🎯 Project Overview
 
-### 📚 CSES (Competitive Programming)
-**Status**: In Progress | **Target Completion**: End of May 2026
+### 🏆 Codeforces (`cf/`)
+A collection of problems solved from Codeforces contests, covering algorithmic challenges and competitive programming topics. Problems are organized by contest or topic for systematic practice.
 
-The CSES Problem Set is a collection of competitive programming practice problems that cover various algorithms and data structures. This folder contains my solutions as I work through them systematically.
+### 📚 CSES (`cses/`)
+Contains solutions for the CSES Problem Set, which is a structured collection of algorithmic problems covering fundamental algorithms and data structures. This folder helps reinforce competitive programming skills.
 
+### 💻 LeetCode (`lc/`)
+A compilation of LeetCode problems solved by me, focusing on problem-solving strategies and efficient algorithm implementation.
 
-### 💻 LeetCode Solutions
-A collection of LeetCode problems I've solved my self 
+### 🌐 Networking (`networking/`)
+Hands-on socket programming and networking exercises. Includes small projects demonstrating client-server communication, TCP/UDP protocols, and networked applications.
 
-
-
-### 🎮 Maze Game Project
-A fully functional maze escape game featuring procedural generation, AI bots, and competitive gameplay.
-
-**Key Features**:
-- **Backend**: C++17 with raw socket programming
-- **Frontend**: HTML5/CSS3/JavaScript with modern UI
-- **Gameplay**: Key-door mechanic, AI bots, 60-second time limit
-- **Technology**: RESTful API, real-time game state sync
-- **Visual Design**: Space-themed with glassmorphism effects
-
-[See maze/README.md for detailed documentation]
-
-### 🔬 Playground
-My experimental sandbox for exploring C++ concepts and satisfying programming curiosity. 
-
+### 📝 Source Code (`src/`)
+A sandbox for various C++ snippets, exercises, and experiments done while learning the language. Useful for testing concepts, algorithms, and small programs.
 
 ## 🛠 Technology Stack
 
-- **Language**: C++17 (with some C++20 features)
-- **Compiler**: GCC 7+ / MSVC 2017+
-- **Development Environment**: Nvim
-- **Version Control**: Git
+- **Language:** C++17 (with some C++20 features)
+- **Compiler:** GCC 7+ / MSVC 2017+
+- **Development Environment:** Nvim
+- **Version Control:** Git
+
+
 ------:::::----======++###*###%@@@@@%%%%%%%%%@@%%%%%%%@@%%%%##%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%#%%%%%%%%%@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
 -------:--:-----=====+*####*##@@@@@@@%%%%%%%%%%%%%%%%%%@%##%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
 ----------::-----=====*###**##@@@@@@@%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%#%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
