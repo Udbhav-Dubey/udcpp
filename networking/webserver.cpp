@@ -73,7 +73,7 @@ int main (int argc,char*argv[]){
             "Content-Length : 6\r\n"
             "Connection: close\r\n"
             "\r\n"
-            "Hello Hello!\n";
+            "Hello Hello how low !\n";
         send_all(client_sock,response);
         close(client_sock);
     }
