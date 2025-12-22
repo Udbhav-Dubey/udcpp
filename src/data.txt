@@ -1,0 +1,4 @@
+Fresh start 1Count : 42
+Current cursor position 24
+After seek to end
+Flushing now ...
