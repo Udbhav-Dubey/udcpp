@@ -5,7 +5,7 @@
 #include <sys/types.h>
 #include <sys/socket.h>
 constexpr const char* PORT="9090";
-constexpr const char* HOST="127.0.0.1";
+constexpr const char* HOST="example.com";
 int main(){
     addrinfo hints,*res;
     std::memset(&hints,0,sizeof(hints));
