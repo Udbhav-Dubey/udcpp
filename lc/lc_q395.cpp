@@ -1,0 +1,28 @@
+#include <bits/stdc++.h>
+using namespace std;
+class Solution {
+public:
+    int longestSubstring(string s, int k) {
+        int n=s.size();
+        unordered_map<char,int>mp;
+        for (int i=0;i<n;i++){
+            mp[s[i]]++;
+        }
+        int left=0;
+        while(left<n&&mp[s[left]]>=k){
+            left++;
+        }
+        if (left>=n){return left;}
+        int l1=longestSubstring(s.substr(0,left),k);
+        int l2=longestSubstring(s.substr(left+1),k);
+        return max(l1,l2);
+    }
+};
+int main (){
+    string s1="aaabb";
+    string s2="ababbc";
+    Solution sol;
+    cout << "test 1 : " << sol.longestSubstring(s1,3) << "\n";
+    cout << "test 2 : " << sol.longestSubstring(s2,2) << "\n";
+    return 0;
+}
