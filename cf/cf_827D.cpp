@@ -16,6 +16,16 @@ const ll inf = 1e18;
 const int mod = 1e9 + 7;
 
 void solve() {
+    int n;
+    cin>>n;
+    vector<int>arr(n);
+    for (int i=0;i<n;i++){
+        cin>>arr[i];
+    }
+
+    int max=0;
+    for ()
+
 }
 
 int main() {
@@ -30,4 +40,5 @@ int main() {
 
     return 0;
 }
+
 

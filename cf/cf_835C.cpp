@@ -16,6 +16,32 @@ const ll inf = 1e18;
 const int mod = 1e9 + 7;
 
 void solve() {
+    int max1{};
+    int max2{};
+    int n;
+    cin>>n;
+    vector<int>arr(n);
+    for (int i=0;i<n;i++){
+        cin>>arr[i];
+        if (arr[i]>=max1){
+            max2=max1;
+            max1=arr[i];
+        }
+        else if(arr[i]>=max2&&arr[i]!=max1){
+            max2=arr[i];
+        }
+    }
+    vector<int>ans(n);
+    for (int i=0;i<n;i++){
+        if (arr[i]==max1){
+            ans[i]=arr[i]-max2;
+        }
+        else ans[i]=arr[i]-max1;
+    }
+    for (auto w:ans){
+        cout << w << " ";
+    }
+    cout << "\n";
 }
 
 int main() {

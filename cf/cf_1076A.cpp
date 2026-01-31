@@ -16,6 +16,20 @@ const ll inf = 1e18;
 const int mod = 1e9 + 7;
 
 void solve() {
+    int n,s,x;
+    cin>>n>>s>>x;
+    int sum=0;
+    int y;
+    for (int i=0;i<n;i++){
+        cin>>y;
+        sum+=y;
+    }
+    if  (sum>s){cout << "NO\n";return;}
+    if((s-sum)%x!=0){
+        cout << "NO\n";
+    }
+    else {cout <<"YEs\n";};
+    return ;
 }
 
 int main() {

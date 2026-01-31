@@ -16,6 +16,14 @@ const ll inf = 1e18;
 const int mod = 1e9 + 7;
 
 void solve() {
+    int l,a,b;
+    cin>>l>>a>>b;
+    ll g=std::gcd(b,l);
+    ll tar=a%g;
+    ll last =l-1;
+    ll pull=((last%g)-tar+g)%g;
+    ll maxy=last-pull;
+    cout << maxy << "\n";
 }
 
 int main() {

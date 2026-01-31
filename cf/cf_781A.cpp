@@ -16,6 +16,10 @@ const ll inf = 1e18;
 const int mod = 1e9 + 7;
 
 void solve() {
+    int n;
+    cin>>n;
+    cout << n-3 << " " << 1 << " " << 1 << " " << 1 ;
+    cout << "\n";
 }
 
 int main() {
