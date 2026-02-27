@@ -14,7 +14,7 @@ public:
         for (int x:nums){
             for (int s=target;s>=x;s--){
                 dp[s]=dp[s]||dp[s-x];
-                cout << "dp [s] " << dp [s] << ", dp[s-x] : " << dp[s-x] << "s : " << s << ", x : " << x << " s-x : " << s-x<<"\n";
+//                cout << "dp [s] " << dp [s] << ", dp[s-x] : " << dp[s-x] << "s : " << s << ", x : " << x << " s-x : " << s-x<<"\n";
             }
         }
         return dp[target];
